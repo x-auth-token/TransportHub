@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (C) 2017 Pavel Mayzenberg and Amos Refael
+ * Copyright (C) 2019 Pavel Mayzenberg, Leon Peper, Oded Levin
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
