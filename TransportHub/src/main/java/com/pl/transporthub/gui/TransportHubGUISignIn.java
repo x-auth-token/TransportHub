@@ -24,13 +24,22 @@ import java.awt.Label;
 public class TransportHubGUISignIn extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField txtUsername;
 	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
+//		try {
+//	        UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName() );
+//	} 
+//	catch (Exception e) {
+//	    // TODO Auto-generated catch block
+//	    e.printStackTrace();
+//	}
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -48,13 +57,13 @@ public class TransportHubGUISignIn extends JFrame {
 	 */
 	public TransportHubGUISignIn() {
 		
-		try {
-	        UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName() );
-		} 
-		catch (Exception e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-		}
+//		try {
+//	        UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName() );
+//		} 
+//		catch (Exception e) {
+//	    // TODO Auto-generated catch block
+//	    e.printStackTrace();
+//		}
 		setBackground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 729, 420);
@@ -70,27 +79,36 @@ public class TransportHubGUISignIn extends JFrame {
 		panel.setBounds(0, 0, 351, 398);
 		contentPane.add(panel);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(TransportHubGUISignIn.class.getResource("/images/TransportHubLogo351x351_Transparent.png")));
-		panel.add(lblNewLabel_1);
+		JLabel logo = new JLabel("");
+		logo.setIcon(new ImageIcon(TransportHubGUISignIn.class.getResource("/images/TransportHubLogo351x351_Transparent.png")));
+		panel.add(logo);
 		
 		JButton btnSignUp = new JButton("Sign Up");
+		btnSignUp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				btnSignUp.setForeground(Color.GRAY);
+			}
+		});
 		btnSignUp.setForeground(Color.WHITE);
-		btnSignUp.setBounds(397, 324, 277, 29);
-		btnSignUp.setBackground(new Color(241, 57, 83));
+		btnSignUp.setBounds(477, 324, 119, 29);
+		//btnSignUp.setBackground(new Color(241, 57, 83));
+		btnSignUp.setContentAreaFilled(false);
 		btnSignUp.setBorderPainted(false);
-		btnSignUp.setOpaque(true);
+		btnSignUp.setOpaque(false);
 		contentPane.add(btnSignUp);
 		
-		textField = new JTextField();
-		textField.setBounds(397, 106, 277, 35);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtUsername = new JTextField();
+		txtUsername.setForeground(Color.LIGHT_GRAY);
+		txtUsername.setText("For guest access type anonymous");
+		txtUsername.setBounds(397, 106, 277, 35);
+		contentPane.add(txtUsername);
+		txtUsername.setColumns(10);
+		txtUsername.setBackground(Color.WHITE);
 		
-		JLabel lblNewLabel = new JLabel("Username");
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setBounds(397, 89, 84, 16);
-		contentPane.add(lblNewLabel);
+		JLabel lblUsername = new JLabel("Username");
+		lblUsername.setForeground(Color.WHITE);
+		lblUsername.setBounds(397, 89, 84, 16);
+		contentPane.add(lblUsername);
 		
 		JLabel lblPassword = new JLabel("Password");
 		lblPassword.setForeground(Color.WHITE);
@@ -109,17 +127,14 @@ public class TransportHubGUISignIn extends JFrame {
 		btnForgotPassword.setBorderPainted(false);
 		
 		
+		
 		btnForgotPassword.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent forgotButtonClicked) {
 				
 				if (btnForgotPassword.getActionCommand().equals(forgotButtonClicked.getActionCommand())) {
 					
-					btnForgotPassword.setBackground(Color.LIGHT_GRAY);
-					btnForgotPassword.setOpaque(false);
-					btnForgotPassword.setContentAreaFilled(false);
-					btnForgotPassword.setBorderPainted(false);
-					btnForgotPassword.setBounds(443, 251, 184, 16);
-					contentPane.add(btnForgotPassword);
+					btnForgotPassword.setForeground(Color.GRAY);
+
 				}
 				
 			}
@@ -132,6 +147,7 @@ public class TransportHubGUISignIn extends JFrame {
 		JButton btnSignIn = new JButton("Not Registered? Sign in");
 		btnSignIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				btnSignIn.setForeground(Color.GRAY);
 			}
 		});
 		btnSignIn.setOpaque(false);
