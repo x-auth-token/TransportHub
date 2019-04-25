@@ -8,12 +8,18 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
+
+//import com.sun.glass.ui.Window;
+
 import java.awt.Color;
+import java.awt.Window;
 
 public class TransportHubGUISignInView extends JDialog {
 
@@ -28,28 +34,32 @@ public class TransportHubGUISignInView extends JDialog {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		try {
-			TransportHubGUISignInView dialog = new TransportHubGUISignInView();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	public static void main(String[] args) {
+//		try {
+//			TransportHubGUISignInView dialog = new TransportHubGUISignInView();
+//			dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+//			
+//			
+//			dialog.setVisible(true);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 	/**
 	 * Create the dialog.
 	 */
 	public TransportHubGUISignInView() {
+		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		setResizable(false);
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 729, 420);
 		getContentPane().setLayout(new BorderLayout());
 		setLocationRelativeTo(null);
-		contentPanel.setBackground(new Color(0, 191, 255));
+		contentPanel.setBackground(new Color(30, 144, 255));
 		contentPanel.setLayout(null);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		{
 			JPanel panel = new JPanel();
@@ -58,7 +68,7 @@ public class TransportHubGUISignInView extends JDialog {
 			panel.setBounds(0, 0, 351, 398);
 			panel.setBackground(Color.LIGHT_GRAY);
 			JLabel logo = new JLabel("");
-			logo.setIcon(new ImageIcon(TransportHubGUISignInView.class.getResource("/images/TransportHubLogo351x351_Transparent.png")));
+			logo.setIcon(new ImageIcon(TransportHubGUISignInView.class.getResource("/images/TransportHubLogo351x351New.png")));
 			panel.add(logo);
 			contentPanel.add(panel);
 		}
@@ -66,18 +76,24 @@ public class TransportHubGUISignInView extends JDialog {
 		{
 			
 			
-			JButton btnSignUp = new JButton("Sign Up");
-			btnSignUp.addActionListener(new ActionListener() {
+			JButton btnSignIn = new JButton("Sign In");
+			btnSignIn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					btnSignUp.setForeground(Color.GRAY);
+					
+					
+					btnSignIn.setForeground(Color.GRAY);
+					dispose();
+//					Window win = SwingUtilities.getWindowAncestor(contentPanel);
+//					win.dispose();
+					
 				}
 			});
-			btnSignUp.setForeground(Color.WHITE);
-			btnSignUp.setBounds(477, 324, 119, 29);
-			btnSignUp.setContentAreaFilled(false);
-			btnSignUp.setBorderPainted(false);
-			btnSignUp.setOpaque(false);
-			contentPanel.add(btnSignUp);
+			btnSignIn.setForeground(Color.WHITE);
+			btnSignIn.setBounds(477, 324, 119, 29);
+			btnSignIn.setContentAreaFilled(false);
+			btnSignIn.setBorderPainted(false);
+			btnSignIn.setOpaque(false);
+			contentPanel.add(btnSignIn);
 			
 			txtUsername = new JTextField();
 			txtUsername.setForeground(Color.LIGHT_GRAY);
@@ -126,21 +142,21 @@ public class TransportHubGUISignInView extends JDialog {
 			btnForgotPassword.setBounds(443, 251, 184, 16);
 			contentPanel.add(btnForgotPassword);
 			
-			JButton btnSignIn = new JButton("Not Registered? Sign in");
-			btnSignIn.addActionListener(new ActionListener() {
+			JButton btnSignUp = new JButton("Not Registered? Sign Up");
+			btnSignUp.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					btnSignIn.setForeground(Color.GRAY);
+					btnSignUp.setForeground(Color.GRAY);
 				}
 			});
-			btnSignIn.setOpaque(false);
-			btnSignIn.setForeground(Color.WHITE);
-			btnSignIn.setContentAreaFilled(false);
-			btnSignIn.setBorderPainted(false);
-			btnSignIn.setBounds(443, 279, 192, 16);
-			contentPanel.add(btnSignIn);
+			btnSignUp.setOpaque(false);
+			btnSignUp.setForeground(Color.WHITE);
+			btnSignUp.setContentAreaFilled(false);
+			btnSignUp.setBorderPainted(false);
+			btnSignUp.setBounds(443, 279, 192, 16);
+			contentPanel.add(btnSignUp);
 		
 		}
 
 	}
-
+	
 }

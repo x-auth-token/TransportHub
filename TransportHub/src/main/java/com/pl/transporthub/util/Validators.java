@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
-package com.pl.transporthub.common;
+package com.pl.transporthub.util;
 
-import static com.pl.transporthub.common.Constants.*;
+import static com.pl.transporthub.util.Constants.*;
 
 public abstract class Validators {
 
