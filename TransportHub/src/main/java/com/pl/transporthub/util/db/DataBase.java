@@ -30,28 +30,6 @@ abstract class DataBase {
 	}
 	
 	
-	//public SQLiteJDBC
-	/*
-	 * public static void createNewDatabase(String folderName, String filename) {
-	 * 
-	 * File folder = new File(folderName);
-	 * 
-	 * if (!folder.exists()) folder.mkdirs();
-	 * 
-	 * String url = "jdbc:sqlite:" + folder.getAbsolutePath() + File.separator +
-	 * filename;
-	 * 
-	 * try (Connection conn = DriverManager.getConnection(url)){ if (conn != null) {
-	 * DatabaseMetaData meta = conn.getMetaData();
-	 * System.out.println("Opened database successfully"); } } catch (SQLException
-	 * e) { System.out.println(e.getMessage()); } }
-	 */
-	
-	public static void connect(String url) {
-		
-		//try
-	}
-	
 	public String getUrl() {
 		return url;
 	}
@@ -90,8 +68,20 @@ abstract class DataBase {
 		this.statement.setQueryTimeout(timeout);
 	}
 
-	public void executeStatement(String sql) throws Exception {
+	public void executeStatement(String sql) throws SQLException {
 		statement.executeUpdate(sql);
 	}
 	
+	public void executeStatement(File file) throws SQLException, IOException {
+		BufferedReader reader = new BufferedReader(new FileReader(file));
+		String sql = reader.readLine();
+		while (sql != null) {
+			executeStatement(sql);
+		}
+		reader.close();
+	}
+	
+	public ResultSet executeQuery(String query) throws SQLException {
+		return statement.executeQuery(query);
+	}
 }

@@ -25,11 +25,12 @@ public class SQLiteJDBC extends DataBase {
 		if (!folder.exists())
 			folder.mkdirs();
 		
-		url = getDriverName() + folder.getAbsolutePath() + File.separator + databaseFileName;
+		url = this.driverName + folder.getAbsolutePath() + File.separator + databaseFileName;
 		
 		initialize(driverName, url);
 		
 	}
+	
 	
 	
 }
