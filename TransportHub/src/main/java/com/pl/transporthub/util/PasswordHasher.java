@@ -38,9 +38,24 @@ public class PasswordHasher {
 		
 	}
 	
-	public static String generateHashedPassword(String pass) throws NoSuchAlgorithmException, InvalidKeySpecException {
+	/*
+	 * public static String generateHashedPassword(String pass) throws
+	 * NoSuchAlgorithmException, InvalidKeySpecException {
+	 * 
+	 * final char[] password = pass.toCharArray(); final byte[] salt = getSalt();
+	 * 
+	 * final byte[] hashedPassword = getHash(password, salt, ITERATIONS,
+	 * KEY_LENGTH);
+	 * 
+	 * return ITERATIONS + ":" + Hex.encodeHexString(salt) + ":" +
+	 * Hex.encodeHexString(hashedPassword);
+	 * 
+	 * }
+	 */
+	
+	public static String generateHashedPassword(char[] pass) throws NoSuchAlgorithmException, InvalidKeySpecException {
 		
-		final char[] password = pass.toCharArray();
+		final char[] password = pass;
 		final byte[] salt = getSalt();
 		
 		final byte[] hashedPassword = getHash(password, salt, ITERATIONS, KEY_LENGTH);
