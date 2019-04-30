@@ -29,6 +29,8 @@ import java.awt.Frame;
 import java.awt.Window;
 import java.awt.GridLayout;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.border.LineBorder;
 
 public class GUISignInView extends JDialog {
 
@@ -44,22 +46,22 @@ public class GUISignInView extends JDialog {
 	 * Create the dialog.
 	 */
 	public GUISignInView(final Frame parent, boolean modal) {
+		setUndecorated(true);
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-		setResizable(false);
+		setResizable(true);
 		setBackground(Color.WHITE);
-		setBounds(100, 100, 729, 420);
+		setBounds(100, 100, 729, 327);
 		setLocationRelativeTo(parent);
-		contentPanel.setBounds(0, 0, 729, 420);
-		contentPanel.setBackground(new Color(30, 144, 255));
-		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		//setUndecorated(true);
+		contentPanel.setBounds(0, 0, 729, 327);
+		contentPanel.setBackground(new Color(105, 105, 105));
+		contentPanel.setBorder(new LineBorder(new Color(192, 192, 192)));
 		setModal(modal);
 		getContentPane().setLayout(null);
 		
 		getContentPane().add(contentPanel);
 		
 		JButton btnSignUp = new JButton("Not Registered? Sign Up");
-		btnSignUp.setBounds(452, 293, 194, 29);
+		btnSignUp.setBounds(452, 243, 194, 29);
 		btnSignUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnSignUp.setForeground(Color.GRAY);
@@ -67,7 +69,7 @@ public class GUISignInView extends JDialog {
 		});
 		
 		JButton btnForgotPassword = new JButton("Forgot Password?");
-		btnForgotPassword.setBounds(471, 240, 153, 29);
+		btnForgotPassword.setBounds(472, 203, 153, 29);
 		btnForgotPassword.setActionCommand("Forgot");
 		btnForgotPassword.setForeground(Color.WHITE);
 		btnForgotPassword.setOpaque(false);
@@ -90,28 +92,28 @@ public class GUISignInView extends JDialog {
 		contentPanel.setLayout(null);
 		{
 			JPanel panel = new JPanel();
-			panel.setBounds(0, 0, 364, 420);
-			panel.setBackground(Color.LIGHT_GRAY);
+			panel.setBounds(0, 0, 364, 343);
+			panel.setBackground(new Color(0, 0, 0));
 			JLabel logo = new JLabel("");
-			logo.setIcon(new ImageIcon(GUISignInView.class.getResource("/images/TransportHubLogo351x351New.png")));
+			logo.setIcon(new ImageIcon(GUISignInView.class.getResource("/images/TransportHubLogo300x300YBR.png")));
 			panel.add(logo);
 			contentPanel.add(panel);
 		}
 		
 		JLabel lblNoUserPassProvided = new JLabel("You must enter username and password");
 		lblNoUserPassProvided.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNoUserPassProvided.setForeground(new Color(204, 0, 0));
-		lblNoUserPassProvided.setBounds(370, 216, 347, 16);
+		lblNoUserPassProvided.setForeground(new Color(255, 0, 0));
+		lblNoUserPassProvided.setBounds(372, 176, 347, 16);
 		lblNoUserPassProvided.setVisible(false);
 		contentPanel.add(lblNoUserPassProvided);
 		
 		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setBounds(370, 81, 359, 26);
+		lblUsername.setBounds(374, 48, 359, 26);
 		lblUsername.setForeground(Color.WHITE);
 		contentPanel.add(lblUsername);
 		
 		txtUsername = new JTextField();
-		txtUsername.setBounds(364, 105, 359, 38);
+		txtUsername.setBounds(374, 75, 345, 26);
 		txtUsername.setForeground(Color.LIGHT_GRAY);
 		txtUsername.setText("For guest access type anonymous");
 		contentPanel.add(txtUsername);
@@ -119,12 +121,12 @@ public class GUISignInView extends JDialog {
 		txtUsername.setBackground(Color.WHITE);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(370, 155, 359, 26);
+		lblPassword.setBounds(374, 112, 359, 26);
 		lblPassword.setForeground(Color.WHITE);
 		contentPanel.add(lblPassword);
 		
 		txtPasswordField = new JPasswordField();
-		txtPasswordField.setBounds(364, 181, 359, 38);
+		txtPasswordField.setBounds(374, 139, 345, 26);
 		contentPanel.add(txtPasswordField);
 		contentPanel.add(btnForgotPassword);
 		btnSignUp.setOpaque(false);
@@ -137,7 +139,7 @@ public class GUISignInView extends JDialog {
 			
 			
 			JButton btnSignIn = new JButton("Sign In");
-			btnSignIn.setBounds(506, 350, 87, 29);
+			btnSignIn.setBounds(502, 283, 87, 29);
 			btnSignIn.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					

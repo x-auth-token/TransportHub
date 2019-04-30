@@ -22,6 +22,8 @@ import javax.swing.border.MatteBorder;
 
 import com.sun.javafx.scene.KeyboardShortcutsHandler;
 
+import javafx.beans.binding.When;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import javax.swing.JButton;
@@ -65,6 +67,7 @@ public class GUIHomeView extends JFrame {
 		setExtendedState(MAXIMIZED_BOTH);
 		setUndecorated(true);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(105, 105, 105));
 		contentPane.setBorder(null);
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
@@ -92,13 +95,12 @@ public class GUIHomeView extends JFrame {
 		Action close = new CloseApplication();
 
 		// Hidden keyboard shortcut that closes the app
-		contentPane.getInputMap().put(KeyStroke.getKeyStroke("shift ctrl pressed E"), "Exit");
-		contentPane.getActionMap().put("Exit", close);
+		
 
 		JPanel panel = new JPanel();
 		panel.setBorder(null);
 		//panel.setBackground(Color.LIGHT_GRAY);
-		panel.setBackground(new Color(30, 144, 255));
+		panel.setBackground(new Color(0, 0, 0));
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.anchor = GridBagConstraints.EAST;
 		gbc_panel.fill = GridBagConstraints.BOTH;
@@ -108,21 +110,22 @@ public class GUIHomeView extends JFrame {
 
 		JPanel panel_1 = new JPanel();
 		//panel_1.setBackground(Color.LIGHT_GRAY);
-		panel_1.setBackground(new Color(30, 144, 255));
+		panel_1.setBackground(new Color(0, 0, 0));
 		panel_1.setBorder(new MatteBorder(1, 0, 0, 0, (Color) new Color(255, 255, 255)));
 		panel.setLayout(new MigLayout("", "[132px]", "[120px][278px]"));
 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(
-				new ImageIcon(GUIHomeView.class.getResource("/images/TransportHubLogo100x100WhiteTransparent.png")));
+				new ImageIcon(GUIHomeView.class.getResource("/images/TransportHubLogo120x120YBR.png")));
 				//new ImageIcon(GUIHomeView.class.getResource("/images/TransportHubLogo100x100.png")));
 		panel.add(lblNewLabel, "cell 0 0,alignx center,aligny top");
 		panel.add(panel_1, "cell 0 1,grow");
 
 		
 		  JButton btnBuses = new JButton("Buses");
+		  btnBuses.setBackground(new Color(255, 255, 255));
 		  btnBuses.setHorizontalAlignment(SwingConstants.LEFT);
-		  btnBuses.setForeground(new Color(255, 255, 255)); 
+		  btnBuses.setForeground(new Color(255, 0, 0)); 
 		  //btnBuses.setForeground(new Color(39, 44, 91)); 
 		  btnBuses.setContentAreaFilled(false);
 		  btnBuses.setBorderPainted(false); btnBuses.setOpaque(false);
@@ -134,14 +137,14 @@ public class GUIHomeView extends JFrame {
 		  
 		  JButton btnStations = new JButton("Stations");
 		  btnStations.setHorizontalAlignment(SwingConstants.LEFT);
-		  btnStations.setForeground(Color.WHITE);
+		  btnStations.setForeground(new Color(255, 0, 0));
 		  btnStations.setContentAreaFilled(false); btnStations.setBorderPainted(false);
 		  btnStations.setOpaque(false);
 		  
 		  
 		  JButton btnRoutes = new JButton("Routes");
 		  btnRoutes.setHorizontalAlignment(SwingConstants.LEFT);
-		  btnRoutes.setForeground(Color.WHITE); btnRoutes.setContentAreaFilled(false);
+		  btnRoutes.setForeground(new Color(255, 0, 0)); btnRoutes.setContentAreaFilled(false);
 		  btnRoutes.setBorderPainted(false); btnRoutes.setOpaque(false);
 		  
 		  
@@ -163,7 +166,8 @@ public class GUIHomeView extends JFrame {
 		  .addContainerGap(159, Short.MAX_VALUE)) ); panel_1.setLayout(gl_panel_1);
 		  
 		  
-		  
+		  contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("shift ctrl pressed E"), "Exit");
+		  contentPane.getActionMap().put("Exit", close);
 		  GUISignInView signInView = new GUISignInView(this, true);
 		  this.setVisible(true); signInView.setVisible(true);
 		 
