@@ -16,8 +16,6 @@
  ******************************************************************************/
 package com.pl.transporthub.aaa;
 
-import java.net.Authenticator;
-
 public interface AuthenticationModule {
 
 	boolean validateUsername(String username);
