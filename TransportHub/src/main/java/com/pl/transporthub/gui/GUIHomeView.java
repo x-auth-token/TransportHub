@@ -82,6 +82,8 @@ public class GUIHomeView extends JFrame {
 		gbc_panel.fill = GridBagConstraints.BOTH;
 		gbc_panel.gridx = 0;
 		gbc_panel.gridy = 0;
+		//gbc_panel.weightx = 1.0;
+		//gbc_panel.weighty = 1.0;
 		contentPane.add(panel, gbc_panel);
 
 		JPanel panel_1 = new JPanel();

@@ -8,7 +8,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUIHomeView frame = new GUIHomeView();
+					GUIHomeViewNew frame = new GUIHomeViewNew();
 					frame.setVisible(true);	
 				} catch (Exception e) {
 					e.printStackTrace();

@@ -47,7 +47,7 @@ public class GUISignInView extends JDialog {
 		setBounds(100, 100, 729, 327);
 		setLocationRelativeTo(parent);
 		contentPanel.setBounds(0, 0, 729, 327);
-		contentPanel.setBackground(new Color(105, 105, 105));
+		contentPanel.setBackground(new Color(222, 224, 224));
 		contentPanel.setBorder(new LineBorder(new Color(128, 128, 128)));
 		
 		getContentPane().setLayout(null);
@@ -63,7 +63,7 @@ public class GUISignInView extends JDialog {
 		JButton btnForgotPassword = new JButton("Forgot Password?");
 		btnForgotPassword.setBounds(472, 203, 153, 29);
 		btnForgotPassword.setActionCommand("Forgot");
-		btnForgotPassword.setForeground(Color.WHITE);
+		btnForgotPassword.setForeground(Color.BLACK);
 		btnForgotPassword.setOpaque(false);
 		btnForgotPassword.setContentAreaFilled(false);
 		btnForgotPassword.setBorderPainted(false);
@@ -86,10 +86,10 @@ public class GUISignInView extends JDialog {
 			JPanel panel = new JPanel();
 			panel.setBorder(new MatteBorder(1, 1, 1, 0, (Color) new Color(128, 128, 128)));
 			panel.setBounds(0, 0, 364, 327);
-			panel.setBackground(new Color(51, 0, 102));
+			panel.setBackground(new Color(0, 59, 77));
 			JLabel logo = new JLabel("");
 			logo.setBackground(new Color(102, 0, 204));
-			logo.setIcon(new ImageIcon(GUISignInView.class.getResource("/images/BW Transparent 300x300.png")));
+			logo.setIcon(new ImageIcon(GUISignInView.class.getResource("/images/TransportHubTransparentLogo300x300.png")));
 			panel.add(logo);
 			contentPanel.add(panel);
 		}
@@ -103,10 +103,11 @@ public class GUISignInView extends JDialog {
 
 		JLabel lblUsername = new JLabel("Username");
 		lblUsername.setBounds(374, 48, 359, 26);
-		lblUsername.setForeground(Color.WHITE);
+		lblUsername.setForeground(Color.BLACK);
 		contentPanel.add(lblUsername);
 
 		txtUsername = new JTextField();
+		txtUsername.setForeground(Color.LIGHT_GRAY);
 		txtUsername.setBounds(374, 75, 345, 26);
 		
 		txtUsername.setColumns(10);
@@ -117,7 +118,7 @@ public class GUISignInView extends JDialog {
 		
 		JLabel lblPassword = new JLabel("Password");
 		lblPassword.setBounds(374, 112, 359, 26);
-		lblPassword.setForeground(Color.WHITE);
+		lblPassword.setForeground(Color.BLACK);
 		contentPanel.add(lblPassword);
 
 		txtPasswordField = new JPasswordField();
@@ -127,7 +128,7 @@ public class GUISignInView extends JDialog {
 	
 		contentPanel.add(btnForgotPassword);
 		btnSignUp.setOpaque(false);
-		btnSignUp.setForeground(Color.WHITE);
+		btnSignUp.setForeground(Color.BLACK);
 		btnSignUp.setContentAreaFilled(false);
 		btnSignUp.setBorderPainted(false);
 		contentPanel.add(btnSignUp);
@@ -223,7 +224,7 @@ public class GUISignInView extends JDialog {
 				});
 				
 			contentPanel.add(txtUsername);
-			btnSignIn.setForeground(Color.WHITE);
+			btnSignIn.setForeground(Color.BLACK);
 			btnSignIn.setContentAreaFilled(false);
 			btnSignIn.setBorderPainted(false);
 			btnSignIn.setOpaque(false);
