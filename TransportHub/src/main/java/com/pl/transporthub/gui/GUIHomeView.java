@@ -29,7 +29,7 @@ import java.awt.FlowLayout;
 import java.awt.ComponentOrientation;
 import java.awt.BorderLayout;
 
-public class GUIHomeViewNew extends JFrame {
+public class GUIHomeView extends JFrame {
 
 	/**
 	 * 
@@ -40,7 +40,7 @@ public class GUIHomeViewNew extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GUIHomeViewNew() {
+	public GUIHomeView() {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 655, 442);
 		setExtendedState(MAXIMIZED_BOTH);
@@ -95,21 +95,21 @@ public class GUIHomeViewNew extends JFrame {
 						lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 						lblNewLabel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 						lblNewLabel.setIcon(
-								new ImageIcon(GUIHomeViewNew.class.getResource("/images/TransportHubTransparentLogo150x150.png")));
+								new ImageIcon(GUIHomeView.class.getResource("/images/TransportHubTransparentLogo150x150.png")));
 		panel.add(lblNewLabel, "cell 0 0,alignx left,aligny top");
 		
 		JLabel lblBusButton = new JLabel("");
-		lblBusButton.setIcon(new ImageIcon(GUIHomeViewNew.class.getResource("/images/TransportHubTransparentBusButtonImage150x150.png")));
+		lblBusButton.setIcon(new ImageIcon(GUIHomeView.class.getResource("/images/TransportHubTransparentBusButtonImage150x150.png")));
 		lblBusButton.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(lblBusButton, "cell 2 0");
 		
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(GUIHomeViewNew.class.getResource("/images/TransportHubTransparentBusButtonImage150x150.png")));
+		label.setIcon(new ImageIcon(GUIHomeView.class.getResource("/images/TransportHubTransparentBusButtonImage150x150.png")));
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(label, "cell 3 0");
 		
 		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon(GUIHomeViewNew.class.getResource("/images/TransportHubTransparentBusButtonImage150x150.png")));
+		label_1.setIcon(new ImageIcon(GUIHomeView.class.getResource("/images/TransportHubTransparentBusButtonImage150x150.png")));
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(label_1, "cell 4 0");
  
@@ -121,10 +121,10 @@ public class GUIHomeViewNew extends JFrame {
 		  contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("shift ctrl pressed E"), "Exit");
 		  contentPane.getActionMap().put("Exit", close);
 		  //GUISignInView signInView = new GUISignInView(this, true);
-		   //signInView.setVisible(true);
+		  
 		  this.setVisible(true);
 		 
-
+		  //signInView.setVisible(true);
 	}
 }
 
