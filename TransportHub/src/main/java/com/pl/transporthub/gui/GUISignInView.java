@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
@@ -89,7 +91,7 @@ public class GUISignInView extends JDialog {
 			panel.setBackground(new Color(0, 59, 77));
 			JLabel logo = new JLabel("");
 			logo.setBackground(new Color(102, 0, 204));
-			logo.setIcon(new ImageIcon(GUISignInView.class.getResource("/images/TransportHubTransparentLogo300x300.png")));
+			logo.setIcon(new ImageIcon(GUISignInView.class.getResource("/images/TransportHubLogoBWBig.png")));
 			panel.add(logo);
 			contentPanel.add(panel);
 		}
@@ -134,6 +136,7 @@ public class GUISignInView extends JDialog {
 		contentPanel.add(btnSignUp);
 
 		{
+			String sGuestAccess = "For Guest access type guest/guest";
 
 			JButton btnSignIn = new JButton("Sign In");
 			btnSignIn.setBounds(502, 283, 87, 29);
@@ -152,7 +155,7 @@ public class GUISignInView extends JDialog {
 						}
 					}
 
-					if (username.isEmpty() || hashedPassword.isEmpty()) {
+					if (username.isEmpty() || hashedPassword.isEmpty() || username.equals(sGuestAccess)) {
 
 						if (!lblNoUserPassProvided.isVisible())
 							lblNoUserPassProvided.setVisible(true);
@@ -166,12 +169,12 @@ public class GUISignInView extends JDialog {
 			});
 			
 			 txtUsername.addFocusListener(new FocusListener() {
-					String s = "For Guest access type guest/guest";
+					
 					@Override
 					public void focusLost(FocusEvent e) {
 						
 						if (txtUsername.getText().equals("")) {
-							txtUsername.setText(s);
+							txtUsername.setText(sGuestAccess);
 							txtUsername.setForeground(Color.LIGHT_GRAY);
 							txtUsername.revalidate();
 						}
@@ -181,39 +184,14 @@ public class GUISignInView extends JDialog {
 					@Override
 					public void focusGained(FocusEvent e) {
 						if (isFirstRun()) {
-							txtUsername.setText(s);
+							txtUsername.setText(sGuestAccess);
 							txtUsername.setForeground(Color.LIGHT_GRAY);
 							setFirstRun(false);
 							txtUsername.transferFocus();
-						/*
-						 * txtUsername.addMouseListener(new MouseListener() {
-						 * 
-						 * @Override public void mouseReleased(MouseEvent e) { // TODO Auto-generated
-						 * method stub
-						 * 
-						 * }
-						 * 
-						 * @Override public void mousePressed(MouseEvent e) {
-						 * 
-						 * 
-						 * }
-						 * 
-						 * @Override public void mouseExited(MouseEvent e) { // TODO Auto-generated
-						 * method stub
-						 * 
-						 * }
-						 * 
-						 * @Override public void mouseEntered(MouseEvent e) { // TODO Auto-generated
-						 * method stub
-						 * 
-						 * }
-						 * 
-						 * @Override public void mouseClicked(MouseEvent e) { // TODO Auto-generated
-						 * method stub txtUsername.setText(""); } });
-						 */
+						
 							
 						} else {
-							if (txtUsername.getText().equals(s)) {
+							if (txtUsername.getText().equals(sGuestAccess)) {
 								txtUsername.setText("");
 								txtUsername.setForeground(Color.BLACK);
 								txtUsername.revalidate();
@@ -231,6 +209,45 @@ public class GUISignInView extends JDialog {
 			contentPanel.add(btnSignIn);
 			
 			getContentPane().add(contentPanel);
+			
+			JLabel lblCloseWindow = new JLabel("");
+			lblCloseWindow.setHorizontalAlignment(SwingConstants.CENTER);
+			lblCloseWindow.setIcon(new ImageIcon(GUISignInView.class.getResource("/images/TansportHubCloseWindowButtomImageSmall.png")));
+			lblCloseWindow.setBounds(705, 6, 14, 16);
+			
+			lblCloseWindow.addMouseListener(new MouseListener() {
+				
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void mousePressed(MouseEvent e) {
+					dispose();
+					
+				}
+				
+				@Override
+				public void mouseExited(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+			contentPanel.add(lblCloseWindow);
 	
 			setModal(modal);
 
@@ -246,7 +263,4 @@ public class GUISignInView extends JDialog {
 	public void setFirstRun(boolean firstRun) {
 		this.firstRun = firstRun;
 	}
-
-	
-
 }
