@@ -16,6 +16,6 @@
  ******************************************************************************/
 package com.pl.transporthub.transport;
 
-public class WatercraftVehicle extends Vehicle{
+public class WatercraftVehicle extends Vehicle {
 
 }

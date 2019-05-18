@@ -1,29 +1,42 @@
+/*******************************************************************************
+ * Copyright (C) 2019 Pavel Mayzenberg, Leon Peper, Oded Levin
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ******************************************************************************/
 package com.pl.transporthub.gui;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.KeyStroke;
 import java.awt.Color;
-import javax.swing.border.MatteBorder;
-
-import java.awt.GridBagLayout;
+import java.awt.ComponentOrientation;
 import java.awt.GridBagConstraints;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.border.LineBorder;
-import net.miginfocom.swing.MigLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
-import java.awt.Font;
-import java.awt.Insets;
+import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
+
+import net.miginfocom.swing.MigLayout;
 
 public class GUIHomeView extends JFrame {
 
@@ -40,15 +53,15 @@ public class GUIHomeView extends JFrame {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 655, 442);
 		setExtendedState(MAXIMIZED_BOTH);
-		setUndecorated(true);
+		// setUndecorated(false);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(192, 192, 192));
+		contentPane.setBackground(new Color(222, 224, 224));
 		contentPane.setBorder(new LineBorder(new Color(192, 192, 192)));
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[] { 10, 0, 0 };
 		gbl_contentPane.rowHeights = new int[] { 278, 0 };
-		gbl_contentPane.columnWeights = new double[] { 0.0, 1.0, Double.MIN_VALUE };
+		gbl_contentPane.columnWeights = new double[] { 1.0, 1.0, Double.MIN_VALUE };
 		gbl_contentPane.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		contentPane.setLayout(gbl_contentPane);
 
@@ -70,90 +83,91 @@ public class GUIHomeView extends JFrame {
 		Action close = new CloseApplication();
 
 		// Hidden keyboard shortcut that closes the app
-		
 
 		JPanel panel = new JPanel();
 		panel.setBorder(new MatteBorder(0, 0, 0, 1, (Color) new Color(51, 102, 255)));
-		//panel.setBackground(Color.LIGHT_GRAY);
-		panel.setBackground(new Color(51, 0, 102));
-		GridBagConstraints gbc_panel = new GridBagConstraints();
-		gbc_panel.insets = new Insets(0, 0, 0, 5);
-		gbc_panel.anchor = GridBagConstraints.EAST;
-		gbc_panel.fill = GridBagConstraints.BOTH;
-		gbc_panel.gridx = 0;
-		gbc_panel.gridy = 0;
-		contentPane.add(panel, gbc_panel);
 
-		JPanel panel_1 = new JPanel();
-		//panel_1.setBackground(Color.LIGHT_GRAY);
-		panel_1.setBackground(new Color(51, 0, 102));
-		panel_1.setBorder(new MatteBorder(1, 0, 0, 0, (Color) new Color(255, 255, 255)));
-		panel.setLayout(new MigLayout("", "[132px]", "[120px][278px]"));
+		panel.setBackground(new Color(0, 59, 77));
+
+		GridBagConstraints gbc_panel = new GridBagConstraints();
+		gbc_panel.fill = GridBagConstraints.HORIZONTAL;
+		gbc_panel.gridwidth = 2;
+		gbc_panel.anchor = GridBagConstraints.NORTH;
+		gbc_panel.gridx = GridBagConstraints.REMAINDER;
+		gbc_panel.gridy = 0;
+		gbc_panel.weightx = 2.0;
+		gbc_panel.weighty = 1;
+
+		contentPane.add(panel, gbc_panel);
+		// panel.setLayout(new MigLayout("", "[150px][287px,grow][][][][][][][][][]",
+		// "[150px,grow]"));
+		panel.setLayout(new MigLayout("", "[][287px,grow][][][][][][][][][]", "[]"));
 
 		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		lblNewLabel.setIcon(
-				new ImageIcon(GUIHomeView.class.getResource("/images/BW Transparent 150x150.png")));
-				//new ImageIcon(GUIHomeView.class.getResource("/images/TransportHubLogo100x100.png")));
-		panel.add(lblNewLabel, "cell 0 0,alignx center,aligny top");
-		panel.add(panel_1, "cell 0 1,grow");
+				new ImageIcon(GUIHomeView.class.getResource("/images/TransportHubTransparentLogoBWSmall2.png")));
+		panel.add(lblNewLabel, "cell 0 0,alignx left,aligny center");
 
-		
-		  JButton btnBuses = new JButton("Buses");
-		  btnBuses.setFont(new Font("Tahoma", Font.BOLD, 16));
-		  btnBuses.setBackground(new Color(255, 255, 255));
-		  btnBuses.setHorizontalAlignment(SwingConstants.LEFT);
-		  btnBuses.setForeground(new Color(255, 255, 255)); 
-		  //btnBuses.setForeground(new Color(39, 44, 91)); 
-		  btnBuses.setContentAreaFilled(false);
-		  btnBuses.setBorderPainted(false); btnBuses.setOpaque(false);
-		  
-		  
-		  
-		  btnBuses.addActionListener(new ActionListener() { public void
-		  actionPerformed(ActionEvent e) { } });
-		  
-		  JButton btnStations = new JButton("Stations");
-		  btnStations.setFont(new Font("Tahoma", Font.BOLD, 16));
-		  btnStations.setHorizontalAlignment(SwingConstants.LEFT);
-		  btnStations.setForeground(new Color(255, 255, 255));
-		  btnStations.setContentAreaFilled(false); btnStations.setBorderPainted(false);
-		  btnStations.setOpaque(false);
-		  
-		  
-		  JButton btnRoutes = new JButton("Routes");
-		  btnRoutes.setFont(new Font("Tahoma", Font.BOLD, 16));
-		  btnRoutes.setHorizontalAlignment(SwingConstants.LEFT);
-		  btnRoutes.setForeground(new Color(255, 255, 255)); btnRoutes.setContentAreaFilled(false);
-		  btnRoutes.setBorderPainted(false); btnRoutes.setOpaque(false);
-		  
-		  
-		  GroupLayout gl_panel_1 = new GroupLayout(panel_1);
-		  gl_panel_1.setHorizontalGroup(
-		  gl_panel_1.createParallelGroup(Alignment.LEADING)
-		  .addGroup(gl_panel_1.createSequentialGroup()
-		  .addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-		  .addGroup(gl_panel_1.createSequentialGroup() .addContainerGap()
-		  .addComponent(btnStations)) .addGroup(gl_panel_1.createSequentialGroup()
-		  .addContainerGap() .addComponent(btnRoutes))
-		  .addGroup(gl_panel_1.createSequentialGroup() .addContainerGap()
-		  .addComponent(btnBuses))) .addContainerGap(19, Short.MAX_VALUE)) );
-		  gl_panel_1.setVerticalGroup(
-		  gl_panel_1.createParallelGroup(Alignment.LEADING)
-		  .addGroup(gl_panel_1.createSequentialGroup() .addContainerGap()
-		  .addComponent(btnBuses) .addGap(5) .addComponent(btnStations)
-		  .addPreferredGap(ComponentPlacement.RELATED) .addComponent(btnRoutes)
-		  .addContainerGap(159, Short.MAX_VALUE)) ); panel_1.setLayout(gl_panel_1);
- 
+		GUIRoundButton rbBus = new GUIRoundButton("BusButton", "/images/TransportHubBusButtonImageSmall.png", "Buses");
 
- 
+		panel.add(rbBus, "flowx,cell 1 0,alignx center,aligny center");
+		GUIRoundButton rbStation = new GUIRoundButton("StationButton",
+				"/images/TransportHubStationButtonImageSmall.png", "Stations");
+		panel.add(rbStation, "cell 1 0,alignx center,aligny center");
+		GUIRoundButton rbRoute = new GUIRoundButton("RouteButton", "/images/TransportHubRouteButtonImageSmall.png",
+				"Routes");
+		panel.add(rbRoute, "cell 1 0,alignx center,aligny center");
+		GUIRoundButton rbMap = new GUIRoundButton("MapButton", "/images/TransportHubMapButtonImageSmall.png", "Map");
+		panel.add(rbMap, "cell 1 0,alignx center");
 
-		  
-		  
-		  contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("shift ctrl pressed E"), "Exit");
-		  contentPane.getActionMap().put("Exit", close);
-		  GUISignInView signInView = new GUISignInView(this, true);
-		  this.setVisible(true); signInView.setVisible(true);
-		 
+		GUIRoundButton rbLogin = new GUIRoundButton("LoginButton", "/images/TransportHubLoginButtonImageSmall.png",
+				"Login");
+		rbLogin.addMouseListener(new MouseListener() {
 
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				GUISignInView signIn = new GUISignInView(null, true);
+				signIn.setVisible(true);
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+		panel.add(rbLogin, "cell 2 0, align center");
+
+		contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("shift ctrl pressed E"),
+				"Exit");
+		contentPane.getActionMap().put("Exit", close);
+		// GUISignInView signInView = new GUISignInView(this, true);
+
+		this.setVisible(true);
+
+		// signInView.setVisible(true);
 	}
+
 }

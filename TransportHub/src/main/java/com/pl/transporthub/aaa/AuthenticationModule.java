@@ -19,7 +19,9 @@ package com.pl.transporthub.aaa;
 public interface AuthenticationModule {
 
 	boolean validateUsername(String username);
+
 	boolean validatePassword(String password);
+
 	String getPasswordFromUserDatabase(String username);
 
 }

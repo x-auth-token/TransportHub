@@ -19,8 +19,9 @@ package com.pl.transporthub.aaa;
 import com.pl.transporthub.aaa.Permissions.Permission;
 
 public interface AuthorizationModule {
-	
+
 	Permission getUserPermissionSet(String username);
+
 	void setUserPermissionSet(Permission perm);
 
 }

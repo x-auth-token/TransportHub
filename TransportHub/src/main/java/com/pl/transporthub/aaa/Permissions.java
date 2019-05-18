@@ -17,19 +17,16 @@
 package com.pl.transporthub.aaa;
 
 public abstract class Permissions {
-	
-	private Permissions() {};
-	
+
+	private Permissions() {
+	};
+
 	public enum Permission {
-	ANONYMOUS,
-	AUTHPASSANGER,
-	DRIVER,
-	PTM,
-	ADMIN
+		ANONYMOUS, AUTHPASSANGER, DRIVER, PTM, ADMIN
 	}
 
 	public static Permission toPermission(String permission) {
-		
+
 		switch (permission.toUpperCase()) {
 		case "ANONYMOUS":
 			return Permission.ANONYMOUS;
@@ -44,6 +41,6 @@ public abstract class Permissions {
 		default:
 			return null;
 		}
-	
+
 	}
 }
