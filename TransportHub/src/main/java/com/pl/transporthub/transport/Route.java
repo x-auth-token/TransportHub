@@ -16,6 +16,25 @@
  ******************************************************************************/
 package com.pl.transporthub.transport;
 
-public class Route {
+import java.util.ArrayList;
 
+public class Route {
+	
+	//Station state = null;
+	ArrayList<Station> stations = null;
+	
+	Route(){
+		
+	}
+	
+	void createRoute() {
+		
+		this.stations = new ArrayList<Station>();
+	}
+	
+	ArrayList<Station> getRoute() {
+		
+		return this.stations;
+	}
+	
 }
