@@ -4,10 +4,21 @@ public class Station {
 
 	int num_of_station = 0;
 	String name = null;
+	int price = 0;
 	
 	
 	Station(){
 		
+	}
+
+
+	public int getPrice() {
+		return price;
+	}
+
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 
