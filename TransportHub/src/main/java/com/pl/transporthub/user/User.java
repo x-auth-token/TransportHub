@@ -14,9 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
-package com.pl.transporthub.aaa;
+package com.pl.transporthub.user;
 
 import java.util.List;
+
+import com.pl.transporthub.aaa.Permissions;
 import com.pl.transporthub.aaa.Permissions.Permission;
 
 public abstract class User {
