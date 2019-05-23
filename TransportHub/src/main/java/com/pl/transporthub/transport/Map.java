@@ -206,11 +206,7 @@ ArrayList<Route> routes = null;
 		
 	}
 	
-	void bestRoutePrice(int num) {
-		
-		
-		
-	}
+	
 	
 	void printSpecificRoute(int key) {
 		
