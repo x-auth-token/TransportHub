@@ -11,6 +11,8 @@ import org.junit.Rule;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
 
+import com.pl.transporthub.aaa.PasswordHasher;
+
 public class PasswordHasherTest {
 
 	public static final char[] pass = { 'p', 'a', 's', 's', 'w', 'o', 'r', 'd' };

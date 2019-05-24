@@ -14,8 +14,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
-package com.pl.transporthub.aaa;
+package com.pl.transporthub.shared.classes;
 
-public class AnonymousUser {
+public final class Constants {
+
+	private Constants() {
+
+	}
+
+	public static final int ID_LENGTH = 9;
+	public static final int PHONE_LENGTH_MIN = 10;
+	public static final int PHONE_LENGTH_MAX = 14;
 
 }

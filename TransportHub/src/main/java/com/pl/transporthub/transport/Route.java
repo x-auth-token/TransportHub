@@ -70,8 +70,18 @@ public class Route {
 		Iterator<Station> iter = getRoute().iterator();
 		
 		while (iter.hasNext()) { 
-            System.out.print(iter.next() + ", "); 
+            System.out.print(iter.next().getNum_of_station() + ", "); 
         } 
+	}
+	
+
+	
+	@Override
+	public String toString() {
+		
+		System.out.println(this.indexKey + "\n");
+		return null;
+		
 	}
 	
 }

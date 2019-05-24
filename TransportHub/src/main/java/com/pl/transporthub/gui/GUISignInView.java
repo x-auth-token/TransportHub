@@ -33,7 +33,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import com.pl.transporthub.util.PasswordHasher;
 
 //import com.sun.glass.ui.Window;
 
@@ -42,6 +41,8 @@ import java.awt.Frame;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
+
+import com.pl.transporthub.aaa.PasswordHasher;
 
 public class GUISignInView extends JDialog {
 

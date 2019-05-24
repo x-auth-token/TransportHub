@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
-package com.pl.transporthub.util;
+package com.pl.transporthub.aaa;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;

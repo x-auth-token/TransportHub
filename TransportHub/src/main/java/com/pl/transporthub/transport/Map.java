@@ -14,8 +14,8 @@ ArrayList<Route> routes = null;
 		
 		createMap();
 		generateRouts();
-		printMap();
-		printSpecificRoute(3);
+		//printMap();
+		//printSpecificRoute(3);
 	}
 	
 	
@@ -210,13 +210,18 @@ ArrayList<Route> routes = null;
 	
 	void printSpecificRoute(int key) {
 		
-		Iterator<Route> iterRoutes = this.getRoutes().iterator();
+		//Iterator<Route> iterRoutes = this.getRoutes().iterator();
 		
-		while (iterRoutes.hasNext()) {
-			if(iterRoutes.next().getIndex() == key) {
-					
-		
-			}
+		while (routes.iterator().hasNext()) {
+			
+			/*
+			 * if(routes.iterator().next().getIndex() == key) {
+			 * 
+			 * routes.iterator().next().printRoute();
+			 */
+			System.out.println("Hello\n");
+			//}
+			
 		}
 	}
 	
@@ -238,6 +243,8 @@ ArrayList<Route> routes = null;
 		// TODO Auto-generated method stub
 		
 		Map m = new Map();
+		m.printSpecificRoute(2);
+	
 		
 
 	}
