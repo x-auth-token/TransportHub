@@ -11,5 +11,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_201"/>
 	<classpathentry kind="lib" path="lib/eclipselink.jar"/>
 	<classpathentry kind="lib" path="lib/javax.persistence_2.2.1.v201807122140.jar"/>
+	<classpathentry kind="lib" path="/Users/sh1ft/Dropbox/1 Degree/HIT/3rd year/Software Engineering/Project Code - Transport Hub/GitRepo/TransportHub/lib/jgrapht-bundle-1.3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
