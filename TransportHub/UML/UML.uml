@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_M3pPQIROEem2Y7Pin9cH2A" name="UML">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_NErlsIROEem2Y7Pin9cH2A">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_C1InsIR-Eem2Y7Pin9cH2A" name="TransportHub">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_N7EaUIR-Eem2Y7Pin9cH2A" name="Log In"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_VF63cIR-Eem2Y7Pin9cH2A" name="Get "/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_MafYYIR-Eem2Y7Pin9cH2A" name=""/>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_kSfHQISJEem2Y7Pin9cH2A" name="Authentication"/>
+</uml:Model>
