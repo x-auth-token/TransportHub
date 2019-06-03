@@ -2,7 +2,7 @@ package com.pl.transporthub.transport;
 
 public class Station {
 
-	int num_of_station = 0;
+	int numOfStation = 0;
 	String name = null;
 	int price = 0;
 	
@@ -23,12 +23,12 @@ public class Station {
 
 
 	public int getNum_of_station() {
-		return num_of_station;
+		return numOfStation;
 	}
 
 
 	public void setNum_of_station(int num_of_station) {
-		this.num_of_station = num_of_station;
+		this.numOfStation = num_of_station;
 	}
 
 
@@ -42,5 +42,8 @@ public class Station {
 	}
 	
 	
-	
+	public String toString() {
+		return String.format(this.getNum_of_station()+ " : "+ this.getName());
+		
+	}
 }
