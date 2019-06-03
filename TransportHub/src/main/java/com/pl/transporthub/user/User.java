@@ -18,7 +18,6 @@ package com.pl.transporthub.user;
 
 import java.util.List;
 
-import com.pl.transporthub.aaa.Permissions;
 import com.pl.transporthub.aaa.Permissions.Permission;
 
 public abstract class User {
