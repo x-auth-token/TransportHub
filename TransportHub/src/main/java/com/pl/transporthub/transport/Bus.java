@@ -16,6 +16,25 @@
  ******************************************************************************/
 package com.pl.transporthub.transport;
 
-public class Bus extends MotorVechicle {
+public class Bus extends Vehicle {
+	
+	Bus(int line){
+		
+		 this.setLine(line);
+	}
+	
+	int distance(int time, int maxSpeed) {
+		
+		this.setSpeed(maxSpeed);
+		this.setTime(time);
+		this.setDistance();
+		
+		return this.getDist();
+	}
+	
+	void setDistance() {
+		int d = this.getSpeed() * this.getTime();
+		this.setDist(d);
+	}
 
 }
