@@ -23,7 +23,7 @@ public class Route {
 	
 	//Station state = null;
 	ArrayList<Station> stations = null;
-	int indexKey =0;
+	int indexKey = 0;
 	
 	Route(){
 		
