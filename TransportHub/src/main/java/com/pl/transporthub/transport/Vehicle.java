@@ -18,4 +18,43 @@ package com.pl.transporthub.transport;
 
 public abstract class Vehicle {
 
+	int line =0;
+	boolean activity = true;
+	int speed = 0;
+	int time =0;
+	int dist = 0;
+	
+	
+	public int getLine() {
+		return line;
+	}
+	public void setLine(int line) {
+		this.line = line;
+	}
+	public boolean isActivity() {
+		return activity;
+	}
+	public void setActivity(boolean activity) {
+		this.activity = activity;
+	}
+	public int getSpeed() {
+		return speed;
+	}
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
+	public int getTime() {
+		return time;
+	}
+	public void setTime(int time) {
+		this.time = time;
+	}
+	public int getDist() {
+		return dist;
+	}
+	public void setDist(int dist) {
+		this.dist = dist;
+	}
+	
+	
 }
