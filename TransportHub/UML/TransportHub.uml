@@ -171,7 +171,7 @@
       <packagedElement xmi:type="uml:UseCase" xmi:id="_nRmfcIYYEemMeNXHt--8LQ" name="Create Username"/>
       <packagedElement xmi:type="uml:UseCase" xmi:id="_oLeGsIYYEemMeNXHt--8LQ" name="Add Personal Details"/>
       <packagedElement xmi:type="uml:UseCase" xmi:id="_oj2KcIYYEemMeNXHt--8LQ" name="Create Password"/>
-      <packagedElement xmi:type="uml:UseCase" xmi:id="_wwgp4IYYEemMeNXHt--8LQ" name="Change Current Password"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="_wwgp4IYYEemMeNXHt--8LQ" name="Change Password"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_5L4TsIYYEemMeNXHt--8LQ" name="extend" client="_wwgp4IYYEemMeNXHt--8LQ" supplier="_Lqs0IIWEEemMMbwbhzuNTg"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_b52HkIYZEemMeNXHt--8LQ" name="include" client="_4J1dUIYXEemMeNXHt--8LQ" supplier="_nRmfcIYYEemMeNXHt--8LQ"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_jpn2sIYZEemMeNXHt--8LQ" name="include" client="_4J1dUIYXEemMeNXHt--8LQ" supplier="_oj2KcIYYEemMeNXHt--8LQ"/>
