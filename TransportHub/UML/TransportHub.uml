@@ -1465,6 +1465,10 @@
           <ownedParameter xmi:type="uml:Parameter" xmi:id="_xYbSgobpEem35fKm9yuU3g" name="spec" type="_treAQIWDEemMMbwbhzuNTg"/>
         </ownedOperation>
       </packagedElement>
+      <packagedElement xmi:type="uml:Realization" xmi:id="_COLcwIbsEem35fKm9yuU3g" client="_GN90cIbeEem35fKm9yuU3g" supplier="_BWWlQIbeEem35fKm9yuU3g"/>
+      <packagedElement xmi:type="uml:Realization" xmi:id="_IOojUIbsEem35fKm9yuU3g" client="_xYUk0IbpEem35fKm9yuU3g" supplier="_BWWlQIbeEem35fKm9yuU3g"/>
+      <packagedElement xmi:type="uml:Realization" xmi:id="_KVW_QIbsEem35fKm9yuU3g" client="_0nvHIIbpEem35fKm9yuU3g" supplier="_BWWlQIbeEem35fKm9yuU3g"/>
+      <packagedElement xmi:type="uml:Realization" xmi:id="_LNbPsIbsEem35fKm9yuU3g" client="_3WaT4IbpEem35fKm9yuU3g" supplier="_BWWlQIbeEem35fKm9yuU3g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_hVQoIIatEemFfPe-e2Mfzw" memberEnd="_hVR2QYatEemFfPe-e2Mfzw _hVSdUoatEemFfPe-e2Mfzw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_hVRPMIatEemFfPe-e2Mfzw" source="org.eclipse.papyrus">
