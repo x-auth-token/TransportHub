@@ -1182,12 +1182,6 @@
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_s-OXIIYwEemXM8-kBMBIfQ" name="Manager" visibility="public">
-        <generalization xmi:type="uml:Generalization" xmi:id="_s-SokIYwEemXM8-kBMBIfQ" general="_s-QMUIYwEemXM8-kBMBIfQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_tCsAYIYwEemXM8-kBMBIfQ" name="User" visibility="public">
-        <generalization xmi:type="uml:Generalization" xmi:id="_tCt1kIYwEemXM8-kBMBIfQ" general="_s-QMUIYwEemXM8-kBMBIfQ"/>
-      </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_ypjzwIaoEemFfPe-e2Mfzw" name="driver"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_9FDFwIapEemFfPe-e2Mfzw" name="controller">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_KSmFIYaqEemFfPe-e2Mfzw" name="map" type="_jqy-kIYdEemMeNXHt--8LQ" association="_KSkP8IaqEemFfPe-e2Mfzw">
@@ -1210,6 +1204,12 @@
       <packagedElement xmi:type="uml:Abstraction" xmi:id="_TB9hoIatEemFfPe-e2Mfzw" client="_s-OXIIYwEemXM8-kBMBIfQ" supplier="_s-QMUIYwEemXM8-kBMBIfQ"/>
       <packagedElement xmi:type="uml:Abstraction" xmi:id="_XfgD8IatEemFfPe-e2Mfzw" client="_tCsAYIYwEemXM8-kBMBIfQ" supplier="_s-QMUIYwEemXM8-kBMBIfQ"/>
       <packagedElement xmi:type="uml:Abstraction" xmi:id="_bhhH4IatEemFfPe-e2Mfzw" client="_ypjzwIaoEemFfPe-e2Mfzw" supplier="_s-QMUIYwEemXM8-kBMBIfQ"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_s-OXIIYwEemXM8-kBMBIfQ" name="Manager" visibility="public">
+        <generalization xmi:type="uml:Generalization" xmi:id="_s-SokIYwEemXM8-kBMBIfQ" general="_s-QMUIYwEemXM8-kBMBIfQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_tCsAYIYwEemXM8-kBMBIfQ" name="User" visibility="public">
+        <generalization xmi:type="uml:Generalization" xmi:id="_tCt1kIYwEemXM8-kBMBIfQ" general="_s-QMUIYwEemXM8-kBMBIfQ"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_o4ciMIasEemFfPe-e2Mfzw" name="Package60">
       <packagedElement xmi:type="uml:Class" xmi:id="_vxERwIaqEemFfPe-e2Mfzw" name="DB">
@@ -1238,6 +1238,7 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_oqr9kYatEemFfPe-e2Mfzw" name="controller" type="_9FDFwIapEemFfPe-e2Mfzw" association="_oqqIYIatEemFfPe-e2Mfzw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_tI_78IatEemFfPe-e2Mfzw" name="Package58">
+      <ownedTemplateSignature xmi:type="uml:TemplateSignature" xmi:id="_ykDaIIbTEem35fKm9yuU3g"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_zDmSIIatEemFfPe-e2Mfzw" name="GUIRoundButton"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_z21F4IatEemFfPe-e2Mfzw" name="GUISingleView"/>
       <packagedElement xmi:type="uml:Class" xmi:id="_0YY60IatEemFfPe-e2Mfzw" name="GUIHomeView">
