@@ -53,7 +53,7 @@ public class GUIHomeView extends JFrame {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 655, 442);
 		setExtendedState(MAXIMIZED_BOTH);
-		// setUndecorated(false);
+		setUndecorated(true);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(222, 224, 224));
 		contentPane.setBorder(new LineBorder(new Color(192, 192, 192)));
@@ -159,7 +159,8 @@ public class GUIHomeView extends JFrame {
 			}
 		});
 		panel.add(rbLogin, "cell 2 0, align center");
-
+		
+		// Secret key combination to close the application
 		contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("shift ctrl pressed E"),
 				"Exit");
 		contentPane.getActionMap().put("Exit", close);
