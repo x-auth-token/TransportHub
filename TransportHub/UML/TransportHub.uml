@@ -190,261 +190,18 @@
           <packagedElement xmi:type="uml:Package" xmi:id="_jqSoQYYdEemMeNXHt--8LQ" name="transporthub">
             <packagedElement xmi:type="uml:Package" xmi:id="_jqSoQoYdEemMeNXHt--8LQ" name="transport">
               <packagedElement xmi:type="uml:Abstraction" xmi:id="_oxcb8IakEemFfPe-e2Mfzw" client="_jqrp0IYdEemMeNXHt--8LQ" supplier="_jqZ9AIYdEemMeNXHt--8LQ"/>
-              <packagedElement xmi:type="uml:Class" xmi:id="_xYUk0IbpEem35fKm9yuU3g" name="StationRepository" visibility="public">
-                <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_xYVy8IbpEem35fKm9yuU3g" name="StationRepository implements GenericRepository" client="_xYUk0IbpEem35fKm9yuU3g" supplier="_BWWlQIbeEem35fKm9yuU3g" contract="_BWWlQIbeEem35fKm9yuU3g"/>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xYXBEobpEem35fKm9yuU3g" name="add" specification="_xYXBEIbpEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-// TODO Auto-generated method stub&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xYXoIYbpEem35fKm9yuU3g" name="remove" specification="_xYXBE4bpEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-// TODO Auto-generated method stub&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xYY2QIbpEem35fKm9yuU3g" name="get" specification="_xYXoIobpEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-    // TODO Auto-generated method stub&#xD;
-    return null;&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xYarcobpEem35fKm9yuU3g" name="getAll" specification="_xYY2QYbpEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-    // TODO Auto-generated method stub&#xD;
-    return null;&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xYbSg4bpEem35fKm9yuU3g" name="find" specification="_xYbSgIbpEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-    // TODO Auto-generated method stub&#xD;
-    return null;&#xD;
-</body>
-                </ownedBehavior>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_xYXBEIbpEem35fKm9yuU3g" name="add" visibility="public" method="_xYXBEobpEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xYXBEYbpEem35fKm9yuU3g" name="t" type="_jqbyMYYdEemMeNXHt--8LQ"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_xYXBE4bpEem35fKm9yuU3g" name="remove" visibility="public" method="_xYXoIYbpEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xYXoIIbpEem35fKm9yuU3g" name="t" type="_jqbyMYYdEemMeNXHt--8LQ"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_xYXoIobpEem35fKm9yuU3g" name="get" visibility="public" method="_xYY2QIbpEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xYYPMIbpEem35fKm9yuU3g" type="_jqbyMYYdEemMeNXHt--8LQ" direction="return"/>
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xYYPMYbpEem35fKm9yuU3g" name="t" type="_jqbyMYYdEemMeNXHt--8LQ"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_xYY2QYbpEem35fKm9yuU3g" name="getAll" visibility="public" method="_xYarcobpEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xYarcYbpEem35fKm9yuU3g" type="_xYZdUIbpEem35fKm9yuU3g" direction="return"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_xYbSgIbpEem35fKm9yuU3g" name="find" visibility="public" method="_xYbSg4bpEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xYbSgYbpEem35fKm9yuU3g" type="_xYZdUIbpEem35fKm9yuU3g" direction="return"/>
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_xYbSgobpEem35fKm9yuU3g" name="spec" type="_treAQIWDEemMMbwbhzuNTg"/>
-                </ownedOperation>
-              </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_xYZdUIbpEem35fKm9yuU3g" name="Iterable"/>
-              <packagedElement xmi:type="uml:Class" xmi:id="_0nvHIIbpEem35fKm9yuU3g" name="RouteRepository" visibility="public">
-                <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_0nvuMIbpEem35fKm9yuU3g" name="RouteRepository implements GenericRepository" client="_0nvHIIbpEem35fKm9yuU3g" supplier="_BWWlQIbeEem35fKm9yuU3g" contract="_BWWlQIbeEem35fKm9yuU3g"/>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_0nyxgYbpEem35fKm9yuU3g" name="add" specification="_0nyKcIbpEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-// TODO Auto-generated method stub&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_0nz_oIbpEem35fKm9yuU3g" name="remove" specification="_0nzYkIbpEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-// TODO Auto-generated method stub&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_0n1NwYbpEem35fKm9yuU3g" name="get" specification="_0nz_oYbpEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-    // TODO Auto-generated method stub&#xD;
-    return null;&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_0n100YbpEem35fKm9yuU3g" name="getAll" specification="_0n1NwobpEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-    // TODO Auto-generated method stub&#xD;
-    return null;&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_0n3C8YbpEem35fKm9yuU3g" name="find" specification="_0n2b4IbpEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-    // TODO Auto-generated method stub&#xD;
-    return null;&#xD;
-</body>
-                </ownedBehavior>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_0nyKcIbpEem35fKm9yuU3g" name="add" visibility="public" method="_0nyxgYbpEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_0nyxgIbpEem35fKm9yuU3g" name="t" type="_jqW5sIYdEemMeNXHt--8LQ"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_0nzYkIbpEem35fKm9yuU3g" name="remove" visibility="public" method="_0nz_oIbpEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_0nzYkYbpEem35fKm9yuU3g" name="t" type="_jqW5sIYdEemMeNXHt--8LQ"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_0nz_oYbpEem35fKm9yuU3g" name="get" visibility="public" method="_0n1NwYbpEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_0n0msIbpEem35fKm9yuU3g" type="_jqW5sIYdEemMeNXHt--8LQ" direction="return"/>
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_0n1NwIbpEem35fKm9yuU3g" name="t" type="_jqW5sIYdEemMeNXHt--8LQ"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_0n1NwobpEem35fKm9yuU3g" name="getAll" visibility="public" method="_0n100YbpEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_0n100IbpEem35fKm9yuU3g" type="_xYZdUIbpEem35fKm9yuU3g" direction="return"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_0n2b4IbpEem35fKm9yuU3g" name="find" visibility="public" method="_0n3C8YbpEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_0n2b4YbpEem35fKm9yuU3g" type="_xYZdUIbpEem35fKm9yuU3g" direction="return"/>
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_0n3C8IbpEem35fKm9yuU3g" name="spec" type="_treAQIWDEemMMbwbhzuNTg"/>
-                </ownedOperation>
-              </packagedElement>
-              <packagedElement xmi:type="uml:Class" xmi:id="_3WaT4IbpEem35fKm9yuU3g" name="BusRepository" visibility="public">
-                <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_3Wa68IbpEem35fKm9yuU3g" name="BusRepository implements GenericRepository" client="_3WaT4IbpEem35fKm9yuU3g" supplier="_BWWlQIbeEem35fKm9yuU3g" contract="_BWWlQIbeEem35fKm9yuU3g"/>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3WcwIobpEem35fKm9yuU3g" name="add" specification="_3WcwIIbpEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-// TODO Auto-generated method stub&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3WdXMobpEem35fKm9yuU3g" name="remove" specification="_3WdXMIbpEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-// TODO Auto-generated method stub&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3WelUIbpEem35fKm9yuU3g" name="get" specification="_3WdXM4bpEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-    // TODO Auto-generated method stub&#xD;
-    return null;&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3WelU4bpEem35fKm9yuU3g" name="getAll" specification="_3WelUYbpEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-    // TODO Auto-generated method stub&#xD;
-    return null;&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3WfzcYbpEem35fKm9yuU3g" name="find" specification="_3WfMYIbpEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-    // TODO Auto-generated method stub&#xD;
-    return null;&#xD;
-</body>
-                </ownedBehavior>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_3WcwIIbpEem35fKm9yuU3g" name="add" visibility="public" method="_3WcwIobpEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_3WcwIYbpEem35fKm9yuU3g" name="t" type="_jqrp0IYdEemMeNXHt--8LQ"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_3WdXMIbpEem35fKm9yuU3g" name="remove" visibility="public" method="_3WdXMobpEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_3WdXMYbpEem35fKm9yuU3g" name="t" type="_jqrp0IYdEemMeNXHt--8LQ"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_3WdXM4bpEem35fKm9yuU3g" name="get" visibility="public" method="_3WelUIbpEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_3Wd-QIbpEem35fKm9yuU3g" type="_jqrp0IYdEemMeNXHt--8LQ" direction="return"/>
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_3Wd-QYbpEem35fKm9yuU3g" name="t" type="_jqrp0IYdEemMeNXHt--8LQ"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_3WelUYbpEem35fKm9yuU3g" name="getAll" visibility="public" method="_3WelU4bpEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_3WelUobpEem35fKm9yuU3g" type="_xYZdUIbpEem35fKm9yuU3g" direction="return"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_3WfMYIbpEem35fKm9yuU3g" name="find" visibility="public" method="_3WfzcYbpEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_3WfMYYbpEem35fKm9yuU3g" type="_xYZdUIbpEem35fKm9yuU3g" direction="return"/>
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_3WfzcIbpEem35fKm9yuU3g" name="spec" type="_treAQIWDEemMMbwbhzuNTg"/>
-                </ownedOperation>
-              </packagedElement>
             </packagedElement>
             <packagedElement xmi:type="uml:Package" xmi:id="_MsBicIYtEemMeNXHt--8LQ" name="aaa">
               <packagedElement xmi:type="uml:Class" xmi:id="_jqdswIYwEemXM8-kBMBIfQ" name="Permission"/>
             </packagedElement>
             <packagedElement xmi:type="uml:Package" xmi:id="_BWUwEIbeEem35fKm9yuU3g" name="shared">
               <packagedElement xmi:type="uml:Package" xmi:id="_BWVXIIbeEem35fKm9yuU3g" name="interfaces">
-                <packagedElement xmi:type="uml:Interface" xmi:id="_BWWlQIbeEem35fKm9yuU3g" name="GenericRepository" visibility="public">
-                  <ownedOperation xmi:type="uml:Operation" xmi:id="_BWZBgIbeEem35fKm9yuU3g" name="add" visibility="private">
-                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_BWZokIbeEem35fKm9yuU3g" name="t" type="_BWXMUIbeEem35fKm9yuU3g"/>
-                  </ownedOperation>
-                  <ownedOperation xmi:type="uml:Operation" xmi:id="_BWaPoIbeEem35fKm9yuU3g" name="remove" visibility="private">
-                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_BWa2sIbeEem35fKm9yuU3g" name="t" type="_BWXMUIbeEem35fKm9yuU3g"/>
-                  </ownedOperation>
-                  <ownedOperation xmi:type="uml:Operation" xmi:id="_BWbdwIbeEem35fKm9yuU3g" name="get" visibility="private">
-                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_BWbdwYbeEem35fKm9yuU3g" type="_BWXMUIbeEem35fKm9yuU3g" direction="return"/>
-                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_BWcE0IbeEem35fKm9yuU3g" name="t" type="_BWXMUIbeEem35fKm9yuU3g"/>
-                  </ownedOperation>
-                  <ownedOperation xmi:type="uml:Operation" xmi:id="_BWcr4IbeEem35fKm9yuU3g" name="getAll" visibility="private">
-                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_BWehEIbeEem35fKm9yuU3g" type="_BWdS8IbeEem35fKm9yuU3g" direction="return"/>
-                  </ownedOperation>
-                  <ownedOperation xmi:type="uml:Operation" xmi:id="_BWfIIIbeEem35fKm9yuU3g" name="find" visibility="private">
-                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_BWfIIYbeEem35fKm9yuU3g" type="_BWdS8IbeEem35fKm9yuU3g" direction="return"/>
-                    <ownedParameter xmi:type="uml:Parameter" xmi:id="_BWfvMIbeEem35fKm9yuU3g" name="spec" type="_treAQIWDEemMMbwbhzuNTg"/>
-                  </ownedOperation>
-                </packagedElement>
                 <packagedElement xmi:type="uml:Class" xmi:id="_BWXMUIbeEem35fKm9yuU3g" name="T"/>
                 <packagedElement xmi:type="uml:Class" xmi:id="_BWdS8IbeEem35fKm9yuU3g" name="Iterable"/>
               </packagedElement>
             </packagedElement>
             <packagedElement xmi:type="uml:Package" xmi:id="_GN8mUIbeEem35fKm9yuU3g" name="user">
-              <packagedElement xmi:type="uml:Class" xmi:id="_GN90cIbeEem35fKm9yuU3g" name="UserRepository" visibility="public">
-                <ownedAttribute xmi:type="uml:Property" xmi:id="_GN_CkYbeEem35fKm9yuU3g" name="em" visibility="private" type="_ttA4YIWDEemMMbwbhzuNTg" isUnique="false"/>
-                <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_GN_CkIbeEem35fKm9yuU3g" name="UserRepository implements GenericRepository" client="_GN90cIbeEem35fKm9yuU3g" supplier="_BWWlQIbeEem35fKm9yuU3g" contract="_BWWlQIbeEem35fKm9yuU3g"/>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GOBe0IbeEem35fKm9yuU3g" name="UserRepository" specification="_GN_poIbeEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-    this.em = em;&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GODUAYbeEem35fKm9yuU3g" name="add" specification="_GOCs8YbeEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-    if (u.getUsername() == null) {&#xD;
-        em.persist(u);&#xD;
-    } else {&#xD;
-        u = em.merge(u);&#xD;
-    }&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GOD7EobeEem35fKm9yuU3g" name="remove" specification="_GOD7EIbeEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-// TODO Auto-generated method stub&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GOFwQYbeEem35fKm9yuU3g" name="get" specification="_GOEiIIbeEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-    // TODO Auto-generated method stub&#xD;
-    return null;&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GOIMgYbeEem35fKm9yuU3g" name="getAll" specification="_GOGXUIbeEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-    return em.createQuery(&quot;SELECT * from Users u&quot;, User.class).getResultList();&#xD;
-</body>
-                </ownedBehavior>
-                <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GOKBsIbeEem35fKm9yuU3g" name="find" specification="_GOIzkIbeEem35fKm9yuU3g">
-                  <language>JAVA</language>
-                  <body>&#xD;
-    return null;&#xD;
-</body>
-                </ownedBehavior>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_GN_poIbeEem35fKm9yuU3g" name="UserRepository" visibility="public" method="_GOBe0IbeEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GOA3wYbeEem35fKm9yuU3g" name="em" type="_ttA4YIWDEemMMbwbhzuNTg"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_GOCs8YbeEem35fKm9yuU3g" name="add" visibility="public" method="_GODUAYbeEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GODUAIbeEem35fKm9yuU3g" name="u" type="_tCsAYIYwEemXM8-kBMBIfQ"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_GOD7EIbeEem35fKm9yuU3g" name="remove" visibility="public" method="_GOD7EobeEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GOD7EYbeEem35fKm9yuU3g" name="u" type="_tCsAYIYwEemXM8-kBMBIfQ"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_GOEiIIbeEem35fKm9yuU3g" name="get" visibility="public" method="_GOFwQYbeEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GOEiIYbeEem35fKm9yuU3g" type="_tCsAYIYwEemXM8-kBMBIfQ" direction="return"/>
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GOFwQIbeEem35fKm9yuU3g" name="u" type="_tCsAYIYwEemXM8-kBMBIfQ"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_GOGXUIbeEem35fKm9yuU3g" name="getAll" visibility="public" method="_GOIMgYbeEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GOIMgIbeEem35fKm9yuU3g" type="_GOGXUYbeEem35fKm9yuU3g" direction="return"/>
-                </ownedOperation>
-                <ownedOperation xmi:type="uml:Operation" xmi:id="_GOIzkIbeEem35fKm9yuU3g" name="find" visibility="public" method="_GOKBsIbeEem35fKm9yuU3g">
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GOIzkYbeEem35fKm9yuU3g" type="_GOGXUYbeEem35fKm9yuU3g" direction="return"/>
-                  <ownedParameter xmi:type="uml:Parameter" xmi:id="_GOJaoIbeEem35fKm9yuU3g" name="spec" type="_treAQIWDEemMMbwbhzuNTg"/>
-                </ownedOperation>
-              </packagedElement>
               <packagedElement xmi:type="uml:Class" xmi:id="_GOGXUYbeEem35fKm9yuU3g" name="Iterable"/>
             </packagedElement>
           </packagedElement>
@@ -1465,11 +1222,248 @@
       <packagedElement xmi:type="uml:Interaction" xmi:id="_5sQkMIbZEem35fKm9yuU3g" name="Interaction15"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_o4ciMIasEemFfPe-e2Mfzw" name="Package60">
-      <packagedElement xmi:type="uml:Class" xmi:id="_vxERwIaqEemFfPe-e2Mfzw" name="DB">
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_HJqogIauEemFfPe-e2Mfzw" name="map" type="_jqy-kIYdEemMeNXHt--8LQ" association="_HJozUIauEemFfPe-e2Mfzw">
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HJqogYauEemFfPe-e2Mfzw"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HJrPkIauEemFfPe-e2Mfzw" value="1"/>
-        </ownedAttribute>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_BWWlQIbeEem35fKm9yuU3g" name="GenericRepository" visibility="public">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_BWZBgIbeEem35fKm9yuU3g" name="add" visibility="private">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_BWZokIbeEem35fKm9yuU3g" name="t" type="_BWXMUIbeEem35fKm9yuU3g"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_BWaPoIbeEem35fKm9yuU3g" name="remove" visibility="private">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_BWa2sIbeEem35fKm9yuU3g" name="t" type="_BWXMUIbeEem35fKm9yuU3g"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_BWbdwIbeEem35fKm9yuU3g" name="get" visibility="private">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_BWbdwYbeEem35fKm9yuU3g" type="_BWXMUIbeEem35fKm9yuU3g" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_BWcE0IbeEem35fKm9yuU3g" name="t" type="_BWXMUIbeEem35fKm9yuU3g"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_BWcr4IbeEem35fKm9yuU3g" name="getAll" visibility="private">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_BWehEIbeEem35fKm9yuU3g" type="_BWdS8IbeEem35fKm9yuU3g" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_BWfIIIbeEem35fKm9yuU3g" name="find" visibility="private">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_BWfIIYbeEem35fKm9yuU3g" type="_BWdS8IbeEem35fKm9yuU3g" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_BWfvMIbeEem35fKm9yuU3g" name="spec" type="_treAQIWDEemMMbwbhzuNTg"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_3WaT4IbpEem35fKm9yuU3g" name="BusRepository" visibility="public">
+        <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_3Wa68IbpEem35fKm9yuU3g" name="BusRepository implements GenericRepository" client="_3WaT4IbpEem35fKm9yuU3g" supplier="_BWWlQIbeEem35fKm9yuU3g" contract="_BWWlQIbeEem35fKm9yuU3g"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3WcwIobpEem35fKm9yuU3g" name="add" specification="_3WcwIIbpEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+// TODO Auto-generated method stub&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3WdXMobpEem35fKm9yuU3g" name="remove" specification="_3WdXMIbpEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+// TODO Auto-generated method stub&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3WelUIbpEem35fKm9yuU3g" name="get" specification="_3WdXM4bpEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+    // TODO Auto-generated method stub&#xD;
+    return null;&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3WelU4bpEem35fKm9yuU3g" name="getAll" specification="_3WelUYbpEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+    // TODO Auto-generated method stub&#xD;
+    return null;&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_3WfzcYbpEem35fKm9yuU3g" name="find" specification="_3WfMYIbpEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+    // TODO Auto-generated method stub&#xD;
+    return null;&#xD;
+</body>
+        </ownedBehavior>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_3WcwIIbpEem35fKm9yuU3g" name="add" visibility="public" method="_3WcwIobpEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_3WcwIYbpEem35fKm9yuU3g" name="t" type="_jqrp0IYdEemMeNXHt--8LQ"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_3WdXMIbpEem35fKm9yuU3g" name="remove" visibility="public" method="_3WdXMobpEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_3WdXMYbpEem35fKm9yuU3g" name="t" type="_jqrp0IYdEemMeNXHt--8LQ"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_3WdXM4bpEem35fKm9yuU3g" name="get" visibility="public" method="_3WelUIbpEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_3Wd-QIbpEem35fKm9yuU3g" type="_jqrp0IYdEemMeNXHt--8LQ" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_3Wd-QYbpEem35fKm9yuU3g" name="t" type="_jqrp0IYdEemMeNXHt--8LQ"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_3WelUYbpEem35fKm9yuU3g" name="getAll" visibility="public" method="_3WelU4bpEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_3WelUobpEem35fKm9yuU3g" type="_xYZdUIbpEem35fKm9yuU3g" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_3WfMYIbpEem35fKm9yuU3g" name="find" visibility="public" method="_3WfzcYbpEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_3WfMYYbpEem35fKm9yuU3g" type="_xYZdUIbpEem35fKm9yuU3g" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_3WfzcIbpEem35fKm9yuU3g" name="spec" type="_treAQIWDEemMMbwbhzuNTg"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_GN90cIbeEem35fKm9yuU3g" name="UserRepository" visibility="public">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_GN_CkYbeEem35fKm9yuU3g" name="em" visibility="private" type="_ttA4YIWDEemMMbwbhzuNTg" isUnique="false"/>
+        <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_GN_CkIbeEem35fKm9yuU3g" name="UserRepository implements GenericRepository" client="_GN90cIbeEem35fKm9yuU3g" supplier="_BWWlQIbeEem35fKm9yuU3g" contract="_BWWlQIbeEem35fKm9yuU3g"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GOBe0IbeEem35fKm9yuU3g" name="UserRepository" specification="_GN_poIbeEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+    this.em = em;&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GODUAYbeEem35fKm9yuU3g" name="add" specification="_GOCs8YbeEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+    if (u.getUsername() == null) {&#xD;
+        em.persist(u);&#xD;
+    } else {&#xD;
+        u = em.merge(u);&#xD;
+    }&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GOD7EobeEem35fKm9yuU3g" name="remove" specification="_GOD7EIbeEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+// TODO Auto-generated method stub&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GOFwQYbeEem35fKm9yuU3g" name="get" specification="_GOEiIIbeEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+    // TODO Auto-generated method stub&#xD;
+    return null;&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GOIMgYbeEem35fKm9yuU3g" name="getAll" specification="_GOGXUIbeEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+    return em.createQuery(&quot;SELECT * from Users u&quot;, User.class).getResultList();&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_GOKBsIbeEem35fKm9yuU3g" name="find" specification="_GOIzkIbeEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+    return null;&#xD;
+</body>
+        </ownedBehavior>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_GN_poIbeEem35fKm9yuU3g" name="UserRepository" visibility="public" method="_GOBe0IbeEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_GOA3wYbeEem35fKm9yuU3g" name="em" type="_ttA4YIWDEemMMbwbhzuNTg"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_GOCs8YbeEem35fKm9yuU3g" name="add" visibility="public" method="_GODUAYbeEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_GODUAIbeEem35fKm9yuU3g" name="u" type="_tCsAYIYwEemXM8-kBMBIfQ"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_GOD7EIbeEem35fKm9yuU3g" name="remove" visibility="public" method="_GOD7EobeEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_GOD7EYbeEem35fKm9yuU3g" name="u" type="_tCsAYIYwEemXM8-kBMBIfQ"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_GOEiIIbeEem35fKm9yuU3g" name="get" visibility="public" method="_GOFwQYbeEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_GOEiIYbeEem35fKm9yuU3g" type="_tCsAYIYwEemXM8-kBMBIfQ" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_GOFwQIbeEem35fKm9yuU3g" name="u" type="_tCsAYIYwEemXM8-kBMBIfQ"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_GOGXUIbeEem35fKm9yuU3g" name="getAll" visibility="public" method="_GOIMgYbeEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_GOIMgIbeEem35fKm9yuU3g" type="_GOGXUYbeEem35fKm9yuU3g" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_GOIzkIbeEem35fKm9yuU3g" name="find" visibility="public" method="_GOKBsIbeEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_GOIzkYbeEem35fKm9yuU3g" type="_GOGXUYbeEem35fKm9yuU3g" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_GOJaoIbeEem35fKm9yuU3g" name="spec" type="_treAQIWDEemMMbwbhzuNTg"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_0nvHIIbpEem35fKm9yuU3g" name="RouteRepository" visibility="public">
+        <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_0nvuMIbpEem35fKm9yuU3g" name="RouteRepository implements GenericRepository" client="_0nvHIIbpEem35fKm9yuU3g" supplier="_BWWlQIbeEem35fKm9yuU3g" contract="_BWWlQIbeEem35fKm9yuU3g"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_0nyxgYbpEem35fKm9yuU3g" name="add" specification="_0nyKcIbpEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+// TODO Auto-generated method stub&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_0nz_oIbpEem35fKm9yuU3g" name="remove" specification="_0nzYkIbpEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+// TODO Auto-generated method stub&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_0n1NwYbpEem35fKm9yuU3g" name="get" specification="_0nz_oYbpEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+    // TODO Auto-generated method stub&#xD;
+    return null;&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_0n100YbpEem35fKm9yuU3g" name="getAll" specification="_0n1NwobpEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+    // TODO Auto-generated method stub&#xD;
+    return null;&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_0n3C8YbpEem35fKm9yuU3g" name="find" specification="_0n2b4IbpEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+    // TODO Auto-generated method stub&#xD;
+    return null;&#xD;
+</body>
+        </ownedBehavior>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_0nyKcIbpEem35fKm9yuU3g" name="add" visibility="public" method="_0nyxgYbpEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_0nyxgIbpEem35fKm9yuU3g" name="t" type="_jqW5sIYdEemMeNXHt--8LQ"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_0nzYkIbpEem35fKm9yuU3g" name="remove" visibility="public" method="_0nz_oIbpEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_0nzYkYbpEem35fKm9yuU3g" name="t" type="_jqW5sIYdEemMeNXHt--8LQ"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_0nz_oYbpEem35fKm9yuU3g" name="get" visibility="public" method="_0n1NwYbpEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_0n0msIbpEem35fKm9yuU3g" type="_jqW5sIYdEemMeNXHt--8LQ" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_0n1NwIbpEem35fKm9yuU3g" name="t" type="_jqW5sIYdEemMeNXHt--8LQ"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_0n1NwobpEem35fKm9yuU3g" name="getAll" visibility="public" method="_0n100YbpEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_0n100IbpEem35fKm9yuU3g" type="_xYZdUIbpEem35fKm9yuU3g" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_0n2b4IbpEem35fKm9yuU3g" name="find" visibility="public" method="_0n3C8YbpEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_0n2b4YbpEem35fKm9yuU3g" type="_xYZdUIbpEem35fKm9yuU3g" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_0n3C8IbpEem35fKm9yuU3g" name="spec" type="_treAQIWDEemMMbwbhzuNTg"/>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_xYUk0IbpEem35fKm9yuU3g" name="StationRepository" visibility="public">
+        <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_xYVy8IbpEem35fKm9yuU3g" name="StationRepository implements GenericRepository" client="_xYUk0IbpEem35fKm9yuU3g" supplier="_BWWlQIbeEem35fKm9yuU3g" contract="_BWWlQIbeEem35fKm9yuU3g"/>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xYXBEobpEem35fKm9yuU3g" name="add" specification="_xYXBEIbpEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+// TODO Auto-generated method stub&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xYXoIYbpEem35fKm9yuU3g" name="remove" specification="_xYXBE4bpEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+// TODO Auto-generated method stub&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xYY2QIbpEem35fKm9yuU3g" name="get" specification="_xYXoIobpEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+    // TODO Auto-generated method stub&#xD;
+    return null;&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xYarcobpEem35fKm9yuU3g" name="getAll" specification="_xYY2QYbpEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+    // TODO Auto-generated method stub&#xD;
+    return null;&#xD;
+</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_xYbSg4bpEem35fKm9yuU3g" name="find" specification="_xYbSgIbpEem35fKm9yuU3g">
+          <language>JAVA</language>
+          <body>&#xD;
+    // TODO Auto-generated method stub&#xD;
+    return null;&#xD;
+</body>
+        </ownedBehavior>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_xYXBEIbpEem35fKm9yuU3g" name="add" visibility="public" method="_xYXBEobpEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_xYXBEYbpEem35fKm9yuU3g" name="t" type="_jqbyMYYdEemMeNXHt--8LQ"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_xYXBE4bpEem35fKm9yuU3g" name="remove" visibility="public" method="_xYXoIYbpEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_xYXoIIbpEem35fKm9yuU3g" name="t" type="_jqbyMYYdEemMeNXHt--8LQ"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_xYXoIobpEem35fKm9yuU3g" name="get" visibility="public" method="_xYY2QIbpEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_xYYPMIbpEem35fKm9yuU3g" type="_jqbyMYYdEemMeNXHt--8LQ" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_xYYPMYbpEem35fKm9yuU3g" name="t" type="_jqbyMYYdEemMeNXHt--8LQ"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_xYY2QYbpEem35fKm9yuU3g" name="getAll" visibility="public" method="_xYarcobpEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_xYarcYbpEem35fKm9yuU3g" type="_xYZdUIbpEem35fKm9yuU3g" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_xYbSgIbpEem35fKm9yuU3g" name="find" visibility="public" method="_xYbSg4bpEem35fKm9yuU3g">
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_xYbSgYbpEem35fKm9yuU3g" type="_xYZdUIbpEem35fKm9yuU3g" direction="return"/>
+          <ownedParameter xmi:type="uml:Parameter" xmi:id="_xYbSgobpEem35fKm9yuU3g" name="spec" type="_treAQIWDEemMMbwbhzuNTg"/>
+        </ownedOperation>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_hVQoIIatEemFfPe-e2Mfzw" memberEnd="_hVR2QYatEemFfPe-e2Mfzw _hVSdUoatEemFfPe-e2Mfzw">
@@ -1509,21 +1503,11 @@
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_rtR58IavEemFfPe-e2Mfzw"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_rtR58YavEemFfPe-e2Mfzw" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="_ve-p8YavEemFfPe-e2Mfzw" name="db" type="_vxERwIaqEemFfPe-e2Mfzw" association="_ve9b0IavEemFfPe-e2Mfzw">
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vfBGMIavEemFfPe-e2Mfzw"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vfDicIavEemFfPe-e2Mfzw" value="1"/>
-        </ownedAttribute>
         <ownedAttribute xmi:type="uml:Property" xmi:id="_yU01sIavEemFfPe-e2Mfzw" name="map" type="_jqy-kIYdEemMeNXHt--8LQ" association="_yUznkIavEemFfPe-e2Mfzw">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yU01sYavEemFfPe-e2Mfzw"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_yU01soavEemFfPe-e2Mfzw" value="1"/>
         </ownedAttribute>
       </packagedElement>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_HJozUIauEemFfPe-e2Mfzw" memberEnd="_HJqogIauEemFfPe-e2Mfzw _HJrPkYauEemFfPe-e2Mfzw">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HJqBcIauEemFfPe-e2Mfzw" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_HJqBcYauEemFfPe-e2Mfzw" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_HJrPkYauEemFfPe-e2Mfzw" name="db" type="_vxERwIaqEemFfPe-e2Mfzw" association="_HJozUIauEemFfPe-e2Mfzw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_iyMOQIavEemFfPe-e2Mfzw" memberEnd="_iyNcYYavEemFfPe-e2Mfzw _iyODcYavEemFfPe-e2Mfzw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_iyM1UIavEemFfPe-e2Mfzw" source="org.eclipse.papyrus">
@@ -1542,12 +1526,6 @@
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_rtRS4YavEemFfPe-e2Mfzw" key="nature" value="UML_Nature"/>
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_rtShAIavEemFfPe-e2Mfzw" name="main" type="_04ewIIatEemFfPe-e2Mfzw" association="_rtQEwIavEemFfPe-e2Mfzw"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_ve9b0IavEemFfPe-e2Mfzw" memberEnd="_ve-p8YavEemFfPe-e2Mfzw _vfF-sIavEemFfPe-e2Mfzw">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ve-C4IavEemFfPe-e2Mfzw" source="org.eclipse.papyrus">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ve-p8IavEemFfPe-e2Mfzw" key="nature" value="UML_Nature"/>
-      </eAnnotations>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_vfF-sIavEemFfPe-e2Mfzw" name="main" type="_04ewIIatEemFfPe-e2Mfzw" association="_ve9b0IavEemFfPe-e2Mfzw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_yUznkIavEemFfPe-e2Mfzw" memberEnd="_yU01sIavEemFfPe-e2Mfzw _yU01s4avEemFfPe-e2Mfzw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yU0OoIavEemFfPe-e2Mfzw" source="org.eclipse.papyrus">
