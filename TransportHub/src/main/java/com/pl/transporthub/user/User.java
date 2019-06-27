@@ -26,7 +26,7 @@ public abstract class User {
 	private String password;
 	private List<Permission> permissions;
 
-	public User(String un) {
+	public User() {
 		setUsername(null);
 		setPassword(null);
 		setPermissions(null);

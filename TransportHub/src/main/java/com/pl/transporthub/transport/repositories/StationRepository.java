@@ -1,40 +1,40 @@
-package com.pl.transporthub.transport;
+package com.pl.transporthub.transport.repositories;
 
 import org.eclipse.persistence.jpa.jpql.parser.TrimExpression.Specification;
 
 import com.pl.transporthub.shared.interfaces.GenericRepository;
+import com.pl.transporthub.transport.Station;
 
-public class BusRepository implements GenericRepository<Bus>{
+public class StationRepository implements GenericRepository<Station>{
 
 	@Override
-	public void add(Bus t) {
+	public void add(Station t) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void remove(Bus t) {
+	public void remove(Station t) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Bus get(Bus t) {
+	public Station get(Station t) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Iterable<Bus> getAll() {
+	public Iterable<Station> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Iterable<Bus> find(Specification spec) {
+	public Iterable<Station> find(Specification spec) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 }
