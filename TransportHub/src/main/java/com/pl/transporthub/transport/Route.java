@@ -19,69 +19,8 @@ package com.pl.transporthub.transport;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Route {
-	
-	//Station state = null;
-	ArrayList<Station> stations = null;
-	int indexKey = 0;
-	
-	Route(){
-		
-	}
+public class Route extends Line {
 	
 	
-	
-	public ArrayList<Station> getStations() {
-		return stations;
-	}
-
-
-
-	public void setStations(ArrayList<Station> stations) {
-		this.stations = stations;
-	}
-
-
-
-	public int getIndex() {
-		return indexKey;
-	}
-
-
-
-	public void setIndex(int indexKey) {
-		this.indexKey = indexKey;
-	}
-
-
-
-	void createRoute() {
-		
-		this.stations = new ArrayList<Station>();
-	}
-	
-	ArrayList<Station> getRoute() {
-		
-		return this.stations;
-	}
-	
-	void printRoute() {
-		
-		Iterator<Station> iter = getRoute().iterator();
-		
-		while (iter.hasNext()) { 
-            System.out.print(iter.next().getNum_of_station() + ", "); 
-        } 
-	}
-	
-
-	
-	@Override
-	public String toString() {
-		
-		System.out.println(this.indexKey + "\n");
-		return null;
-		
-	}
 	
 }
