@@ -21,6 +21,16 @@ import java.util.Iterator;
 
 public class Route extends Line {
 	
+	private ArrayList<Line> lines;
 	
+	public Route() {
+		
+	}
 	
+	private Route generateRoute() {
+		
+		Route r = new Route();
+		return r;
+		
+	}
 }

@@ -10,7 +10,8 @@ public class Station {
 
 	private enum  sState{
 		OPEN,
-		CLOSED
+		TEMPORARELY_CLOSED,
+		PERMANENTLY_CLOSED;
 	} 
 	
 	private String stationName;

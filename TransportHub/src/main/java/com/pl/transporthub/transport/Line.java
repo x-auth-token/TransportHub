@@ -8,7 +8,7 @@ public class Line {
 		
 		OPEN,
 		TEMPORARELY_CLOSED,
-		PERMANENTLY_CLOSED
+		PERMANENTLY_CLOSED;
 	}
 	
 	private int lineNumber;
