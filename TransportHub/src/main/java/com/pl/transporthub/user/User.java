@@ -16,6 +16,7 @@
  ******************************************************************************/
 package com.pl.transporthub.user;
 
+import java.util.Date;
 import java.util.List;
 
 import com.pl.transporthub.aaa.Permissions.Permission;
@@ -25,18 +26,34 @@ public abstract class User {
 	private String username;
 	private String password;
 	private List<Permission> permissions;
+	private Date expirationDate;
 
 	public User() {
 		setUsername(null);
 		setPassword(null);
 		setPermissions(null);
+		setExpirationDate(null);
 	}
 
 	public User(String un, String pass) {
 
 		setUsername(un);
 		setPassword(pass);
-		setPermissions(null);
+	}
+	
+	public User(String un, String pass, List<Permission> permissions ) {
+
+		setUsername(un);
+		setPassword(pass);
+		setPermissions(permissions);		
+	}
+	
+	public User(String un, String pass, List<Permission> permissions, Date experationDate ) {
+
+		setUsername(un);
+		setPassword(pass);
+		setPermissions(permissions);
+		setExpirationDate(expirationDate);
 	}
 
 	protected String getUsername() {
@@ -61,6 +78,14 @@ public abstract class User {
 
 	protected void setPermissions(List<Permission> permissions) {
 		this.permissions = permissions;
+	}
+	
+	public Date getExpirationDate() {
+		return expirationDate;
+	}
+
+	public void setExpirationDate(Date expirationDate) {
+		this.expirationDate = expirationDate;
 	}
 
 }

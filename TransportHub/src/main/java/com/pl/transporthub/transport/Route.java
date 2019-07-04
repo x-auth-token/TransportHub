@@ -22,6 +22,8 @@ import java.util.Iterator;
 public class Route extends Line {
 	
 	private ArrayList<Line> lines;
+	private ArrayList<Station> stations;
+	private ArrayList<Bus> buses;
 	
 	public Route() {
 		

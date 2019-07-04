@@ -51,7 +51,7 @@ ArrayList<Route> routes = null;
 
 
 
-	public Route getRt() {
+	public Route getRoute() {
 		return rt;
 	}
 
