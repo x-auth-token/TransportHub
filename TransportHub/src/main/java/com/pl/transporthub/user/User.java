@@ -18,38 +18,46 @@ package com.pl.transporthub.user;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import com.pl.transporthub.aaa.Permissions.Permission;
 
 public abstract class User {
 
+	private UUID userID;
+	
+
 	private String username;
-	private String password;
+	private char[] password;
 	private List<Permission> permissions;
 	private Date expirationDate;
 
 	public User() {
+		generateUserID();
 		setUsername(null);
 		setPassword(null);
 		setPermissions(null);
 		setExpirationDate(null);
 	}
 
-	public User(String un, String pass) {
-
+	public User(String un, char[] pass) {
+		
+		generateUserID();
 		setUsername(un);
 		setPassword(pass);
 	}
 	
-	public User(String un, String pass, List<Permission> permissions ) {
-
+	public User(String un, char[] pass, List<Permission> permissions ) {
+		
+		generateUserID();
 		setUsername(un);
 		setPassword(pass);
 		setPermissions(permissions);		
 	}
 	
-	public User(String un, String pass, List<Permission> permissions, Date experationDate ) {
-
+	public User(String un, char[] pass, List<Permission> permissions, Date experationDate ) {
+		
+		generateUserID();
 		setUsername(un);
 		setPassword(pass);
 		setPermissions(permissions);
@@ -64,11 +72,11 @@ public abstract class User {
 		this.username = username;
 	}
 
-	protected String getPassword() {
+	protected char[] getPassword() {
 		return password;
 	}
 
-	protected void setPassword(String password) {
+	protected void setPassword(char[] password) {
 		this.password = password;
 	}
 
@@ -87,5 +95,19 @@ public abstract class User {
 	public void setExpirationDate(Date expirationDate) {
 		this.expirationDate = expirationDate;
 	}
+	
+	public UUID getUserID() {
+		return userID;
+	}
+
+	public void generateUserID() {
+		this.userID = UUID.randomUUID();
+	}
+	
+	/*
+	 * private boolean resetPasswordSelf() {
+	 * 
+	 * if (vali) }
+	 */
 
 }
