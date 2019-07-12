@@ -3,17 +3,17 @@ package com.pl.transporthub.user;
 import java.util.Date;
 import java.util.List;
 
-import com.pl.transporthub.aaa.Permissions.Permission;
+import com.pl.transporthub.aaa.Permission;
 
-public class Passenger extends User {
+public class Passenger extends AuthenticatedUser {
 
 	public Passenger() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Passenger(String un, char[] pass, List<Permission> permissions, Date experationDate) {
-		super(un, pass, permissions, experationDate);
+	public Passenger(String un, char[] pass, List<Permission> permissions, Date expirationDate) {
+		super(un, pass, permissions, expirationDate);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -22,11 +22,6 @@ public class Passenger extends User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Passenger(String un, char[] pass) {
-		super(un, pass);
-		// TODO Auto-generated constructor stub
-	}
 
-	
 	
 }

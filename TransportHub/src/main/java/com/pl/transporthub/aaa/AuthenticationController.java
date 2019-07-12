@@ -16,12 +16,12 @@
  ******************************************************************************/
 package com.pl.transporthub.aaa;
 
-import com.pl.transporthub.aaa.Permissions.Permission;
+public interface AuthenticationController {
 
-public interface AuthorizationModule {
+	boolean validateUsername(String username);
 
-	Permission getUserPermissionSet(String username);
+	boolean validatePassword(String password);
 
-	void setUserPermissionSet(Permission perm);
+	String getPasswordFromUserDatabase(String username);
 
 }

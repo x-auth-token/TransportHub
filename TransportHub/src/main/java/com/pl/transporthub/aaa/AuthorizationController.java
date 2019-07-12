@@ -14,23 +14,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
-package com.pl.transporthub.gui;
+package com.pl.transporthub.aaa;
 
-import java.awt.EventQueue;
+import com.pl.transporthub.aaa.Permission;
 
-public class Main {
+public interface AuthorizationController {
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUIHomeView frame = new GUIHomeView();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	Permission getUserPermissionSet(String username);
+
+	void setUserPermissionSet(Permission perm);
 
 }

@@ -16,31 +16,28 @@
  ******************************************************************************/
 package com.pl.transporthub.aaa;
 
-public abstract class Permissions {
+public class Permission {
+	private enum Permissions {
 
-	private Permissions() {
-	};
+		/* Administrative Permissions */
+		CREATE_USER, CHANGE_USER, DELETE_USER, VIEW_USER,
 
-	public enum Permission {
-		ANONYMOUS, AUTHPASSANGER, DRIVER, PTM, ADMIN
-	}
+		CREATE_DRIVER, CHANGE_DRIVER, DELETE_DRIVER, VIEW_DRIVER,
 
-	public static Permission toPermission(String permission) {
+		CREATE_PTM, CHANGE_PTM, DELETE_PTM, VIEW_PTM,
 
-		switch (permission.toUpperCase()) {
-		case "ANONYMOUS":
-			return Permission.ANONYMOUS;
-		case "AUTHPASSANGER":
-			return Permission.AUTHPASSANGER;
-		case "DRIVER":
-			return Permission.DRIVER;
-		case "PTM":
-			return Permission.PTM;
-		case "ADMIN":
-			return Permission.ADMIN;
-		default:
-			return null;
-		}
+		CREATE_ADMIN, CHANGE_ADMIN, DELETE_ADMIN, VIEW_ADMIN,
 
+		/* Application Permissions */
+
+		CREATE_BUS, CHANGE_BUS, DELETE_BUS, VIEW_BUS,
+
+		CREATE_LINE, CHANGE_LINE, DELETE_LINE, VIEW_LINE,
+
+		CREATE_STATION, CHANGE_STATION, DELETE_STATION, VIEW_STATION,
+
+		CREATE_ROUTE, CHANGE_ROUTE, DELETE_ROUTE, VIEW_ROUTE,
+
+		CREATE_MAP, CHANGE_MAP, DELETE_MAP, VIEW_MAP;
 	}
 }

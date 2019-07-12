@@ -18,7 +18,7 @@ package com.pl.transporthub.aaa;
 
 import jdk.internal.instrumentation.Logger;
 
-public class AccountabilityModule implements Logger {
+public class AccountabilityController implements Logger {
 
 	@Override
 	public void debug(String arg0) {

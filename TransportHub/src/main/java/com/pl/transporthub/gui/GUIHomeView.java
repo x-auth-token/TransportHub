@@ -36,6 +36,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
+import com.pl.transporthub.aaa.AuthenticationView;
+
 import net.miginfocom.swing.MigLayout;
 
 public class GUIHomeView extends JFrame {
@@ -135,7 +137,7 @@ public class GUIHomeView extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				// TODO Auto-generated method stub
-				GUISignInView signIn = new GUISignInView(null, true);
+				AuthenticationView signIn = new AuthenticationView(null, true);
 				signIn.setVisible(true);
 
 			}

@@ -17,10 +17,8 @@
 package com.pl.transporthub.user;
 
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
-import com.pl.transporthub.aaa.Permissions.Permission;
 
 public abstract class User {
 
@@ -29,14 +27,14 @@ public abstract class User {
 
 	private String username;
 	private char[] password;
-	private List<Permission> permissions;
+	
 	private Date expirationDate;
+	private boolean enabled;
 
 	public User() {
 		generateUserID();
 		setUsername(null);
 		setPassword(null);
-		setPermissions(null);
 		setExpirationDate(null);
 	}
 
@@ -47,20 +45,12 @@ public abstract class User {
 		setPassword(pass);
 	}
 	
-	public User(String un, char[] pass, List<Permission> permissions ) {
-		
-		generateUserID();
-		setUsername(un);
-		setPassword(pass);
-		setPermissions(permissions);		
-	}
 	
-	public User(String un, char[] pass, List<Permission> permissions, Date experationDate ) {
+	public User(String un, char[] pass, Date expirationDate ) {
 		
 		generateUserID();
 		setUsername(un);
 		setPassword(pass);
-		setPermissions(permissions);
 		setExpirationDate(expirationDate);
 	}
 
@@ -79,14 +69,6 @@ public abstract class User {
 	protected void setPassword(char[] password) {
 		this.password = password;
 	}
-
-	protected List<Permission> getPermissions() {
-		return permissions;
-	}
-
-	protected void setPermissions(List<Permission> permissions) {
-		this.permissions = permissions;
-	}
 	
 	public Date getExpirationDate() {
 		return expirationDate;
@@ -104,10 +86,15 @@ public abstract class User {
 		this.userID = UUID.randomUUID();
 	}
 	
-	/*
-	 * private boolean resetPasswordSelf() {
-	 * 
-	 * if (vali) }
-	 */
-
+	public boolean isEnabled() {
+		return this.enabled;
+	}
+	
+	public void setEnabled() {
+		this.enabled = true;
+	}
+	
+	public void setDisabled() {
+		this.enabled = false;
+	}
 }

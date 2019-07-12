@@ -14,14 +14,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
-package com.pl.transporthub.aaa;
+package com.pl.transporthub.gui;
 
-public interface AuthenticationModule {
+//import java.awt.EventQueue;
+import javax.swing.SwingUtilities;
+public class TransportHub {
 
-	boolean validateUsername(String username);
-
-	boolean validatePassword(String password);
-
-	String getPasswordFromUserDatabase(String username);
+	public static void main(String[] args) {
+		//EventQueue.invokeLater(new Runnable() {
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					createAndShowGUI();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		
+	}
+	
+	public static void createAndShowGUI() throws Exception {
+		new GUIHomeView();
+	}
 
 }

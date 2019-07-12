@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
-package com.pl.transporthub.gui;
+package com.pl.transporthub.aaa;
 
 //import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -42,9 +42,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
-import com.pl.transporthub.aaa.PasswordHasher;
-
-public class GUISignInView extends JDialog {
+public class AuthenticationView extends JDialog {
 
 	/**
 	 * 
@@ -58,7 +56,7 @@ public class GUISignInView extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public GUISignInView(final Frame parent, boolean modal) {
+	public AuthenticationView(final Frame parent, boolean modal) {
 		setUndecorated(true);
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		setResizable(true);
@@ -108,7 +106,7 @@ public class GUISignInView extends JDialog {
 			panel.setBackground(new Color(0, 59, 77));
 			JLabel logo = new JLabel("");
 			logo.setBackground(new Color(102, 0, 204));
-			logo.setIcon(new ImageIcon(GUISignInView.class.getResource("/images/TransportHubLogoBWBig.png")));
+			logo.setIcon(new ImageIcon(AuthenticationView.class.getResource("/images/TransportHubLogoBWBig.png")));
 			panel.add(logo);
 			contentPanel.add(panel);
 		}
@@ -224,7 +222,7 @@ public class GUISignInView extends JDialog {
 			JLabel lblCloseWindow = new JLabel("");
 			lblCloseWindow.setHorizontalAlignment(SwingConstants.CENTER);
 			lblCloseWindow.setIcon(new ImageIcon(
-					GUISignInView.class.getResource("/images/TansportHubCloseWindowButtomImageSmall.png")));
+					AuthenticationView.class.getResource("/images/TansportHubCloseWindowButtomImageSmall.png")));
 			lblCloseWindow.setBounds(705, 6, 14, 16);
 
 			lblCloseWindow.addMouseListener(new MouseListener() {
