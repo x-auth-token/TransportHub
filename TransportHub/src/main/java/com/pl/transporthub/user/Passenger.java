@@ -12,16 +12,16 @@ public class Passenger extends AuthenticatedUser {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Passenger(String un, char[] pass, List<Permission> permissions, Date expirationDate) {
-		super(un, pass, permissions, expirationDate);
+	public Passenger(String un, char[] pass, Date expirationDate, boolean adminValue) {
+		super(un, pass, expirationDate, adminValue);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Passenger(String un, char[] pass, List<Permission> permissions) {
-		super(un, pass, permissions);
+	public Passenger(String un, char[] pass, boolean adminValue) {
+		super(un, pass, adminValue);
 		// TODO Auto-generated constructor stub
 	}
 
-
+	
 	
 }

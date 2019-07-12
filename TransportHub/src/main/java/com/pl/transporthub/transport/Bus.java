@@ -66,11 +66,6 @@ public class Bus extends Vehicle {
 		this.busCondition = busCondition;
 	}
 
-	
-	
-
-	
-	
 
 
 }

@@ -17,36 +17,42 @@
 package com.pl.transporthub.user;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 import com.pl.transporthub.aaa.Permission;
 
 public class AuthenticatedUser extends User {
 	
-	private List<Permission> permissions;
+	protected Set<Permission> permissions;
 
 	public AuthenticatedUser() {
 		super();
-		setPermissions(null);
-
 	}
 	
-	public AuthenticatedUser(String un, char[] pass, List<Permission> permissions) {
-		super(un, pass);
-		setPermissions(permissions);
+	public AuthenticatedUser(String un, char[] pass, boolean adminValue) {
+		super(un, pass, adminValue);
+
 	}
 
-	public AuthenticatedUser(String un, char[] pass, List<Permission> permissions, Date expirationDate) {
-		super(un, pass, expirationDate);
-		setPermissions(permissions);
+	public AuthenticatedUser(String un, char[] pass, Date expirationDate, boolean adminValue) {
+		super(un, pass, expirationDate, adminValue);
+
 	}
 
-	public List<Permission> getPermissions() {
+	public Set<Permission> getPermissions() {
 		return permissions;
 	}
 
-	public void setPermissions(List<Permission> permissions) {
-		this.permissions = permissions;
+	public void addPermissions(Permission permissions) {
+		this.permissions.add(permissions);
+	}
+	
+	public boolean hasPermission(Permission permission) {
+		return this.permissions.contains(permission);
+	}
+	
+	public void removePermission(Permission permission) {
+		this.permissions.remove(permission);
 	}
 	
 }

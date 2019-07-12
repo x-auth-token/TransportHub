@@ -30,6 +30,8 @@ public abstract class User {
 	
 	private Date expirationDate;
 	private boolean enabled;
+	
+	private boolean admin;
 
 	public User() {
 		generateUserID();
@@ -38,20 +40,22 @@ public abstract class User {
 		setExpirationDate(null);
 	}
 
-	public User(String un, char[] pass) {
+	public User(String un, char[] pass, boolean adminValue) {
 		
 		generateUserID();
 		setUsername(un);
 		setPassword(pass);
+		setAdmin(adminValue);
 	}
 	
 	
-	public User(String un, char[] pass, Date expirationDate ) {
+	public User(String un, char[] pass, Date expirationDate, boolean adminValue) {
 		
 		generateUserID();
 		setUsername(un);
 		setPassword(pass);
 		setExpirationDate(expirationDate);
+		setAdmin(adminValue);
 	}
 
 	protected String getUsername() {
@@ -97,4 +101,13 @@ public abstract class User {
 	public void setDisabled() {
 		this.enabled = false;
 	}
+	
+	public boolean isAdmin() {
+		return this.admin;
+	}
+	
+	public void setAdmin(boolean adminValue) {
+		this.admin = adminValue;
+	}
+	
 }
