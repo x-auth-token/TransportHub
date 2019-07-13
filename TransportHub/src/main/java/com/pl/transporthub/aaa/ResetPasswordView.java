@@ -1,5 +1,6 @@
 package com.pl.transporthub.aaa;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Frame;
 
@@ -45,12 +46,23 @@ public class ResetPasswordView extends AuthenticationView {
 	public void setChangePassword(boolean changePassword) {
 		this.changePassword = changePassword;
 	}
-
+	
+	@Override
+	public void initDialog(Frame parent, boolean modal) {
+		
+		super.initDialog(parent, modal);
+		setBounds(100, 100, 729, 387);
+		setLocationRelativeTo(parent);
+		
+	}
 	@Override
 	public void initComponents() {
 
 		super.initComponents();
-
+		getContentPanel().setBounds(0, 0, 729, 387);
+		logoBackgroundPanel.setBounds(0, 0, 364, 387);
+		logoBackgroundPanel.setLayout(new BorderLayout());
+		
 		lblUsername = new JLabel("Username");
 		lblUsername.setBounds(374, 18, 359, 26);
 		lblUsername.setForeground(Color.BLACK);
@@ -63,18 +75,6 @@ public class ResetPasswordView extends AuthenticationView {
 		txtUsername.setBackground(Color.WHITE);
 		
 		btnChangePassword = new JButton();
-		btnChangePassword.setBounds(472, 253, 153, 29);
-		btnChangePassword.setForeground(Color.BLACK);
-		btnChangePassword.setContentAreaFilled(false);
-		btnChangePassword.setBorderPainted(false);
-		btnChangePassword.setOpaque(false);
-		
-		btnCancel = new JButton("Cancel");
-		btnCancel.setBounds(472, 283, 153, 29);
-		btnCancel.setForeground(Color.BLACK);
-		btnCancel.setContentAreaFilled(false);
-		btnCancel.setBorderPainted(false);
-		btnCancel.setOpaque(false);
 		
 		if (isChangePassword()) {
 			lblOldPassword = new JLabel("Old Password");
@@ -99,19 +99,31 @@ public class ResetPasswordView extends AuthenticationView {
 			btnChangePassword.setText("Reset Password");
 		}
 			lblNewPassword = new JLabel("New Password");
-			lblNewPassword.setBounds(374, 136, 359, 26);
+			lblNewPassword.setBounds(374, 126, 359, 26);
 			lblNewPassword.setForeground(Color.BLACK);
 
-			lblNewPasswordMatch = new JLabel("Enter Password Again");
-			lblNewPasswordMatch.setBounds(374, 190, 359, 26);
-			lblNewPasswordMatch.setForeground(Color.BLACK);
-
 			txtNewPasswordField = new JPasswordField();
-			txtNewPasswordField.setBounds(374, 163, 345, 26);
-
+			txtNewPasswordField.setBounds(374, 153, 345, 26);
+			
+			lblNewPasswordMatch = new JLabel("Enter Password Again");
+			lblNewPasswordMatch.setBounds(374, 180, 359, 26);
+			lblNewPasswordMatch.setForeground(Color.BLACK);
+			
 			txtNewPassPasswordMatchField = new JPasswordField();
-			txtNewPassPasswordMatchField.setBounds(374, 217, 345, 26);
+			txtNewPassPasswordMatchField.setBounds(374, 207, 345, 26);
 		
+			btnChangePassword.setBounds(472, 273, 153, 29);
+			btnChangePassword.setForeground(Color.BLACK);
+			btnChangePassword.setContentAreaFilled(false);
+			btnChangePassword.setBorderPainted(false);
+			btnChangePassword.setOpaque(false);
+			
+			btnCancel = new JButton("Cancel");
+			btnCancel.setBounds(472, 303, 153, 29);
+			btnCancel.setForeground(Color.BLACK);
+			btnCancel.setContentAreaFilled(false);
+			btnCancel.setBorderPainted(false);
+			btnCancel.setOpaque(false);
 	}
 	
 	@Override

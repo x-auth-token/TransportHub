@@ -37,11 +37,13 @@ public class AuthenticationController {
 
 	private LoginView authView;
 	private ResetPasswordView resetPassView;
+	private SelfServiceRegisterNewPassangerView selfRegisterView;
 
 
 	public AuthenticationController(final Frame parent, boolean modal) {
 		authView = new LoginView(parent, modal);
 		resetPassView = new ResetPasswordView(parent, modal, false);
+		selfRegisterView = new SelfServiceRegisterNewPassangerView(parent, modal);
 		setActionListeners();
 		setFocusListeners();
 		setMouseListeners();
@@ -52,7 +54,8 @@ public class AuthenticationController {
 		authView.getBtnSignUp().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				authView.getBtnSignUp().setForeground(Color.GRAY);
+				authView.exit();
+				selfRegisterView.showAuthView();
 			}
 		});
 
@@ -61,8 +64,7 @@ public class AuthenticationController {
 			@Override
 			public void actionPerformed(ActionEvent forgotButtonClicked) {
 
-
-				authView.dispose();
+				authView.exit();
 				resetPassView.showAuthView();
 
 				
@@ -97,12 +99,39 @@ public class AuthenticationController {
 			}
 		});
 		
-		resetPassView.getBtnCancel().addActionListener(new ActionListener() {
+		resetPassView.getBtnChangePassword().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				resetPassView.exit();
 				
+			}
+		});
+		
+		resetPassView.getBtnCancel().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				resetPassView.exit();
+				authView.showAuthView();
+				
+			}
+		});
+		
+		selfRegisterView.getBtnRegister().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				selfRegisterView.exit();
+				
+			}
+		});
+		selfRegisterView.getBtnCancel().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				selfRegisterView.exit();
+				authView.showAuthView();
 			}
 		});
 

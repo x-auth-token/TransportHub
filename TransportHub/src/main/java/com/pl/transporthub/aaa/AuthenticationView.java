@@ -37,17 +37,11 @@ public abstract class AuthenticationView extends JDialog {
 	 */
 	private static final long serialVersionUID = -6871434862699855261L;
 	private JPanel contentPanel = new JPanel();
-	/*
-	 * private JTextField txtUsername; private JPasswordField txtPasswordField;
-	 * private boolean firstRun = true; private JButton btnForgotPassword; private
-	 * JButton btnSignUp; private JButton btnSignIn; private JLabel
-	 * lblNoUserPassProvided; private JLabel lblUsername; private JLabel
-	 * lblPassword;
-	 */
+	
 	protected JPanel logoBackgroundPanel;
 	protected JLabel lblCloseWindow;
 	protected JLabel logo;
-	//String usernameMessageTip = "Enter Username";
+	
 
 	/**
 	 * Create the dialog.
@@ -89,6 +83,7 @@ public abstract class AuthenticationView extends JDialog {
 		logoBackgroundPanel.setBorder(new MatteBorder(1, 1, 1, 0, (Color) new Color(128, 128, 128)));
 		logoBackgroundPanel.setBounds(0, 0, 364, 327);
 		logoBackgroundPanel.setBackground(new Color(0, 59, 77));
+		
 		
 		logo = new JLabel("");
 		logo.setBackground(new Color(102, 0, 204));
