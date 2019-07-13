@@ -1,4 +1,4 @@
-package com.pl.transporthub.gui;
+package com.pl.transporthub.transporthub;
 
 public class GUIRoundButtonFactory {
 	public static GUIRoundButton getRoundButton(String bType, String bName) {

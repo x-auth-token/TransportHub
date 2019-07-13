@@ -1,4 +1,4 @@
-package com.pl.transporthub.gui;
+package com.pl.transporthub.transporthub;
 
 import java.awt.event.ActionEvent;
 

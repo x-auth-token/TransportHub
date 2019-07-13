@@ -31,11 +31,11 @@ import com.pl.transporthub.user.User;
 
 public class AuthenticationController {
 	
-	private AuthenticationView authView;
+	private LoginView authView;
 	
 	
 	public AuthenticationController(final Frame parent, boolean modal) {
-		authView = new AuthenticationView(parent, modal);
+		authView = new LoginView(parent, modal);
 		setActionListeners();
 		setFocusListeners();
 		setMouseListeners();
@@ -51,7 +51,10 @@ public class AuthenticationController {
 		
 		authView.getBtnForgotPassword().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent forgotButtonClicked) {
-				authView.getBtnForgotPassword().setForeground(Color.GRAY);
+				ResetPasswordView resetPassView = new ResetPasswordView(null, true, true);
+				resetPassView.showAuthView();
+				authView.exit();
+				//authView.getBtnForgotPassword().setForeground(Color.GRAY);
 			}
 	});
 		

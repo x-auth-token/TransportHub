@@ -42,26 +42,24 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
-public class AuthenticationView extends JDialog {
+public abstract class AuthenticationView extends JDialog {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6871434862699855261L;
 	private JPanel contentPanel = new JPanel();
-	private JTextField txtUsername;
-	private JPasswordField txtPasswordField;
-	private boolean firstRun = true;
-	private JButton btnForgotPassword;
-	private JButton btnSignUp;
-	private JButton btnSignIn;
-	private JLabel lblNoUserPassProvided;
-	private JLabel lblUsername;
-	private JPanel logoBackgroundPanel;
-	private JLabel lblPassword;
-	private JLabel lblCloseWindow;
-	private JLabel logo;
-	String usernameMessageTip = "Enter Username";
+	/*
+	 * private JTextField txtUsername; private JPasswordField txtPasswordField;
+	 * private boolean firstRun = true; private JButton btnForgotPassword; private
+	 * JButton btnSignUp; private JButton btnSignIn; private JLabel
+	 * lblNoUserPassProvided; private JLabel lblUsername; private JLabel
+	 * lblPassword;
+	 */
+	protected JPanel logoBackgroundPanel;
+	protected JLabel lblCloseWindow;
+	protected JLabel logo;
+	//String usernameMessageTip = "Enter Username";
 
 	/**
 	 * Create the dialog.
@@ -92,54 +90,47 @@ public class AuthenticationView extends JDialog {
 		contentPanel.setBackground(new Color(222, 224, 224));
 		contentPanel.setBorder(new LineBorder(new Color(128, 128, 128)));
 		
-		btnSignUp = new JButton("Not Registered? Sign Up");
-		btnSignUp.setBounds(452, 243, 194, 29);
-		
-		btnForgotPassword = new JButton("Forgot Password?");
-		btnForgotPassword.setBounds(472, 203, 153, 29);
-		btnForgotPassword.setActionCommand("Forgot");
-		btnForgotPassword.setForeground(Color.BLACK);
-		btnForgotPassword.setOpaque(false);
-		btnForgotPassword.setContentAreaFilled(false);
-		btnForgotPassword.setBorderPainted(false);
-		
-		lblNoUserPassProvided = new JLabel("You must enter username and password");
-		lblNoUserPassProvided.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNoUserPassProvided.setForeground(new Color(204, 0, 51));
-		lblNoUserPassProvided.setBounds(372, 176, 347, 16);
-		lblNoUserPassProvided.setVisible(false);
-		
-		lblUsername = new JLabel("Username");
-		lblUsername.setBounds(374, 48, 359, 26);
-		lblUsername.setForeground(Color.BLACK);
-		
-		
-		txtUsername = new JTextField();
-		txtUsername.setForeground(Color.LIGHT_GRAY);
-		txtUsername.setBounds(374, 75, 345, 26);
-
-		txtUsername.setColumns(10);
-		txtUsername.setBackground(Color.WHITE);
-
-		lblPassword = new JLabel("Password");
-		lblPassword.setBounds(374, 112, 359, 26);
-		lblPassword.setForeground(Color.BLACK);
-		
-		txtPasswordField = new JPasswordField();
-		txtPasswordField.setBounds(374, 139, 345, 26);
-		
-		btnSignUp.setOpaque(false);
-		btnSignUp.setForeground(Color.BLACK);
-		btnSignUp.setContentAreaFilled(false);
-		btnSignUp.setBorderPainted(false);
-		
-		btnSignIn = new JButton("Sign In");
-		btnSignIn.setBounds(502, 283, 87, 29);
-		
-		btnSignIn.setForeground(Color.BLACK);
-		btnSignIn.setContentAreaFilled(false);
-		btnSignIn.setBorderPainted(false);
-		btnSignIn.setOpaque(false);
+		/*
+		 * btnSignUp = new JButton("Not Registered? Sign Up"); btnSignUp.setBounds(452,
+		 * 243, 194, 29);
+		 * 
+		 * btnForgotPassword = new JButton("Forgot Password?");
+		 * btnForgotPassword.setBounds(472, 203, 153, 29);
+		 * btnForgotPassword.setActionCommand("Forgot");
+		 * btnForgotPassword.setForeground(Color.BLACK);
+		 * btnForgotPassword.setOpaque(false);
+		 * btnForgotPassword.setContentAreaFilled(false);
+		 * btnForgotPassword.setBorderPainted(false);
+		 * 
+		 * lblNoUserPassProvided = new JLabel("You must enter username and password");
+		 * lblNoUserPassProvided.setHorizontalAlignment(SwingConstants.CENTER);
+		 * lblNoUserPassProvided.setForeground(new Color(204, 0, 51));
+		 * lblNoUserPassProvided.setBounds(372, 176, 347, 16);
+		 * lblNoUserPassProvided.setVisible(false);
+		 * 
+		 * lblUsername = new JLabel("Username"); lblUsername.setBounds(374, 48, 359,
+		 * 26); lblUsername.setForeground(Color.BLACK);
+		 * 
+		 * 
+		 * txtUsername = new JTextField(); txtUsername.setForeground(Color.LIGHT_GRAY);
+		 * txtUsername.setBounds(374, 75, 345, 26);
+		 * 
+		 * txtUsername.setColumns(10); txtUsername.setBackground(Color.WHITE);
+		 * 
+		 * lblPassword = new JLabel("Password"); lblPassword.setBounds(374, 112, 359,
+		 * 26); lblPassword.setForeground(Color.BLACK);
+		 * 
+		 * txtPasswordField = new JPasswordField(); txtPasswordField.setBounds(374, 139,
+		 * 345, 26);
+		 * 
+		 * btnSignUp.setOpaque(false); btnSignUp.setForeground(Color.BLACK);
+		 * btnSignUp.setContentAreaFilled(false); btnSignUp.setBorderPainted(false);
+		 * 
+		 * btnSignIn = new JButton("Sign In"); btnSignIn.setBounds(502, 283, 87, 29);
+		 * 
+		 * btnSignIn.setForeground(Color.BLACK); btnSignIn.setContentAreaFilled(false);
+		 * btnSignIn.setBorderPainted(false); btnSignIn.setOpaque(false);
+		 */
 		
 		lblCloseWindow = new JLabel("");
 		lblCloseWindow.setHorizontalAlignment(SwingConstants.CENTER);
@@ -166,35 +157,28 @@ public class AuthenticationView extends JDialog {
 		
 		logoBackgroundPanel.add(logo);
 		contentPanel.add(logoBackgroundPanel);
-		contentPanel.add(lblNoUserPassProvided);
-		contentPanel.add(lblUsername);
-		contentPanel.add(lblPassword);
-		contentPanel.add(txtPasswordField);
-		contentPanel.add(btnForgotPassword);
-		contentPanel.add(btnSignUp);
-		contentPanel.add(txtUsername);
-		contentPanel.add(btnSignIn);
+		/* contentPanel.add(lblNoUserPassProvided); contentPanel.add(lblUsername);
+		 * contentPanel.add(lblPassword); contentPanel.add(txtPasswordField);
+		 * contentPanel.add(btnForgotPassword); contentPanel.add(btnSignUp);
+		 * contentPanel.add(txtUsername); contentPanel.add(btnSignIn);
+		 */
 		contentPanel.add(lblCloseWindow);
 		
 		
 	}
 	
 	
-	public JTextField getTxtUsername() {
-		return txtUsername;
-	}
-
-	public void setTxtUsername(JTextField txtUsername) {
-		this.txtUsername = txtUsername;
-	}
-
-	public JPasswordField getTxtPasswordField() {
-		return txtPasswordField;
-	}
-
-	public void setTxtPasswordField(JPasswordField txtPasswordField) {
-		this.txtPasswordField = txtPasswordField;
-	}
+	/*
+	 * public JTextField getTxtUsername() { return txtUsername; }
+	 * 
+	 * public void setTxtUsername(JTextField txtUsername) { this.txtUsername =
+	 * txtUsername; }
+	 * 
+	 * public JPasswordField getTxtPasswordField() { return txtPasswordField; }
+	 * 
+	 * public void setTxtPasswordField(JPasswordField txtPasswordField) {
+	 * this.txtPasswordField = txtPasswordField; }
+	 */
 
 	public JPanel getContentPanel() {
 		return contentPanel;
@@ -205,58 +189,39 @@ public class AuthenticationView extends JDialog {
 		this.contentPanel = panel;
 	}
 
-	public boolean isFirstRun() {
-		return firstRun;
-	}
-
-	public void setFirstRun(boolean firstRun) {
-		this.firstRun = firstRun;
-	}
-
-	public JButton getBtnForgotPassword() {
-		return btnForgotPassword;
-	}
-
-	public void setBtnForgotPassword(JButton btnForgotPassword) {
-		this.btnForgotPassword = btnForgotPassword;
-	}
-
-	public JButton getBtnSignUp() {
-		return btnSignUp;
-	}
-
-	public void setBtnSignUp(JButton btnSignUp) {
-		this.btnSignUp = btnSignUp;
-	}
-
-	public JButton getBtnSignIn() {
-		return btnSignIn;
-	}
-
-	public void setBtnSignIn(JButton btnSignIn) {
-		this.btnSignIn = btnSignIn;
-	}
-	
-	
-	
-	public JLabel getLblNoUserPassProvided() {
-		return lblNoUserPassProvided;
-	}
-
-
-	public void setLblNoUserPassProvided(JLabel lblNoUserPassProvided) {
-		this.lblNoUserPassProvided = lblNoUserPassProvided;
-	}
-
-
-	public JLabel getLblUsername() {
-		return lblUsername;
-	}
-
-
-	public void setLblUsername(JLabel lblUsername) {
-		this.lblUsername = lblUsername;
-	}
+	/*
+	 * public boolean isFirstRun() { return firstRun; }
+	 * 
+	 * public void setFirstRun(boolean firstRun) { this.firstRun = firstRun; }
+	 * 
+	 * public JButton getBtnForgotPassword() { return btnForgotPassword; }
+	 * 
+	 * public void setBtnForgotPassword(JButton btnForgotPassword) {
+	 * this.btnForgotPassword = btnForgotPassword; }
+	 * 
+	 * public JButton getBtnSignUp() { return btnSignUp; }
+	 * 
+	 * public void setBtnSignUp(JButton btnSignUp) { this.btnSignUp = btnSignUp; }
+	 * 
+	 * public JButton getBtnSignIn() { return btnSignIn; }
+	 * 
+	 * public void setBtnSignIn(JButton btnSignIn) { this.btnSignIn = btnSignIn; }
+	 * 
+	 * 
+	 * 
+	 * public JLabel getLblNoUserPassProvided() { return lblNoUserPassProvided; }
+	 * 
+	 * 
+	 * public void setLblNoUserPassProvided(JLabel lblNoUserPassProvided) {
+	 * this.lblNoUserPassProvided = lblNoUserPassProvided; }
+	 * 
+	 * 
+	 * public JLabel getLblUsername() { return lblUsername; }
+	 * 
+	 * 
+	 * public void setLblUsername(JLabel lblUsername) { this.lblUsername =
+	 * lblUsername; }
+	 */
 
 
 	public JPanel getLogoBackgroundPanel() {
@@ -269,14 +234,13 @@ public class AuthenticationView extends JDialog {
 	}
 
 
-	public JLabel getLblPassword() {
-		return lblPassword;
-	}
-
-
-	public void setLblPassword(JLabel lblPassword) {
-		this.lblPassword = lblPassword;
-	}
+	/*
+	 * public JLabel getLblPassword() { return lblPassword; }
+	 * 
+	 * 
+	 * public void setLblPassword(JLabel lblPassword) { this.lblPassword =
+	 * lblPassword; }
+	 */
 
 
 	public JLabel getLblCloseWindow() {
@@ -299,14 +263,13 @@ public class AuthenticationView extends JDialog {
 	}
 
 
-	public String getUsernameMessageTip() {
-		return usernameMessageTip;
-	}
-
-
-	public void setUsernameMessageTip(String usernameMessageTip) {
-		this.usernameMessageTip = usernameMessageTip;
-	}
+	/*
+	 * public String getUsernameMessageTip() { return usernameMessageTip; }
+	 * 
+	 * 
+	 * public void setUsernameMessageTip(String usernameMessageTip) {
+	 * this.usernameMessageTip = usernameMessageTip; }
+	 */
 
 
 	public void showAuthView() {
