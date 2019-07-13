@@ -20,8 +20,7 @@
 	version="1.0" xmlns="http://java.sun.com/xml/ns/persistence">
 	<persistence-unit name="UsersPU" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<class>com.pl.transporthub.entitiy</class>
-		<!-- <description>This is part of the Employee JPA example using just XML configuration.</description> -->
+		<class>com.pl.transporthub.user</class>
 		<properties>
 			<!-- property name="eclipselink.logging.level" value="ALL"/-->
 			<!-- <property name="eclipselink.logging.thread" value="false"/>

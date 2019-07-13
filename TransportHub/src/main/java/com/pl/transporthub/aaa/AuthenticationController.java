@@ -16,12 +16,161 @@
  ******************************************************************************/
 package com.pl.transporthub.aaa;
 
-public interface AuthenticationController {
+import java.awt.Color;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
-	boolean validateUsername(String username);
+import com.pl.transporthub.user.User;
 
-	boolean validatePassword(String password);
+public class AuthenticationController {
+	
+	private AuthenticationView authView;
+	
+	
+	public AuthenticationController(final Frame parent, boolean modal) {
+		authView = new AuthenticationView(parent, modal);
+		setActionListeners();
+		setFocusListeners();
+		setMouseListeners();
+	}
+	
+	
+	private void setActionListeners() {
+		authView.getBtnSignUp().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				authView.getBtnSignUp().setForeground(Color.GRAY);
+			}
+		});
+		
+		authView.getBtnForgotPassword().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent forgotButtonClicked) {
+				authView.getBtnForgotPassword().setForeground(Color.GRAY);
+			}
+	});
+		
+		authView.getBtnSignIn().addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
 
-	String getPasswordFromUserDatabase(String username);
+					String username = authView.getTxtUsername().getText();
+					String hashedPassword = "";
+
+					if (authView.getTxtPasswordField().getPassword().length != 0) {
+						try {
+							hashedPassword = PasswordHasher.generateHashedPassword(authView.getTxtPasswordField().getPassword());
+						} catch (NoSuchAlgorithmException | InvalidKeySpecException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+
+					if (username.isEmpty() || hashedPassword.isEmpty() || username.equals(authView.getUsernameMessageTip())) {
+
+						if (!authView.getLblNoUserPassProvided().isVisible())
+							authView.getLblNoUserPassProvided().setVisible(true);
+
+					} else {
+						authView.exit();
+					}
+
+				}
+			});
+		
+		
+	}
+	
+	public void setFocusListeners() {
+		authView.getTxtUsername().addFocusListener(new FocusListener() {
+
+				@Override
+				public void focusLost(FocusEvent e) {
+
+					if (authView.getTxtUsername().getText().equals("")) {
+						authView.getTxtUsername().setText(authView.getUsernameMessageTip());
+						authView.getTxtUsername().setForeground(Color.LIGHT_GRAY);
+						authView.getTxtUsername().revalidate();
+					}
+
+				}
+
+				@Override
+				public void focusGained(FocusEvent e) {
+					if (authView.isFirstRun()) {
+						authView.getTxtUsername().setText(authView.getUsernameMessageTip());
+						authView.getTxtUsername().setForeground(Color.LIGHT_GRAY);
+						authView.setFirstRun(false);
+						authView.getTxtUsername().transferFocus();
+
+					} else {
+						if (authView.getTxtUsername().getText().equals(authView.getUsernameMessageTip())) {
+							authView.getTxtUsername().setText("");
+							authView.getTxtUsername().setForeground(Color.BLACK);
+							authView.getTxtUsername().revalidate();
+						}
+					}
+
+				}
+			});
+	}
+	
+	public void setMouseListeners() {
+		authView.getLblCloseWindow().addMouseListener(new MouseListener() {
+
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					// TODO Auto-generated method stub
+
+				}
+
+				@Override
+				public void mousePressed(MouseEvent e) {
+					authView.dispose();
+
+				}
+
+				@Override
+				public void mouseExited(MouseEvent e) {
+					// TODO Auto-generated method stub
+
+				}
+
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					// TODO Auto-generated method stub
+
+				}
+
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					// TODO Auto-generated method stub
+
+				}
+			});
+	}
+
+
+
+	public boolean validateUsername(String username) {
+		return false;
+	}
+
+	public boolean validatePassword(String password) {
+		return false;
+	}
+	
+	
+	public String getPasswordFromUserDatabase(String username) {
+		return null;
+	}
+	
+	public void start() {
+		authView.showAuthView();
+	}
 
 }

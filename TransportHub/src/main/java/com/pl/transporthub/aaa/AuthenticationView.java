@@ -48,81 +48,72 @@ public class AuthenticationView extends JDialog {
 	 * 
 	 */
 	private static final long serialVersionUID = -6871434862699855261L;
-	private final JPanel contentPanel = new JPanel();
+	private JPanel contentPanel = new JPanel();
 	private JTextField txtUsername;
 	private JPasswordField txtPasswordField;
 	private boolean firstRun = true;
+	private JButton btnForgotPassword;
+	private JButton btnSignUp;
+	private JButton btnSignIn;
+	private JLabel lblNoUserPassProvided;
+	private JLabel lblUsername;
+	private JPanel logoBackgroundPanel;
+	private JLabel lblPassword;
+	private JLabel lblCloseWindow;
+	private JLabel logo;
+	String usernameMessageTip = "Enter Username";
 
 	/**
 	 * Create the dialog.
 	 */
 	public AuthenticationView(final Frame parent, boolean modal) {
+		
+		initDialog(parent, modal);
+		initComponents();
+		setUpAuthenticationView();
+		
+	}
+	
+	
+	public void initDialog(final Frame parent, boolean modal) {
 		setUndecorated(true);
 		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		setResizable(true);
 		setBackground(Color.WHITE);
 		setBounds(100, 100, 729, 327);
 		setLocationRelativeTo(parent);
+		setModal(modal);
+		
+	}
+	
+	public void initComponents() {
+		
 		contentPanel.setBounds(0, 0, 729, 327);
 		contentPanel.setBackground(new Color(222, 224, 224));
 		contentPanel.setBorder(new LineBorder(new Color(128, 128, 128)));
-
-		getContentPane().setLayout(null);
-
-		JButton btnSignUp = new JButton("Not Registered? Sign Up");
+		
+		btnSignUp = new JButton("Not Registered? Sign Up");
 		btnSignUp.setBounds(452, 243, 194, 29);
-		btnSignUp.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				btnSignUp.setForeground(Color.GRAY);
-			}
-		});
-
-		JButton btnForgotPassword = new JButton("Forgot Password?");
+		
+		btnForgotPassword = new JButton("Forgot Password?");
 		btnForgotPassword.setBounds(472, 203, 153, 29);
 		btnForgotPassword.setActionCommand("Forgot");
 		btnForgotPassword.setForeground(Color.BLACK);
 		btnForgotPassword.setOpaque(false);
 		btnForgotPassword.setContentAreaFilled(false);
 		btnForgotPassword.setBorderPainted(false);
-
-		btnForgotPassword.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent forgotButtonClicked) {
-
-				// if
-				// (btnForgotPassword.getActionCommand().equals(forgotButtonClicked.getActionCommand()))
-				// {
-
-				btnForgotPassword.setForeground(Color.GRAY);
-
-				// }
-
-			}
-		});
-		contentPanel.setLayout(null);
-		{
-			JPanel panel = new JPanel();
-			panel.setBorder(new MatteBorder(1, 1, 1, 0, (Color) new Color(128, 128, 128)));
-			panel.setBounds(0, 0, 364, 327);
-			panel.setBackground(new Color(0, 59, 77));
-			JLabel logo = new JLabel("");
-			logo.setBackground(new Color(102, 0, 204));
-			logo.setIcon(new ImageIcon(AuthenticationView.class.getResource("/images/TransportHubLogoBWBig.png")));
-			panel.add(logo);
-			contentPanel.add(panel);
-		}
-
-		JLabel lblNoUserPassProvided = new JLabel("You must enter username and password");
+		
+		lblNoUserPassProvided = new JLabel("You must enter username and password");
 		lblNoUserPassProvided.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNoUserPassProvided.setForeground(new Color(204, 0, 51));
 		lblNoUserPassProvided.setBounds(372, 176, 347, 16);
 		lblNoUserPassProvided.setVisible(false);
-		contentPanel.add(lblNoUserPassProvided);
-
-		JLabel lblUsername = new JLabel("Username");
+		
+		lblUsername = new JLabel("Username");
 		lblUsername.setBounds(374, 48, 359, 26);
 		lblUsername.setForeground(Color.BLACK);
-		contentPanel.add(lblUsername);
-
+		
+		
 		txtUsername = new JTextField();
 		txtUsername.setForeground(Color.LIGHT_GRAY);
 		txtUsername.setBounds(374, 75, 345, 26);
@@ -130,139 +121,88 @@ public class AuthenticationView extends JDialog {
 		txtUsername.setColumns(10);
 		txtUsername.setBackground(Color.WHITE);
 
-		JLabel lblPassword = new JLabel("Password");
+		lblPassword = new JLabel("Password");
 		lblPassword.setBounds(374, 112, 359, 26);
 		lblPassword.setForeground(Color.BLACK);
-		contentPanel.add(lblPassword);
-
+		
 		txtPasswordField = new JPasswordField();
 		txtPasswordField.setBounds(374, 139, 345, 26);
-		contentPanel.add(txtPasswordField);
-
-		contentPanel.add(btnForgotPassword);
+		
 		btnSignUp.setOpaque(false);
 		btnSignUp.setForeground(Color.BLACK);
 		btnSignUp.setContentAreaFilled(false);
 		btnSignUp.setBorderPainted(false);
+		
+		btnSignIn = new JButton("Sign In");
+		btnSignIn.setBounds(502, 283, 87, 29);
+		
+		btnSignIn.setForeground(Color.BLACK);
+		btnSignIn.setContentAreaFilled(false);
+		btnSignIn.setBorderPainted(false);
+		btnSignIn.setOpaque(false);
+		
+		lblCloseWindow = new JLabel("");
+		lblCloseWindow.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCloseWindow.setIcon(new ImageIcon(
+				AuthenticationView.class.getResource("/images/TansportHubCloseWindowButtomImageSmall.png")));
+		lblCloseWindow.setBounds(705, 6, 14, 16);
+		
+		logoBackgroundPanel = new JPanel();
+		logoBackgroundPanel.setBorder(new MatteBorder(1, 1, 1, 0, (Color) new Color(128, 128, 128)));
+		logoBackgroundPanel.setBounds(0, 0, 364, 327);
+		logoBackgroundPanel.setBackground(new Color(0, 59, 77));
+		
+		logo = new JLabel("");
+		logo.setBackground(new Color(102, 0, 204));
+		logo.setIcon(new ImageIcon(AuthenticationView.class.getResource("/images/TransportHubLogoBWBig.png")));
+		
+		contentPanel.setLayout(null);
+		getContentPane().setLayout(null);
+		getContentPane().add(contentPanel);
+		
+	}
+	
+	public void setUpAuthenticationView() {
+		
+		logoBackgroundPanel.add(logo);
+		contentPanel.add(logoBackgroundPanel);
+		contentPanel.add(lblNoUserPassProvided);
+		contentPanel.add(lblUsername);
+		contentPanel.add(lblPassword);
+		contentPanel.add(txtPasswordField);
+		contentPanel.add(btnForgotPassword);
 		contentPanel.add(btnSignUp);
+		contentPanel.add(txtUsername);
+		contentPanel.add(btnSignIn);
+		contentPanel.add(lblCloseWindow);
+		
+		
+	}
+	
+	
+	public JTextField getTxtUsername() {
+		return txtUsername;
+	}
 
-		{
-			String sGuestAccess = "For Guest access type guest/guest";
+	public void setTxtUsername(JTextField txtUsername) {
+		this.txtUsername = txtUsername;
+	}
 
-			JButton btnSignIn = new JButton("Sign In");
-			btnSignIn.setBounds(502, 283, 87, 29);
-			btnSignIn.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
+	public JPasswordField getTxtPasswordField() {
+		return txtPasswordField;
+	}
 
-					String username = txtUsername.getText();
-					String hashedPassword = "";
+	public void setTxtPasswordField(JPasswordField txtPasswordField) {
+		this.txtPasswordField = txtPasswordField;
+	}
 
-					if (txtPasswordField.getPassword().length != 0) {
-						try {
-							hashedPassword = PasswordHasher.generateHashedPassword(txtPasswordField.getPassword());
-						} catch (NoSuchAlgorithmException | InvalidKeySpecException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-					}
-
-					if (username.isEmpty() || hashedPassword.isEmpty() || username.equals(sGuestAccess)) {
-
-						if (!lblNoUserPassProvided.isVisible())
-							lblNoUserPassProvided.setVisible(true);
-
-					} else {
-						dispose();
-					}
-
-				}
-			});
-
-			txtUsername.addFocusListener(new FocusListener() {
-
-				@Override
-				public void focusLost(FocusEvent e) {
-
-					if (txtUsername.getText().equals("")) {
-						txtUsername.setText(sGuestAccess);
-						txtUsername.setForeground(Color.LIGHT_GRAY);
-						txtUsername.revalidate();
-					}
-
-				}
-
-				@Override
-				public void focusGained(FocusEvent e) {
-					if (isFirstRun()) {
-						txtUsername.setText(sGuestAccess);
-						txtUsername.setForeground(Color.LIGHT_GRAY);
-						setFirstRun(false);
-						txtUsername.transferFocus();
-
-					} else {
-						if (txtUsername.getText().equals(sGuestAccess)) {
-							txtUsername.setText("");
-							txtUsername.setForeground(Color.BLACK);
-							txtUsername.revalidate();
-						}
-					}
-
-				}
-			});
-
-			contentPanel.add(txtUsername);
-			btnSignIn.setForeground(Color.BLACK);
-			btnSignIn.setContentAreaFilled(false);
-			btnSignIn.setBorderPainted(false);
-			btnSignIn.setOpaque(false);
-			contentPanel.add(btnSignIn);
-
-			getContentPane().add(contentPanel);
-
-			JLabel lblCloseWindow = new JLabel("");
-			lblCloseWindow.setHorizontalAlignment(SwingConstants.CENTER);
-			lblCloseWindow.setIcon(new ImageIcon(
-					AuthenticationView.class.getResource("/images/TansportHubCloseWindowButtomImageSmall.png")));
-			lblCloseWindow.setBounds(705, 6, 14, 16);
-
-			lblCloseWindow.addMouseListener(new MouseListener() {
-
-				@Override
-				public void mouseReleased(MouseEvent e) {
-					// TODO Auto-generated method stub
-
-				}
-
-				@Override
-				public void mousePressed(MouseEvent e) {
-					dispose();
-
-				}
-
-				@Override
-				public void mouseExited(MouseEvent e) {
-					// TODO Auto-generated method stub
-
-				}
-
-				@Override
-				public void mouseEntered(MouseEvent e) {
-					// TODO Auto-generated method stub
-
-				}
-
-				@Override
-				public void mouseClicked(MouseEvent e) {
-					// TODO Auto-generated method stub
-
-				}
-			});
-			contentPanel.add(lblCloseWindow);
-
-			setModal(modal);
-
-		}
-
+	public JPanel getContentPanel() {
+		return contentPanel;
+		
+	}
+	
+	public void setContentPanel(JPanel panel) {
+		this.contentPanel = panel;
 	}
 
 	public boolean isFirstRun() {
@@ -272,4 +212,109 @@ public class AuthenticationView extends JDialog {
 	public void setFirstRun(boolean firstRun) {
 		this.firstRun = firstRun;
 	}
+
+	public JButton getBtnForgotPassword() {
+		return btnForgotPassword;
+	}
+
+	public void setBtnForgotPassword(JButton btnForgotPassword) {
+		this.btnForgotPassword = btnForgotPassword;
+	}
+
+	public JButton getBtnSignUp() {
+		return btnSignUp;
+	}
+
+	public void setBtnSignUp(JButton btnSignUp) {
+		this.btnSignUp = btnSignUp;
+	}
+
+	public JButton getBtnSignIn() {
+		return btnSignIn;
+	}
+
+	public void setBtnSignIn(JButton btnSignIn) {
+		this.btnSignIn = btnSignIn;
+	}
+	
+	
+	
+	public JLabel getLblNoUserPassProvided() {
+		return lblNoUserPassProvided;
+	}
+
+
+	public void setLblNoUserPassProvided(JLabel lblNoUserPassProvided) {
+		this.lblNoUserPassProvided = lblNoUserPassProvided;
+	}
+
+
+	public JLabel getLblUsername() {
+		return lblUsername;
+	}
+
+
+	public void setLblUsername(JLabel lblUsername) {
+		this.lblUsername = lblUsername;
+	}
+
+
+	public JPanel getLogoBackgroundPanel() {
+		return logoBackgroundPanel;
+	}
+
+
+	public void setLogoBackgroundPanel(JPanel logoBackgroundPanel) {
+		this.logoBackgroundPanel = logoBackgroundPanel;
+	}
+
+
+	public JLabel getLblPassword() {
+		return lblPassword;
+	}
+
+
+	public void setLblPassword(JLabel lblPassword) {
+		this.lblPassword = lblPassword;
+	}
+
+
+	public JLabel getLblCloseWindow() {
+		return lblCloseWindow;
+	}
+
+
+	public void setLblCloseWindow(JLabel lblCloseWindow) {
+		this.lblCloseWindow = lblCloseWindow;
+	}
+
+
+	public JLabel getLogo() {
+		return logo;
+	}
+
+
+	public void setLogo(JLabel logo) {
+		this.logo = logo;
+	}
+
+
+	public String getUsernameMessageTip() {
+		return usernameMessageTip;
+	}
+
+
+	public void setUsernameMessageTip(String usernameMessageTip) {
+		this.usernameMessageTip = usernameMessageTip;
+	}
+
+
+	public void showAuthView() {
+		setVisible(true);
+	}
+	
+	public void exit() {
+		dispose();
+	}
+	
 }

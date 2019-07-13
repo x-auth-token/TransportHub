@@ -36,7 +36,15 @@ public class TransportHub {
 	}
 	
 	public static void createAndShowGUI() throws Exception {
-		new GUIHomeView();
+		
+		/*
+		 * GUIMainWindowController mainWindowController = new GUIMainWindowController();
+		 * mainWindowController.start();
+		 */
+		 
+		new GUIMainWindowView();
+	
+	
 	}
 
 }

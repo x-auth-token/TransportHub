@@ -25,14 +25,14 @@ public class AuthenticatedUser extends User {
 	
 	protected Set<Permission> permissions;
 
-	public AuthenticatedUser() {
-		super();
-	}
-	
-	public AuthenticatedUser(String un, char[] pass, boolean adminValue) {
-		super(un, pass, adminValue);
-
-	}
+	/*
+	 * public AuthenticatedUser() { super(); }
+	 * 
+	 * public AuthenticatedUser(String un, char[] pass, boolean adminValue) {
+	 * super(un, pass, adminValue);
+	 * 
+	 * }
+	 */
 
 	public AuthenticatedUser(String un, char[] pass, Date expirationDate, boolean adminValue) {
 		super(un, pass, expirationDate, adminValue);

@@ -16,8 +16,25 @@
  ******************************************************************************/
 package com.pl.transporthub.user;
 
-import com.pl.transporthub.shared.classes.AbstractFactory;
+import java.util.Date;
 
-public class UserFactory extends AbstractFactory {
+public class UserFactory {
 	
+	public static User getUser(String uType, String uName, char[] password, Date expirationDate, boolean adminValue) {
+		
+		if ("Admin".equalsIgnoreCase(uType) && adminValue == true) {
+			return new Driver(uName, password, expirationDate, adminValue);
+		}
+		else if ("Passenger".equalsIgnoreCase(uType)) {
+			return new Passenger(uName, password, expirationDate, false);
+		} 
+		else if ("Driver".equalsIgnoreCase(uType) ) {
+			return new Driver(uName, password, expirationDate, false);
+		}
+		else if ("PTM".equalsIgnoreCase(uType)) {
+			return new PublicTransportManager(uName, password, expirationDate, false);
+		}
+		
+		return null;
+	}
 }

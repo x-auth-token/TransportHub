@@ -24,30 +24,28 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-public class GUIRoundButton extends JLabel {
+public abstract class GUIRoundButton extends JLabel {
+	
 
 	/**
+	 * @return 
 	 * 
 	 */
-	private static final long serialVersionUID = -1108283401029565569L;
-
-	public GUIRoundButton(String btnName, String btnIconName) {
-		this.setName(btnName);
-		this.setIcon(new ImageIcon(getClass().getResource(btnIconName)));
-		this.setHorizontalAlignment(SwingConstants.CENTER);
-		changeLableIconOnMouseHover();
-	}
-
-	public GUIRoundButton(String btnName, String btnIconName, String btntext) {
-
-		this(btnName, btnIconName);
-		setText(btntext);
-		setVerticalTextPosition(BOTTOM);
-		setHorizontalTextPosition(CENTER);
-		setForeground(Color.WHITE);
-		// setTextA
-	}
-
+	/*
+	 * private static final long serialVersionUID = -1108283401029565569L;
+	 * 
+	 * public GUIRoundButton(String btnName, String btnIconName) {
+	 * this.setName(btnName); this.setIcon(new
+	 * ImageIcon(getClass().getResource(btnIconName)));
+	 * this.setHorizontalAlignment(SwingConstants.CENTER);
+	 * changeLableIconOnMouseHover(); }
+	 * 
+	 * public GUIRoundButton(String btnName, String btnIconName, String btntext) {
+	 * 
+	 * this(btnName, btnIconName); setText(btntext);
+	 * setVerticalTextPosition(BOTTOM); setHorizontalTextPosition(CENTER);
+	 * setForeground(Color.WHITE); // setTextA }
+	 */
 	public void changeLableIconOnMouseHover() {
 
 		this.addMouseListener(new MouseListener() {
@@ -74,14 +72,14 @@ public class GUIRoundButton extends JLabel {
 			public void mouseEntered(MouseEvent e) {
 				// TODO Auto-generated method stub
 				setIcon(new ImageIcon(
-						GUIHomeView.class.getResource("/images/TransportHub" + getName() + "ImageBig.png")));
+						GUIMainWindowView.class.getResource("/images/TransportHub" + getName() + "ImageBig.png")));
 
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
 				setIcon(new ImageIcon(
-						GUIHomeView.class.getResource("/images/TransportHub" + getName() + "ImageSmall.png")));
+						GUIMainWindowView.class.getResource("/images/TransportHub" + getName() + "ImageSmall.png")));
 
 			}
 		});

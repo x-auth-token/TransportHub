@@ -33,20 +33,14 @@ public abstract class User {
 	
 	private boolean admin;
 
-	public User() {
-		generateUserID();
-		setUsername(null);
-		setPassword(null);
-		setExpirationDate(null);
-	}
-
-	public User(String un, char[] pass, boolean adminValue) {
-		
-		generateUserID();
-		setUsername(un);
-		setPassword(pass);
-		setAdmin(adminValue);
-	}
+	/*
+	 * public User() { generateUserID(); setUsername(null); setPassword(null);
+	 * setExpirationDate(null); }
+	 * 
+	 * public User(String un, char[] pass, boolean adminValue) {
+	 * 
+	 * generateUserID(); setUsername(un); setPassword(pass); setAdmin(adminValue); }
+	 */
 	
 	
 	public User(String un, char[] pass, Date expirationDate, boolean adminValue) {
