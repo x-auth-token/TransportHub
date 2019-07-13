@@ -27,134 +27,189 @@ import java.awt.event.MouseListener;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
+import javax.swing.JDialog;
+import javax.swing.JInternalFrame.JDesktopIcon;
+import javax.swing.SwingUtilities;
+
 import com.pl.transporthub.user.User;
 
 public class AuthenticationController {
-	
+
 	private LoginView authView;
-	
-	
+	private ResetPasswordView resetPassView;
+
+
 	public AuthenticationController(final Frame parent, boolean modal) {
 		authView = new LoginView(parent, modal);
+		resetPassView = new ResetPasswordView(parent, modal, false);
 		setActionListeners();
 		setFocusListeners();
 		setMouseListeners();
 	}
-	
-	
+
+
 	private void setActionListeners() {
 		authView.getBtnSignUp().addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				authView.getBtnSignUp().setForeground(Color.GRAY);
 			}
 		});
-		
+
 		authView.getBtnForgotPassword().addActionListener(new ActionListener() {
+
+			@Override
 			public void actionPerformed(ActionEvent forgotButtonClicked) {
-				ResetPasswordView resetPassView = new ResetPasswordView(null, true, true);
+
+
+				authView.dispose();
 				resetPassView.showAuthView();
-				authView.exit();
-				//authView.getBtnForgotPassword().setForeground(Color.GRAY);
+
+				
 			}
-	});
-		
+		});
+
 		authView.getBtnSignIn().addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
+			@Override
+			public void actionPerformed(ActionEvent e) {
 
-					String username = authView.getTxtUsername().getText();
-					String hashedPassword = "";
+				String username = authView.getTxtUsername().getText();
+				String hashedPassword = "";
 
-					if (authView.getTxtPasswordField().getPassword().length != 0) {
-						try {
-							hashedPassword = PasswordHasher.generateHashedPassword(authView.getTxtPasswordField().getPassword());
-						} catch (NoSuchAlgorithmException | InvalidKeySpecException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
+				if (authView.getTxtPasswordField().getPassword().length != 0) {
+					try {
+						hashedPassword = PasswordHasher.generateHashedPassword(authView.getTxtPasswordField().getPassword());
+					} catch (NoSuchAlgorithmException | InvalidKeySpecException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
 					}
-
-					if (username.isEmpty() || hashedPassword.isEmpty() || username.equals(authView.getUsernameMessageTip())) {
-
-						if (!authView.getLblNoUserPassProvided().isVisible())
-							authView.getLblNoUserPassProvided().setVisible(true);
-
-					} else {
-						authView.exit();
-					}
-
 				}
-			});
+
+				if (username.isEmpty() || hashedPassword.isEmpty() || username.equals(authView.getUsernameMessageTip())) {
+
+					if (!authView.getLblNoUserPassProvided().isVisible())
+						authView.getLblNoUserPassProvided().setVisible(true);
+
+				} else {
+					authView.exit();
+				}
+
+			}
+		});
 		
-		
+		resetPassView.getBtnCancel().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				resetPassView.exit();
+				
+			}
+		});
+
 	}
-	
+
 	public void setFocusListeners() {
 		authView.getTxtUsername().addFocusListener(new FocusListener() {
 
-				@Override
-				public void focusLost(FocusEvent e) {
+			@Override
+			public void focusLost(FocusEvent e) {
 
-					if (authView.getTxtUsername().getText().equals("")) {
-						authView.getTxtUsername().setText(authView.getUsernameMessageTip());
-						authView.getTxtUsername().setForeground(Color.LIGHT_GRAY);
+				if (authView.getTxtUsername().getText().equals("")) {
+					authView.getTxtUsername().setText(authView.getUsernameMessageTip());
+					authView.getTxtUsername().setForeground(Color.LIGHT_GRAY);
+					authView.getTxtUsername().revalidate();
+				}
+
+			}
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				if (authView.isFirstRun()) {
+					authView.getTxtUsername().setText(authView.getUsernameMessageTip());
+					authView.getTxtUsername().setForeground(Color.LIGHT_GRAY);
+					authView.setFirstRun(false);
+					authView.getTxtUsername().transferFocus();
+
+				} else {
+					if (authView.getTxtUsername().getText().equals(authView.getUsernameMessageTip())) {
+						authView.getTxtUsername().setText("");
+						authView.getTxtUsername().setForeground(Color.BLACK);
 						authView.getTxtUsername().revalidate();
 					}
-
 				}
 
-				@Override
-				public void focusGained(FocusEvent e) {
-					if (authView.isFirstRun()) {
-						authView.getTxtUsername().setText(authView.getUsernameMessageTip());
-						authView.getTxtUsername().setForeground(Color.LIGHT_GRAY);
-						authView.setFirstRun(false);
-						authView.getTxtUsername().transferFocus();
-
-					} else {
-						if (authView.getTxtUsername().getText().equals(authView.getUsernameMessageTip())) {
-							authView.getTxtUsername().setText("");
-							authView.getTxtUsername().setForeground(Color.BLACK);
-							authView.getTxtUsername().revalidate();
-						}
-					}
-
-				}
-			});
+			}
+		});
 	}
-	
+
 	public void setMouseListeners() {
 		authView.getLblCloseWindow().addMouseListener(new MouseListener() {
 
-				@Override
-				public void mouseReleased(MouseEvent e) {
-					// TODO Auto-generated method stub
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
 
-				}
+			}
 
-				@Override
-				public void mousePressed(MouseEvent e) {
-					authView.dispose();
+			@Override
+			public void mousePressed(MouseEvent e) {
+				authView.dispose();
 
-				}
+			}
 
-				@Override
-				public void mouseExited(MouseEvent e) {
-					// TODO Auto-generated method stub
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
 
-				}
+			}
 
-				@Override
-				public void mouseEntered(MouseEvent e) {
-					// TODO Auto-generated method stub
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
 
-				}
+			}
 
-				@Override
-				public void mouseClicked(MouseEvent e) {
-					// TODO Auto-generated method stub
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
 
-				}
-			});
+			}
+		});
+
+		resetPassView.getLblCloseWindow().addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				resetPassView.exit();
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+		
+		
 	}
 
 
@@ -166,12 +221,12 @@ public class AuthenticationController {
 	public boolean validatePassword(String password) {
 		return false;
 	}
-	
-	
+
+
 	public String getPasswordFromUserDatabase(String username) {
 		return null;
 	}
-	
+
 	public void start() {
 		authView.showAuthView();
 	}

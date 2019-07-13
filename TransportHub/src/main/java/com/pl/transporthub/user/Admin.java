@@ -1,9 +1,6 @@
 package com.pl.transporthub.user;
 
 import java.util.Date;
-import java.util.List;
-
-import com.pl.transporthub.aaa.Permission;
 
 public class Admin extends AuthenticatedUser {
 
