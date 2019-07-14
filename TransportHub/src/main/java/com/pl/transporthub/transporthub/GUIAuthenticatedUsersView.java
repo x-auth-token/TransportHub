@@ -1,12 +1,14 @@
 package com.pl.transporthub.transporthub;
 
+import javax.swing.JTable;
+
 public class GUIAuthenticatedUsersView extends GUIMainWindowView {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	public GUIAuthenticatedUsersView() {
 		super();
 	}

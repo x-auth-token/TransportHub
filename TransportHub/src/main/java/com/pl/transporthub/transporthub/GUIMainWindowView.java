@@ -16,17 +16,22 @@
  ******************************************************************************/
 package com.pl.transporthub.transporthub;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.ComponentOrientation;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
+import javax.swing.table.DefaultTableModel;
 
 import net.miginfocom.swing.MigLayout;
 
@@ -46,6 +51,8 @@ public class GUIMainWindowView extends JFrame {
 	private GUIRoundButton rbRoute; 
 	private GUIRoundButton rbMap; 
 	private GUIRoundButton rbLogin;
+	private JTable tblBuses;
+	private JScrollPane scrollPane;
 
 
 	/**
@@ -72,7 +79,7 @@ public class GUIMainWindowView extends JFrame {
 	public void initContentPaneLayout() {
 		gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[] { 10, 0, 0 };
-		gbl_contentPane.rowHeights = new int[] { 278, 0 };
+		//gbl_contentPane.rowHeights = new int[] { 278, 0 };
 		gbl_contentPane.columnWeights = new double[] { 1.0, 1.0, Double.MIN_VALUE };
 		gbl_contentPane.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 	}
@@ -81,11 +88,16 @@ public class GUIMainWindowView extends JFrame {
 		gbc_panel = new GridBagConstraints();
 		gbc_panel.fill = GridBagConstraints.HORIZONTAL;
 		gbc_panel.gridwidth = 2;
+		
 		gbc_panel.anchor = GridBagConstraints.NORTH;
 		gbc_panel.gridx = GridBagConstraints.REMAINDER;
-		gbc_panel.gridy = 0;
+		gbc_panel.gridy = GridBagConstraints.ABOVE_BASELINE;
 		gbc_panel.weightx = 2.0;
-		gbc_panel.weighty = 1;
+		gbc_panel.weighty = 2;
+
+		
+	
+		
 	}
 
 	public void initComponents() {
@@ -99,6 +111,13 @@ public class GUIMainWindowView extends JFrame {
 		rbRoute = GUIRoundButtonFactory.getRoundButton("Route", "RouteButton");
 		rbMap = GUIRoundButtonFactory.getRoundButton("Map", "MapButton");
 		rbLogin = GUIRoundButtonFactory.getRoundButton("Login", "LoginButton");
+		DefaultTableModel model = new DefaultTableModel(10, 3);
+		tblBuses = new JTable(model);
+		tblBuses.setAutoResizeMode(MAXIMIZED_BOTH);
+	
+		
+		
+		
 	}
 
 	public void initInnerPanel() {
@@ -129,7 +148,10 @@ public class GUIMainWindowView extends JFrame {
 		innerPanel.add(rbRoute, "cell 1 0,alignx center,aligny center");
 		innerPanel.add(rbMap, "cell 1 0,alignx center");
 		innerPanel.add(rbLogin, "cell 2 0, align center");
+		
+		
 		contentPane.add(innerPanel, gbc_panel);
+		contentPane.add(tblBuses, gbc_panel);
 		setContentPane(contentPane);
 	}
 
