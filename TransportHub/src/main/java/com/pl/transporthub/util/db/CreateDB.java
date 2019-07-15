@@ -37,7 +37,9 @@ public class CreateDB {
 											"(5, 32.015960, 34.758646)");
 
 		try {
-			connection.createStatement().execute("create table person(id int, firstName varchar(20),lastName varchar(20), managerFlag int, driverID int)");
+			//connection.createStatement().execute("drop table person");
+
+			connection.createStatement().execute("create table person(id int, firstName varchar(20),lastName varchar(20),username varchar(20),password varchar(20),  managerFlag int, driverID int)");
 
 		}
 		catch(Exception e) {
@@ -46,10 +48,10 @@ public class CreateDB {
 			}
 
 		connection.createStatement().execute("insert into person values" +
-						 					"(1, 'moshe', 'ben moshe',0,0), "+
-											"(2, 'Israel', 'Israely', 1, 0), " +
-											"(3, 'Dan', 'D', 0, 1), " +
-											"(4, 'Geri', 'G', 0, 2)");
+						 					"(1, 'moshe', 'ben moshe','moshe','moshe',0,0), "+
+											"(2, 'Israel', 'Israely','Israel','Israel', 1, 0), " +
+											"(3, 'Dan', 'D','Dan','Dan', 0, 1), " +
+											"(4, 'Geri', 'G','Geri','Geri', 0, 2)");
 		try {
 			connection.createStatement().execute("create table line(id int, lineNumber int, numberOfStation int,stationsID varchar(20))");
 		}
@@ -59,9 +61,9 @@ public class CreateDB {
 
 			}
 		connection.createStatement().execute("insert into line values " +
-						 					"(1, 3, 100, '1,2,3'), "+
-											"(2, 4, 201, '1,3,4,5'), " +
-											"(3, 3, 154, '5,3,1')");
+						 					"(1, 100,3, '1,2,3'), "+
+											"(2, 201, 4, '1,3,4,5'), " +
+											"(3, 154, 3, '5,3,1')");
 		System.out.println("table created and records successfully inserted...");
 		
 		
