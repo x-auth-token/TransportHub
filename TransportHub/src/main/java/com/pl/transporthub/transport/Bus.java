@@ -22,6 +22,8 @@ public class Bus {
 	private String busRegPlate;
 	private Line assignedLine;
 	
+	private int assignedDriverID;
+	
 	private enum bCondition {
 		FUNCTIONAL,
 		DAMAGED,
@@ -66,6 +68,20 @@ public class Bus {
 		this.busCondition = busCondition;
 	}
 
+	/**
+	 * @return the assignedDriverID
+	 */
+	public int getAssignedDriverID() {
+		return assignedDriverID;
+	}
 
+	/**
+	 * @param assignedDriverID the assignedDriverID to set
+	 */
+	public void setAssignedDriverID(int assignedDriverID) {
+		this.assignedDriverID = assignedDriverID;
+	}
+
+	
 
 }

@@ -27,19 +27,23 @@ import java.awt.event.MouseListener;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
+import com.pl.transporthub.transporthub.GUIAuthenticatedUsersView;
+
 
 
 public class AuthenticationController {
 
-	private LoginView authView;
-	private ResetPasswordView resetPassView;
-	private SelfServiceRegisterNewPassangerView selfRegisterView;
+	private GUILoginView authView;
+	private GUIResetPasswordView resetPassView;
+	private GUISelfServiceRegisterNewPassangerView selfRegisterView;
+	
+	private GUIAuthenticatedUsersView authUserView;
 
 
 	public AuthenticationController(final Frame parent, boolean modal) {
-		authView = new LoginView(parent, modal);
-		resetPassView = new ResetPasswordView(parent, modal, false);
-		selfRegisterView = new SelfServiceRegisterNewPassangerView(parent, modal);
+		authView = new GUILoginView(parent, modal);
+		resetPassView = new GUIResetPasswordView(parent, modal, false);
+		selfRegisterView = new GUISelfServiceRegisterNewPassangerView(parent, modal);
 		setActionListeners();
 		setFocusListeners();
 		setMouseListeners();

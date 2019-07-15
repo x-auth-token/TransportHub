@@ -12,7 +12,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.MatteBorder;
 
-public class SelfServiceRegisterNewPassangerView extends AuthenticationView {
+public class GUISelfServiceRegisterNewPassangerView extends AuthenticationView {
 	
 	/**
 	 * 
@@ -41,7 +41,7 @@ public class SelfServiceRegisterNewPassangerView extends AuthenticationView {
 	private JButton btnRegister;
 	private JButton btnCancel;
 	
-	public SelfServiceRegisterNewPassangerView(Frame parent, boolean modal) {
+	public GUISelfServiceRegisterNewPassangerView(Frame parent, boolean modal) {
 		super(parent, modal);
 		
 	}

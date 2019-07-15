@@ -10,7 +10,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class LoginView extends AuthenticationView {
+public class GUILoginView extends AuthenticationView {
 	
 	/**
 	 * 
@@ -27,7 +27,7 @@ public class LoginView extends AuthenticationView {
 	
 	private JLabel lblPassword;
 	String usernameMessageTip = "Enter Username";
-	public LoginView(Frame parent, boolean modal) {
+	public GUILoginView(Frame parent, boolean modal) {
 		super(parent, modal);
 		// TODO Auto-generated constructor stub
 	}

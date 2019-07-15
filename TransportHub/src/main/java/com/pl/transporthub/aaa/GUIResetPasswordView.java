@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class ResetPasswordView extends AuthenticationView {
+public class GUIResetPasswordView extends AuthenticationView {
 
 	/**
 	 * 
@@ -31,7 +31,7 @@ public class ResetPasswordView extends AuthenticationView {
 	
 	
 	
-	public ResetPasswordView(Frame parent, boolean modal, boolean change) {
+	public GUIResetPasswordView(Frame parent, boolean modal, boolean change) {
 		super(parent, modal);
 		setChangePassword(change);
 		
