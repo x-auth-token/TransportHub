@@ -8,15 +8,18 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;  
+import java.util.Date;
+
+import com.pl.transporthub.shared.classes.Coordinate;  
 
 public class QueryDB {
 	//public static final String SQL_STATMENT = "select * from person";
 	public static void main(String[] args) throws SQLException {
-		ResultSet resultSet = getUsername(1);
-		while (resultSet.next()) {
-			System.out.println("");
-			for (int i = 1; i <= 1; i++) System.out.format("%20s",resultSet.getString(i)+" | ");
-		}
+		//Date resultSet = getExpirationDate(1);
+		System.out.println(getStationAddress(1));
+
 
 	}
 	
@@ -105,58 +108,72 @@ public class QueryDB {
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 	}
 	
-	public static ResultSet getUsername(int id) throws SQLException {
+	public static String getUsername(int id) throws SQLException {
 		String SQL_STATMENT = "select username from users where id="+id;
 		Connection connection = DriverManager.getConnection(CreateDB.JDBC_URL);
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(SQL_STATMENT);
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-		return resultSet;
+		resultSet.next();
+		return resultSet.getString(1);
 	}
 	
-	public static ResultSet getEmail(int id) throws SQLException {
+	public static String getEmail(int id) throws SQLException {
 		String SQL_STATMENT = "select email from users where id="+id;
 		Connection connection = DriverManager.getConnection(CreateDB.JDBC_URL);
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(SQL_STATMENT);
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-		return resultSet;
+		resultSet.next();
+		return resultSet.getString(1);
 	}
 	
-	public static ResultSet getPhone(int id) throws SQLException {
+	public static String getPhone(int id) throws SQLException {
 		String SQL_STATMENT = "select phone from users where id="+id;
 		Connection connection = DriverManager.getConnection(CreateDB.JDBC_URL);
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(SQL_STATMENT);
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-		return resultSet;
+		resultSet.next();
+		return resultSet.getString(1);
 	}
 	
-	public static ResultSet getPassword(int id) throws SQLException {
+	public static String getPassword(int id) throws SQLException {
 		String SQL_STATMENT = "select password from users where id="+id;
 		Connection connection = DriverManager.getConnection(CreateDB.JDBC_URL);
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(SQL_STATMENT);
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-		return resultSet;
+		resultSet.next();
+		return resultSet.getString(1);
 	}
 	
-	public static ResultSet getExpirationDate(int id) throws SQLException {
+	public static Date getExpirationDate(int id) throws SQLException {
 		String SQL_STATMENT = "select expirationDate from users where id="+id;
 		Connection connection = DriverManager.getConnection(CreateDB.JDBC_URL);
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(SQL_STATMENT);
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-		return resultSet;
+		resultSet.next();
+		String strdate = resultSet.getString(1);
+		Date date = null;
+		try {
+			date = new SimpleDateFormat("dd.MM.yyyy").parse(strdate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  
+		return date;
 	}
 	
-	public static ResultSet getEnabled(int id) throws SQLException {
-		String SQL_STATMENT = "select isEnabled from users where id="+id;
+	public static boolean getEnabled(int id) throws SQLException {
+		String SQL_STATMENT = "select enabled from users where id="+id;
 		Connection connection = DriverManager.getConnection(CreateDB.JDBC_URL);
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(SQL_STATMENT);
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-		return resultSet;
+		resultSet.next();
+		return resultSet.getBoolean(1);
 	}
 	
 	
@@ -179,13 +196,14 @@ public class QueryDB {
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 	}
 	
-	public static ResultSet getBusRegPlate(int id) throws SQLException {
+	public static String getBusRegPlate(int id) throws SQLException {
 		String SQL_STATMENT = "select busRegPlate from bus where id="+id;
 		Connection connection = DriverManager.getConnection(CreateDB.JDBC_URL);
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(SQL_STATMENT);
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-		return resultSet;
+		resultSet.next();
+		return resultSet.getString(1);
 	}
 	
 	public static void setline(int id, int line) throws SQLException {
@@ -196,13 +214,14 @@ public class QueryDB {
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 	}
 	
-	public static ResultSet getline(int id) throws SQLException {
+	public static int getline(int id) throws SQLException {
 		String SQL_STATMENT = "select lineID from bus where id="+id;
 		Connection connection = DriverManager.getConnection(CreateDB.JDBC_URL);
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(SQL_STATMENT);
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-		return resultSet;
+		resultSet.next();
+		return resultSet.getInt(1);
 	}
 	public static void setDriver(int id, int driverID) throws SQLException {
 		String SQL_STATMENT = "update bus set DriverID="+driverID+" where id="+id;
@@ -212,13 +231,14 @@ public class QueryDB {
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 	}
 	
-	public static ResultSet getDriver(int id) throws SQLException {
+	public static int getDriver(int id) throws SQLException {
 		String SQL_STATMENT = "select DriverID from bus where id="+id;
 		Connection connection = DriverManager.getConnection(CreateDB.JDBC_URL);
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(SQL_STATMENT);
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-		return resultSet;
+		resultSet.next();
+		return resultSet.getInt(1);
 	}
 	
 	//////////////line query//////////////
@@ -232,13 +252,14 @@ public class QueryDB {
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 	}
 	
-	public static ResultSet getStationName(int id) throws SQLException {
+	public static String getStationName(int id) throws SQLException {
 		String SQL_STATMENT = "select stationName from busStations where id="+id;
 		Connection connection = DriverManager.getConnection(CreateDB.JDBC_URL);
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(SQL_STATMENT);
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-		return resultSet;
+		resultSet.next();
+		return resultSet.getString(1);
 	}
 	
 	public static void setStationNumber(int oldid, int newid) throws SQLException {
@@ -249,7 +270,7 @@ public class QueryDB {
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 	}
 	
-	public static void getStationAddress(int id, String addr) throws SQLException {
+	public static void setStationAddress(int id, String addr) throws SQLException {
 		String SQL_STATMENT = "update busStations set stationAddress='"+addr+"' where id="+id;
 		Connection connection = DriverManager.getConnection(CreateDB.JDBC_URL);
 		Statement statement = connection.createStatement();
@@ -257,30 +278,35 @@ public class QueryDB {
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 	}
 	
-	public static ResultSet setStationAddress(int id) throws SQLException {
+	public static String getStationAddress(int id) throws SQLException {
 		String SQL_STATMENT = "select stationAddress from busStations where id="+id;
 		Connection connection = DriverManager.getConnection(CreateDB.JDBC_URL);
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(SQL_STATMENT);
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-		return resultSet;
+		resultSet.next();
+		return resultSet.getString(1);
 	}
 	
-	public static void setStationCoordinates(int id, float lat, float lon) throws SQLException {
-		String SQL_STATMENT = "update busStations set lat="+lat+" and lon="+lon+" where id="+id;
+	public static void setStationCoordinates(int id, Coordinate location) throws SQLException {
+		String SQL_STATMENT = "update busStations set lat="+location.getX()+" and lon="+location.getY()+" where id="+id;
 		Connection connection = DriverManager.getConnection(CreateDB.JDBC_URL);
 		Statement statement = connection.createStatement();
 		statement.executeQuery(SQL_STATMENT);
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 	}
 	
-	public static ResultSet getStationCoordinates(int id) throws SQLException {
+	public static Coordinate getStationCoordinates(int id) throws SQLException {
 		String SQL_STATMENT = "select lat,lon from busStations where id="+id;
 		Connection connection = DriverManager.getConnection(CreateDB.JDBC_URL);
 		Statement statement = connection.createStatement();
 		ResultSet resultSet = statement.executeQuery(SQL_STATMENT);
 		//ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
-		return resultSet;
+		
+		Coordinate location = null;
+		location.setX(resultSet.getFloat(1));
+		location.setY(resultSet.getFloat(3));
+		return location;
 	}
 	
 	
