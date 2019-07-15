@@ -15,14 +15,13 @@ public class GUIMainWindowController {
 	
 	public GUIMainWindowController() {
 		mainWindowView = new GUIMainWindowView();
-		//setActionListeners();
+		setActionListeners();
 		setMouseListeners();
 	}
 	
 	public void setActionListeners() {
 		closeApplication = new GUICustomCloseApplication();
-		mainWindowView.getContentPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("shift ctrl pressed E"),
-				"Exit");
+		mainWindowView.getContentPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("shift ctrl pressed E"),"Exit");
 		mainWindowView.getContentPane().getActionMap().put("Exit", closeApplication);
 	}
 	

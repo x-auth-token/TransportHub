@@ -27,11 +27,7 @@ import java.awt.event.MouseListener;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
-import javax.swing.JDialog;
-import javax.swing.JInternalFrame.JDesktopIcon;
-import javax.swing.SwingUtilities;
 
-import com.pl.transporthub.user.User;
 
 public class AuthenticationController {
 
