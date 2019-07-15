@@ -31,8 +31,11 @@ public abstract class User {
 	private Date expirationDate;
 	private boolean enabled;
 	
-	private boolean admin;
-
+	private boolean isadmin;
+	
+	private String email;
+	
+	private String mobileNumber;
 	/*
 	 * public User() { generateUserID(); setUsername(null); setPassword(null);
 	 * setExpirationDate(null); }
@@ -97,11 +100,68 @@ public abstract class User {
 	}
 	
 	public boolean isAdmin() {
-		return this.admin;
+		return this.isadmin;
 	}
 	
 	public void setAdmin(boolean adminValue) {
-		this.admin = adminValue;
+		this.isadmin = adminValue;
 	}
+
+	/**
+	 * @return the isadmin
+	 */
+	public boolean isIsadmin() {
+		return isadmin;
+	}
+
+	/**
+	 * @param isadmin the isadmin to set
+	 */
+	public void setIsadmin(boolean isadmin) {
+		this.isadmin = isadmin;
+	}
+
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * @param userID the userID to set
+	 */
+	public void setUserID(UUID userID) {
+		this.userID = userID;
+	}
+
+	/**
+	 * @param enabled the enabled to set
+	 */
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	/**
+	 * @return the mobileNumber
+	 */
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	/**
+	 * @param mobileNumber the mobileNumber to set
+	 */
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+	
 	
 }
