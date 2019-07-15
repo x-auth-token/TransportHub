@@ -54,6 +54,7 @@ public class GUIMainWindowView extends JFrame {
 	private DefaultTableModel tblBusesModel;
 	private JTable tblBuses;
 	private JScrollPane scrollPane;
+	private JPanel mapPanel;
 
 
 	/**
@@ -151,6 +152,7 @@ public class GUIMainWindowView extends JFrame {
 		contentPane.add(innerPanel, BorderLayout.NORTH);
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 		setContentPane(contentPane);
+		
 	}
 
 	public void showMainWindowView() {
@@ -183,5 +185,71 @@ public class GUIMainWindowView extends JFrame {
 	public GUIRoundButton getRbLogin() {
 		return rbLogin;
 	}
+
+
+	/**
+	 * @return the serialversionuid
+	 */
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
+	/**
+	 * @return the innerPanel
+	 */
+	public JPanel getInnerPanel() {
+		return innerPanel;
+	}
+
+
+	/**
+	 * @return the lblLogoLabel
+	 */
+	public JLabel getLblLogoLabel() {
+		return lblLogoLabel;
+	}
+
+
+	/**
+	 * @return the brl_contentPane
+	 */
+	public BorderLayout getBrl_contentPane() {
+		return brl_contentPane;
+	}
+
+
+	/**
+	 * @return the tblBusesModel
+	 */
+	public DefaultTableModel getTblBusesModel() {
+		return tblBusesModel;
+	}
+
+
+	/**
+	 * @return the tblBuses
+	 */
+	public JTable getTblBuses() {
+		return tblBuses;
+	}
+
+
+	/**
+	 * @return the scrollPane
+	 */
+	public JScrollPane getScrollPane() {
+		return scrollPane;
+	}
+
+
+	/**
+	 * @return the mapPanel
+	 */
+	public JPanel getMapPanel() {
+		return mapPanel;
+	}
+	
+	
 
 }

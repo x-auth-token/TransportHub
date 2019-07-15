@@ -23,6 +23,8 @@ public class GUIMainWindowController {
 		closeApplication = new GUICustomCloseApplication();
 		mainWindowView.getContentPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("shift ctrl pressed E"),"Exit");
 		mainWindowView.getContentPane().getActionMap().put("Exit", closeApplication);
+		
+		
 	}
 	
 	public void setMouseListeners() {
@@ -62,6 +64,38 @@ public class GUIMainWindowController {
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
 
+			}
+		});
+		
+		mainWindowView.getRbMap().addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
 			}
 		});
 	}
