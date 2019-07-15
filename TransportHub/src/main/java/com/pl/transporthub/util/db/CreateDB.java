@@ -12,29 +12,31 @@ public class CreateDB {
 		Class.forName(DRIVER);
 		Connection connection = DriverManager.getConnection(JDBC_URL);
 		try {
-			connection.createStatement().execute("create table bus(id int, lineID int,DriverID int)");
+			connection.createStatement().execute("create table bus(id int, lineID int,DriverID int, busRegPlate varchar(20))");
 		}
 		catch(Exception e) {
 			connection.createStatement().execute("delete from bus");
 			System.out.println("table bus alrady exists");
 			}
 		connection.createStatement().execute("insert into bus values " +
-						 					"(1,100,1), "+
-											"(2,201,2), " +
-											"(3,154,3)");
+						 					"(1,100,1,'123'), "+
+											"(2,201,2,'321'), " +
+											"(3,154,3, '111')");
 		try {
-			connection.createStatement().execute("create table busStations(id int, lat float,lon float)");
+			connection.createStatement().execute("drop table busStations");
+
+			connection.createStatement().execute("create table busStations(id int,stationName varchar(20),stationAddress varchar(20), lat float,lon float,lines varchar(20))");
 		}
 		catch(Exception e) {
 			connection.createStatement().execute("delete from busStations");
 			System.out.println("table busStations alrady exists");
 			}
 		connection.createStatement().execute("insert into busStations values " +
-						 					"(1, 32.013618, 34.771135), "+
-											"(2, 32.014405, 34.766924), " +
-											"(3, 32.014764, 34.764177), "+
-											"(4, 32.015323, 34.762042), " +
-											"(5, 32.015960, 34.758646)");
+						 					"(1, 'one', 'there 1', 32.013618, 34.771135, '100,201,154'), "+
+											"(2, 'tow', 'no there 43', 32.014405, 34.766924, '201'), " +
+											"(3, 'three', 'almost there 2', 32.014764, 34.764177, '100,201,154'), "+
+											"(4, 'four', 'somewhere 465', 32.015323, 34.762042, '201'), " +
+											"(5, 'five', 'gothem 48', 32.015960, 34.758646, '201,154')");
 
 		try {
 			//connection.createStatement().execute("drop table users");
@@ -57,7 +59,9 @@ public class CreateDB {
 											"(3, 'Dan', 'D','Dan','Dan', '1.1.2020',FALSE,FALSE,'1111113','dan@test.email', 1), " +
 											"(4, 'Geri', 'G','Geri','Geri', '1.1.2020',FALSE,FALSE,'111114','geri@test.email', 2)");
 		try {
-			connection.createStatement().execute("create table line(id int, lineNumber int, numberOfStation int,stationsID varchar(20))");
+			connection.createStatement().execute("drop table line");
+
+			connection.createStatement().execute("create table line(id int, lineNumber int, numberOfStation int,stationsIDs varchar(20),busIDs varchar(20))");
 		}
 		catch(Exception e) {
 			connection.createStatement().execute("delete from line");
@@ -65,9 +69,9 @@ public class CreateDB {
 
 			}
 		connection.createStatement().execute("insert into line values " +
-						 					"(1, 100,3, '1,2,3'), "+
-											"(2, 201, 4, '1,3,4,5'), " +
-											"(3, 154, 3, '5,3,1')");
+						 					"(1, 100,3, '1,2,3','1'), "+
+											"(2, 201, 4, '1,3,4,5','2'), " +
+											"(3, 154, 3, '5,3,1','3')");
 		System.out.println("table created and records successfully inserted...");
 		
 		
