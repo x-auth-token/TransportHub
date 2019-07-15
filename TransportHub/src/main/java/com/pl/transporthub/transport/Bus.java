@@ -16,7 +16,7 @@
  ******************************************************************************/
 package com.pl.transporthub.transport;
 
-public class Bus extends Vehicle {
+public class Bus {
 	
 	private int busID;
 	private String busRegPlate;
