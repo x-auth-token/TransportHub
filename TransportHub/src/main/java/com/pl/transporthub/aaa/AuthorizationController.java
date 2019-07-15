@@ -14,25 +14,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
-package com.pl.transporthub.transport;
+package com.pl.transporthub.aaa;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.pl.transporthub.aaa.Permission;
 
-public class Route extends Line {
-	
-	private ArrayList<Line> lines;
-	private ArrayList<Station> stations;
-	private ArrayList<Bus> buses;
-	
-	public Route() {
-		
-	}
-	
-	private Route generateRoute() {
-		
-		Route r = new Route();
-		return r;
-		
-	}
+public interface AuthorizationController {
+
+	Permission getUserPermissionSet(String username);
+
+	void setUserPermissionSet(Permission perm);
+
 }

@@ -18,23 +18,54 @@ package com.pl.transporthub.transport;
 
 public class Bus extends Vehicle {
 	
-	Bus(int line){
-		
-		 this.setLine(line);
+	private int busID;
+	private String busRegPlate;
+	private Line assignedLine;
+	
+	private enum bCondition {
+		FUNCTIONAL,
+		DAMAGED,
+		AT_DEPOT;
 	}
 	
-	int distance(int time, int maxSpeed) {
+	private bCondition busCondition;
+	
+	public Bus() {
 		
-		this.setSpeed(maxSpeed);
-		this.setTime(time);
-		this.setDistance();
-		
-		return this.getDist();
 	}
 	
-	void setDistance() {
-		int d = this.getSpeed() * this.getTime();
-		this.setDist(d);
+	public int getBusID() {
+		return busID;
 	}
+
+	public void setBusID(int busID) {
+		this.busID = busID;
+	}
+
+	public String getBusRegPlate() {
+		return busRegPlate;
+	}
+
+	public void setBusRegPlate(String busRegPlate) {
+		this.busRegPlate = busRegPlate;
+	}
+
+	public Line getAssignedLine() {
+		return assignedLine;
+	}
+
+	public void setAssignedLine(Line assignedLine) {
+		this.assignedLine = assignedLine;
+	}
+
+	public bCondition getBusCondition() {
+		return busCondition;
+	}
+
+	public void setBusCondition(bCondition busCondition) {
+		this.busCondition = busCondition;
+	}
+
+
 
 }

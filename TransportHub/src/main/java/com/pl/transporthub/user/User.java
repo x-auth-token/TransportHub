@@ -16,27 +16,40 @@
  ******************************************************************************/
 package com.pl.transporthub.user;
 
-import java.util.List;
+import java.util.Date;
+import java.util.UUID;
 
-import com.pl.transporthub.aaa.Permissions.Permission;
 
 public abstract class User {
 
+	private UUID userID;
+	
+
 	private String username;
-	private String password;
-	private List<Permission> permissions;
+	private char[] password;
+	
+	private Date expirationDate;
+	private boolean enabled;
+	
+	private boolean admin;
 
-	public User(String un) {
-		setUsername(null);
-		setPassword(null);
-		setPermissions(null);
-	}
-
-	public User(String un, String pass) {
-
+	/*
+	 * public User() { generateUserID(); setUsername(null); setPassword(null);
+	 * setExpirationDate(null); }
+	 * 
+	 * public User(String un, char[] pass, boolean adminValue) {
+	 * 
+	 * generateUserID(); setUsername(un); setPassword(pass); setAdmin(adminValue); }
+	 */
+	
+	
+	public User(String un, char[] pass, Date expirationDate, boolean adminValue) {
+		
+		generateUserID();
 		setUsername(un);
 		setPassword(pass);
-		setPermissions(null);
+		setExpirationDate(expirationDate);
+		setAdmin(adminValue);
 	}
 
 	protected String getUsername() {
@@ -47,20 +60,48 @@ public abstract class User {
 		this.username = username;
 	}
 
-	protected String getPassword() {
+	protected char[] getPassword() {
 		return password;
 	}
 
-	protected void setPassword(String password) {
+	protected void setPassword(char[] password) {
 		this.password = password;
 	}
-
-	protected List<Permission> getPermissions() {
-		return permissions;
+	
+	public Date getExpirationDate() {
+		return expirationDate;
 	}
 
-	protected void setPermissions(List<Permission> permissions) {
-		this.permissions = permissions;
+	public void setExpirationDate(Date expirationDate) {
+		this.expirationDate = expirationDate;
+	}
+	
+	public UUID getUserID() {
+		return userID;
 	}
 
+	public void generateUserID() {
+		this.userID = UUID.randomUUID();
+	}
+	
+	public boolean isEnabled() {
+		return this.enabled;
+	}
+	
+	public void setEnabled() {
+		this.enabled = true;
+	}
+	
+	public void setDisabled() {
+		this.enabled = false;
+	}
+	
+	public boolean isAdmin() {
+		return this.admin;
+	}
+	
+	public void setAdmin(boolean adminValue) {
+		this.admin = adminValue;
+	}
+	
 }

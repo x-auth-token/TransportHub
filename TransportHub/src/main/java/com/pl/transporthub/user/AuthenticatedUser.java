@@ -16,6 +16,43 @@
  ******************************************************************************/
 package com.pl.transporthub.user;
 
-public class AuthenticatedUser {
+import java.util.Date;
+import java.util.Set;
 
+import com.pl.transporthub.aaa.Permission;
+
+public class AuthenticatedUser extends User {
+	
+	protected Set<Permission> permissions;
+
+	/*
+	 * public AuthenticatedUser() { super(); }
+	 * 
+	 * public AuthenticatedUser(String un, char[] pass, boolean adminValue) {
+	 * super(un, pass, adminValue);
+	 * 
+	 * }
+	 */
+
+	public AuthenticatedUser(String un, char[] pass, Date expirationDate, boolean adminValue) {
+		super(un, pass, expirationDate, adminValue);
+
+	}
+
+	public Set<Permission> getPermissions() {
+		return permissions;
+	}
+
+	public void addPermissions(Permission permissions) {
+		this.permissions.add(permissions);
+	}
+	
+	public boolean hasPermission(Permission permission) {
+		return this.permissions.contains(permission);
+	}
+	
+	public void removePermission(Permission permission) {
+		this.permissions.remove(permission);
+	}
+	
 }

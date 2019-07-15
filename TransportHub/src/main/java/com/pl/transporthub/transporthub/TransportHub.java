@@ -14,25 +14,33 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
-package com.pl.transporthub.transport;
+package com.pl.transporthub.transporthub;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+//import java.awt.EventQueue;
+import javax.swing.SwingUtilities;
+public class TransportHub {
 
-public class Route extends Line {
-	
-	private ArrayList<Line> lines;
-	private ArrayList<Station> stations;
-	private ArrayList<Bus> buses;
-	
-	public Route() {
+	public static void main(String[] args) {
+		//EventQueue.invokeLater(new Runnable() {
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					createAndShowGUI();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
 		
 	}
 	
-	private Route generateRoute() {
+	public static void createAndShowGUI() throws Exception {
 		
-		Route r = new Route();
-		return r;
 		
+		  GUIMainWindowController mainWindowController = new GUIMainWindowController();
+		  mainWindowController.start();
+
 	}
+
 }

@@ -1,50 +1,77 @@
 
 package com.pl.transporthub.transport;
 
+import java.util.ArrayList;
+import java.util.Vector;
+
+import com.pl.transporthub.shared.classes.Coordinate;
+
 public class Station {
 
-	int numOfStation = 0;
-	String name = null;
-	int price = 0;
+	private enum  sState{
+		OPEN,
+		TEMPORARELY_CLOSED,
+		PERMANENTLY_CLOSED;
+	} 
+	
+	private String stationName;
+	private int stationID;
+	private String stationAddress;
+	private Coordinate stationCoordinates;
+	private ArrayList<int []> lines;
+	
+	private sState stationState;
 	
 	
-	Station(){
+	public sState getStationState() {
+		return stationState;
+	}
+
+	public void setStationState(sState stationState) {
+		this.stationState = stationState;
+	}
+
+	public Station() {
 		
 	}
+	
+	public Station(String sName, int sNumber, String sAddr, Coordinate sCoordinates) {
+		setStationName(sName);
+		setStationAddress(sAddr);
+		setStationNumber(stationID);
 
-
-	public int getPrice() {
-		return price;
 	}
-
-
-	public void setPrice(int price) {
-		this.price = price;
+	public String getStationName() {
+		return stationName;
 	}
-
-
-	public int getNum_of_station() {
-		return numOfStation;
+	public void setStationName(String stationName) {
+		this.stationName = stationName;
 	}
-
-
-	public void setNum_of_station(int num_of_station) {
-		this.numOfStation = num_of_station;
+	public int getStationNumber() {
+		return stationID;
 	}
-
-
-	public String getName() {
-		return name;
+	public void setStationNumber(int stationNumber) {
+		this.stationID = stationNumber;
 	}
-
-
-	public void setName(String name) {
-		this.name = name;
+	public String getStationAddress() {
+		return stationAddress;
+	}
+	public void setStationAddress(String stationAddress) {
+		this.stationAddress = stationAddress;
+	}
+	public Coordinate getStationCoordinates() {
+		return stationCoordinates;
+	}
+	public void setStationCoordinates(Coordinate stationCoordinates) {
+		this.stationCoordinates = stationCoordinates;
+	}
+	public ArrayList<int []> getLines() {
+		return lines;
+	}
+	public void setLines(ArrayList<int []> lines) {
+		this.lines = lines;
 	}
 	
 	
-	public String toString() {
-		return String.format(this.getNum_of_station()+ " : "+ this.getName());
-		
-	}
+	
 }

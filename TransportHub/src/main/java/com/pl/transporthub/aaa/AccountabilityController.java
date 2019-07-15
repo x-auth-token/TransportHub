@@ -14,25 +14,46 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
-package com.pl.transporthub.transport;
+package com.pl.transporthub.aaa;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import jdk.internal.instrumentation.Logger;
 
-public class Route extends Line {
-	
-	private ArrayList<Line> lines;
-	private ArrayList<Station> stations;
-	private ArrayList<Bus> buses;
-	
-	public Route() {
-		
+public class AccountabilityController implements Logger {
+
+	@Override
+	public void debug(String arg0) {
+		// TODO Auto-generated method stub
+
 	}
-	
-	private Route generateRoute() {
-		
-		Route r = new Route();
-		return r;
-		
+
+	@Override
+	public void error(String arg0) {
+		// TODO Auto-generated method stub
+
 	}
+
+	@Override
+	public void error(String arg0, Throwable arg1) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void info(String arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void trace(String arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void warn(String arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
 }

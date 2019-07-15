@@ -18,7 +18,7 @@ package com.pl.transporthub.shared.interfaces;
 
 import org.eclipse.persistence.jpa.jpql.parser.TrimExpression.Specification;
 
-import com.pl.transporthub.user.User;
+
 
 // Generic Repository Class using Java Generics
 public interface GenericRepository<T> {
