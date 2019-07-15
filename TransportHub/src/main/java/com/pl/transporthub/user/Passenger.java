@@ -15,8 +15,10 @@ public class Passenger extends AuthenticatedUser {
 	 * public Passenger(String un, char[] pass, boolean adminValue) { super(un,
 	 * pass, adminValue); // TODO Auto-generated constructor stub }
 	 */
-	private String mobileNumber;
+	
 	private String passportID;
+	
+	private boolean vip;
 	public Passenger(String un, char[] pass, Date expirationDate, boolean adminValue) {
 		super(un, pass, expirationDate, adminValue);
 		// TODO Auto-generated constructor stub
@@ -24,15 +26,7 @@ public class Passenger extends AuthenticatedUser {
 	/**
 	 * @return the mobileNumber
 	 */
-	public String getMobileNumber() {
-		return mobileNumber;
-	}
-	/**
-	 * @param mobileNumber the mobileNumber to set
-	 */
-	public void setMobileNumber(String mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
+
 	/**
 	 * @return the passportID
 	 */
@@ -44,6 +38,20 @@ public class Passenger extends AuthenticatedUser {
 	 */
 	public void setPassportID(String passportID) {
 		this.passportID = passportID;
+	}
+
+	/**
+	 * @return the vip
+	 */
+	public boolean isVip() {
+		return vip;
+	}
+
+	/**
+	 * @param vip the vip to set
+	 */
+	public void setVip(boolean vip) {
+		this.vip = vip;
 	}
 
 	

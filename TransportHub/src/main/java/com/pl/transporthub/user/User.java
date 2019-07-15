@@ -34,6 +34,8 @@ public abstract class User {
 	private boolean isadmin;
 	
 	private String email;
+	
+	private String mobileNumber;
 	/*
 	 * public User() { generateUserID(); setUsername(null); setPassword(null);
 	 * setExpirationDate(null); }
@@ -145,6 +147,20 @@ public abstract class User {
 	 */
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	/**
+	 * @return the mobileNumber
+	 */
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	/**
+	 * @param mobileNumber the mobileNumber to set
+	 */
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 	
 	
