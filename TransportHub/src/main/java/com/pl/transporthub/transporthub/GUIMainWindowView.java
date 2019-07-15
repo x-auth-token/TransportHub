@@ -41,15 +41,15 @@ public class GUIMainWindowView extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private GridBagLayout gbl_contentPane; 
+
 	private JPanel innerPanel; 
-	private GridBagConstraints gbc_panel; 
+
 	private JLabel lblLogoLabel; 
-	private GUIRoundButton rbBus; 
-	private GUIRoundButton rbStation; 
-	private GUIRoundButton rbRoute; 
-	private GUIRoundButton rbMap; 
-	private GUIRoundButton rbLogin;
+	private GUIRoundButton btnBus; 
+	private GUIRoundButton btnStation; 
+	private GUIRoundButton btnRoute; 
+	private GUIRoundButton btnMap; 
+	private GUIRoundButton btnLogin;
 	private BorderLayout brl_contentPane;
 	private DefaultTableModel tblBusesModel;
 	private JTable tblBuses;
@@ -104,11 +104,11 @@ public class GUIMainWindowView extends JFrame {
 		lblLogoLabel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		lblLogoLabel.setIcon(new ImageIcon(GUIMainWindowView.class.getResource("/images/TransportHubTransparentLogoBWSmall2.png")));
 
-		rbBus = GUIRoundButtonFactory.getRoundButton("Bus", "BusButton");
-		rbStation = GUIRoundButtonFactory.getRoundButton("Station", "StationButton");
-		rbRoute = GUIRoundButtonFactory.getRoundButton("Route", "RouteButton");
-		rbMap = GUIRoundButtonFactory.getRoundButton("Map", "MapButton");
-		rbLogin = GUIRoundButtonFactory.getRoundButton("Login", "LoginButton");
+		btnBus = GUIRoundButtonFactory.getRoundButton("Bus", "BusButton");
+		btnStation = GUIRoundButtonFactory.getRoundButton("Station", "StationButton");
+		btnRoute = GUIRoundButtonFactory.getRoundButton("Route", "RouteButton");
+		btnMap = GUIRoundButtonFactory.getRoundButton("Map", "MapButton");
+		btnLogin = GUIRoundButtonFactory.getRoundButton("Login", "LoginButton");
 		
 		tblBusesModel = new DefaultTableModel(10, 10);
 		
@@ -144,11 +144,11 @@ public class GUIMainWindowView extends JFrame {
 
 	public void setUpMainWindowView() {
 		innerPanel.add(lblLogoLabel, "cell 0 0,alignx left,aligny center");
-		innerPanel.add(rbBus, "flowx,cell 1 0,alignx center,aligny center");
-		innerPanel.add(rbStation, "cell 1 0,alignx center,aligny center");
-		innerPanel.add(rbRoute, "cell 1 0,alignx center,aligny center");
-		innerPanel.add(rbMap, "cell 1 0,alignx center");
-		innerPanel.add(rbLogin, "cell 2 0, align center");
+		innerPanel.add(btnBus, "flowx,cell 1 0,alignx center,aligny center");
+		innerPanel.add(btnStation, "cell 1 0,alignx center,aligny center");
+		innerPanel.add(btnRoute, "cell 1 0,alignx center,aligny center");
+		innerPanel.add(btnMap, "cell 1 0,alignx center");
+		innerPanel.add(btnLogin, "cell 2 0, align center");
 		contentPane.add(innerPanel, BorderLayout.NORTH);
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 		setContentPane(contentPane);
@@ -163,27 +163,27 @@ public class GUIMainWindowView extends JFrame {
 		return contentPane;
 	}
 
-	public GUIRoundButton getRbBus() {
-		return rbBus;
+	public GUIRoundButton getBtnBus() {
+		return btnBus;
 	}
 
 
-	public GUIRoundButton getRbStation() {
-		return rbStation;
+	public GUIRoundButton getBtnStation() {
+		return btnStation;
 	}
 
 
-	public GUIRoundButton getRbRoute() {
-		return rbRoute;
+	public GUIRoundButton getBtnRoute() {
+		return btnRoute;
 	}
 
 
-	public GUIRoundButton getRbMap() {
-		return rbMap;
+	public GUIRoundButton getBtnMap() {
+		return btnMap;
 	}
 
-	public GUIRoundButton getRbLogin() {
-		return rbLogin;
+	public GUIRoundButton getBtnLogin() {
+		return btnLogin;
 	}
 
 

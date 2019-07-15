@@ -30,7 +30,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
-public abstract class AuthenticationView extends JDialog {
+public abstract class AbstractAuthenticationView extends JDialog {
 
 	/**
 	 * 
@@ -46,7 +46,7 @@ public abstract class AuthenticationView extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public AuthenticationView(final Frame parent, boolean modal) {
+	public AbstractAuthenticationView(final Frame parent, boolean modal) {
 		
 		initDialog(parent, modal);
 		initComponents();
@@ -76,7 +76,7 @@ public abstract class AuthenticationView extends JDialog {
 		lblCloseWindow = new JLabel("");
 		lblCloseWindow.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCloseWindow.setIcon(new ImageIcon(
-				AuthenticationView.class.getResource("/images/TansportHubCloseWindowButtomImageSmall.png")));
+				AbstractAuthenticationView.class.getResource("/images/TansportHubCloseWindowButtomImageSmall.png")));
 		lblCloseWindow.setBounds(705, 6, 14, 16);
 		
 		logoBackgroundPanel = new JPanel();
@@ -87,7 +87,7 @@ public abstract class AuthenticationView extends JDialog {
 		
 		logo = new JLabel("");
 		logo.setBackground(new Color(102, 0, 204));
-		logo.setIcon(new ImageIcon(AuthenticationView.class.getResource("/images/TransportHubLogoBWBig.png")));
+		logo.setIcon(new ImageIcon(AbstractAuthenticationView.class.getResource("/images/TransportHubLogoBWBig.png")));
 		
 		contentPanel.setLayout(null);
 		getContentPane().setLayout(null);

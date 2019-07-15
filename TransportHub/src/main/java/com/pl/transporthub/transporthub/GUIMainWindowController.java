@@ -7,6 +7,9 @@ import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 
 import com.pl.transporthub.aaa.AuthenticationController;
+import com.pl.transporthub.user.User;
+import com.pl.transporthub.aaa.Roles.Role;
+
 
 public class GUIMainWindowController {
 	
@@ -28,7 +31,7 @@ public class GUIMainWindowController {
 	}
 	
 	public void setMouseListeners() {
-		mainWindowView.getRbLogin().addMouseListener(new MouseListener() {
+		mainWindowView.getBtnLogin().addMouseListener(new MouseListener() {
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -67,7 +70,7 @@ public class GUIMainWindowController {
 			}
 		});
 		
-		mainWindowView.getRbMap().addMouseListener(new MouseListener() {
+		mainWindowView.getBtnMap().addMouseListener(new MouseListener() {
 			
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -100,6 +103,23 @@ public class GUIMainWindowController {
 		});
 	}
 	
+	public void generateViewByRole(User user) {
+		switch(user.getRole()) {
+		case PASSENGER:
+			//mainWindowView.getBtnLogin().setVisible(false);
+			mainWindowView.remove(mainWindowView.getBtnLogin());
+		case DRIVER:
+			;
+		case PTM:
+			;
+		case ADMIN:
+			;
+			
+		default:
+			break;
+			
+		}
+	}
 	public void start() {
 		mainWindowView.setVisible(true);
 	}

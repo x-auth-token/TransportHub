@@ -17,7 +17,13 @@
 package com.pl.transporthub.user;
 
 import java.util.Date;
+
 import java.util.UUID;
+
+import com.pl.transporthub.aaa.Roles;
+import com.pl.transporthub.aaa.Roles.Role;
+
+
 
 
 public abstract class User {
@@ -36,6 +42,10 @@ public abstract class User {
 	private String email;
 	
 	private String mobileNumber;
+	
+	private Role role;
+	
+	
 	
 
 	/*
@@ -164,6 +174,22 @@ public abstract class User {
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
+
+	/**
+	 * @return the role
+	 */
+	public Role getRole() {
+		return role;
+	}
+
+	/**
+	 * @param role the role to set
+	 */
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	
 	
 	
 }

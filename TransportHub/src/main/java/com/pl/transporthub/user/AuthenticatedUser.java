@@ -17,13 +17,15 @@
 package com.pl.transporthub.user;
 
 import java.util.Date;
+
 import java.util.Set;
 
-import com.pl.transporthub.aaa.Permission;
+
+import com.pl.transporthub.aaa.Permissions.Permission;
 
 public class AuthenticatedUser extends User {
 	
-	protected Set<Permission> permissions;
+	private Set<Permission> permissions;
 
 	/*
 	 * public AuthenticatedUser() { super(); }
@@ -43,8 +45,8 @@ public class AuthenticatedUser extends User {
 		return permissions;
 	}
 
-	public void addPermissions(Permission permissions) {
-		this.permissions.add(permissions);
+	public void addPermission(Permission permission) {
+		this.permissions.add(permission);
 	}
 	
 	public boolean hasPermission(Permission permission) {

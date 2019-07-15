@@ -16,12 +16,20 @@
  ******************************************************************************/
 package com.pl.transporthub.aaa;
 
-import com.pl.transporthub.aaa.Permission;
+import java.util.Set;
 
-public interface AuthorizationController {
+import com.pl.transporthub.aaa.Permissions.Permission;;
+public class AuthorizationController {
 
-	Permission getUserPermissionSet(String username);
+	
+	public AuthorizationController (int username) {
+		
+	}
+	
+	private Set<Permission> getUserPermissionSet(String username) {
+		
+		return null;
+	}
 
-	void setUserPermissionSet(Permission perm);
 
 }

@@ -10,7 +10,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class GUILoginView extends AuthenticationView {
+public class GUILoginView extends AbstractAuthenticationView {
 	
 	/**
 	 * 

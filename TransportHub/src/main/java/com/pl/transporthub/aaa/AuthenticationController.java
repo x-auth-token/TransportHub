@@ -26,22 +26,27 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.Date;
 
+import com.pl.transporthub.aaa.Roles.Role;
 import com.pl.transporthub.transporthub.GUIAuthenticatedUsersView;
+import com.pl.transporthub.transporthub.GUIMainWindowController;
+import com.pl.transporthub.user.Passenger;
+import com.pl.transporthub.user.User;
 
 
 
 public class AuthenticationController {
 
-	private GUILoginView authView;
+	private GUILoginView loginView;
 	private GUIResetPasswordView resetPassView;
 	private GUISelfServiceRegisterNewPassangerView selfRegisterView;
 	
-	private GUIAuthenticatedUsersView authUserView;
+	private GUIMainWindowController mainWindowController;
 
 
 	public AuthenticationController(final Frame parent, boolean modal) {
-		authView = new GUILoginView(parent, modal);
+		loginView = new GUILoginView(parent, modal);
 		resetPassView = new GUIResetPasswordView(parent, modal, false);
 		selfRegisterView = new GUISelfServiceRegisterNewPassangerView(parent, modal);
 		setActionListeners();
@@ -51,49 +56,57 @@ public class AuthenticationController {
 
 
 	private void setActionListeners() {
-		authView.getBtnSignUp().addActionListener(new ActionListener() {
+		loginView.getBtnSignUp().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				authView.exit();
+				loginView.exit();
 				selfRegisterView.showAuthView();
 			}
 		});
 
-		authView.getBtnForgotPassword().addActionListener(new ActionListener() {
+		loginView.getBtnForgotPassword().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent forgotButtonClicked) {
 
-				authView.exit();
+				loginView.exit();
 				resetPassView.showAuthView();
 
 				
 			}
 		});
 
-		authView.getBtnSignIn().addActionListener(new ActionListener() {
+		loginView.getBtnSignIn().addActionListener(new ActionListener() {
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				String username = authView.getTxtUsername().getText();
+				String username = loginView.getTxtUsername().getText();
 				String hashedPassword = "";
 
-				if (authView.getTxtPasswordField().getPassword().length != 0) {
+				if (loginView.getTxtPasswordField().getPassword().length != 0) {
 					try {
-						hashedPassword = PasswordHasher.generateHashedPassword(authView.getTxtPasswordField().getPassword());
+						hashedPassword = PasswordHasher.generateHashedPassword(loginView.getTxtPasswordField().getPassword());
 					} catch (NoSuchAlgorithmException | InvalidKeySpecException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 				}
 
-				if (username.isEmpty() || hashedPassword.isEmpty() || username.equals(authView.getUsernameMessageTip())) {
+				if (username.isEmpty() || hashedPassword.isEmpty() || username.equals(loginView.getUsernameMessageTip())) {
 
-					if (!authView.getLblNoUserPassProvided().isVisible())
-						authView.getLblNoUserPassProvided().setVisible(true);
+					if (!loginView.getLblNoUserPassProvided().isVisible())
+						loginView.getLblNoUserPassProvided().setVisible(true);
 
 				} else {
-					authView.exit();
+					mainWindowController = new GUIMainWindowController();
+					Date date = new Date(2019, 12, 31);
+					final char[] pass = { 'p', 'a', 's', 's', 'w', 'o', 'r', 'd' };
+					Passenger passenger = new Passenger("user", pass, date, false);
+					passenger.setRole(Role.PASSENGER);
+					loginView.exit();
+					mainWindowController.generateViewByRole(passenger);
+					
 				}
 
 			}
@@ -113,7 +126,7 @@ public class AuthenticationController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				resetPassView.exit();
-				authView.showAuthView();
+				loginView.showAuthView();
 				
 			}
 		});
@@ -131,39 +144,39 @@ public class AuthenticationController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				selfRegisterView.exit();
-				authView.showAuthView();
+				loginView.showAuthView();
 			}
 		});
 
 	}
 
 	public void setFocusListeners() {
-		authView.getTxtUsername().addFocusListener(new FocusListener() {
+		loginView.getTxtUsername().addFocusListener(new FocusListener() {
 
 			@Override
 			public void focusLost(FocusEvent e) {
 
-				if (authView.getTxtUsername().getText().equals("")) {
-					authView.getTxtUsername().setText(authView.getUsernameMessageTip());
-					authView.getTxtUsername().setForeground(Color.LIGHT_GRAY);
-					authView.getTxtUsername().revalidate();
+				if (loginView.getTxtUsername().getText().equals("")) {
+					loginView.getTxtUsername().setText(loginView.getUsernameMessageTip());
+					loginView.getTxtUsername().setForeground(Color.LIGHT_GRAY);
+					loginView.getTxtUsername().revalidate();
 				}
 
 			}
 
 			@Override
 			public void focusGained(FocusEvent e) {
-				if (authView.isFirstRun()) {
-					authView.getTxtUsername().setText(authView.getUsernameMessageTip());
-					authView.getTxtUsername().setForeground(Color.LIGHT_GRAY);
-					authView.setFirstRun(false);
-					authView.getTxtUsername().transferFocus();
+				if (loginView.isFirstRun()) {
+					loginView.getTxtUsername().setText(loginView.getUsernameMessageTip());
+					loginView.getTxtUsername().setForeground(Color.LIGHT_GRAY);
+					loginView.setFirstRun(false);
+					loginView.getTxtUsername().transferFocus();
 
 				} else {
-					if (authView.getTxtUsername().getText().equals(authView.getUsernameMessageTip())) {
-						authView.getTxtUsername().setText("");
-						authView.getTxtUsername().setForeground(Color.BLACK);
-						authView.getTxtUsername().revalidate();
+					if (loginView.getTxtUsername().getText().equals(loginView.getUsernameMessageTip())) {
+						loginView.getTxtUsername().setText("");
+						loginView.getTxtUsername().setForeground(Color.BLACK);
+						loginView.getTxtUsername().revalidate();
 					}
 				}
 
@@ -172,7 +185,7 @@ public class AuthenticationController {
 	}
 
 	public void setMouseListeners() {
-		authView.getLblCloseWindow().addMouseListener(new MouseListener() {
+		loginView.getLblCloseWindow().addMouseListener(new MouseListener() {
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -182,7 +195,7 @@ public class AuthenticationController {
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-				authView.dispose();
+				loginView.dispose();
 
 			}
 
@@ -257,7 +270,7 @@ public class AuthenticationController {
 	}
 
 	public void start() {
-		authView.showAuthView();
+		loginView.showAuthView();
 	}
 
 }

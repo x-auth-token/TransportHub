@@ -12,7 +12,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.MatteBorder;
 
-public class GUISelfServiceRegisterNewPassangerView extends AuthenticationView {
+public class GUISelfServiceRegisterNewPassangerView extends AbstractAuthenticationView {
 	
 	/**
 	 * 
@@ -69,7 +69,7 @@ public class GUISelfServiceRegisterNewPassangerView extends AuthenticationView {
 		
 		logo = new JLabel("");
 		logo.setBackground(new Color(102, 0, 204));
-		logo.setIcon(new ImageIcon(AuthenticationView.class.getResource("/images/TransportHubLogoBWBig.png")));
+		logo.setIcon(new ImageIcon(AbstractAuthenticationView.class.getResource("/images/TransportHubLogoBWBig.png")));
 	
 		/* Setting Labels and Fields for the following:
 		 * Username

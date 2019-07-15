@@ -16,8 +16,8 @@
  ******************************************************************************/
 package com.pl.transporthub.aaa;
 
-public class Permission {
-	private enum Permissions {
+public class Permissions {
+	public enum Permission {
 
 		/* Administrative Permissions */
 		CREATE_USER, CHANGE_USER, DELETE_USER, VIEW_USER,

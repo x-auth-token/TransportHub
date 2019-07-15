@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class GUIResetPasswordView extends AuthenticationView {
+public class GUIResetPasswordView extends AbstractAuthenticationView {
 
 	/**
 	 * 

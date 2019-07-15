@@ -2,6 +2,8 @@ package com.pl.transporthub.transporthub;
 
 import javax.swing.JTable;
 
+import com.pl.transporthub.user.User;
+
 public class GUIAuthenticatedUsersView extends GUIMainWindowView {
 
 	/**
@@ -11,6 +13,12 @@ public class GUIAuthenticatedUsersView extends GUIMainWindowView {
 	
 	public GUIAuthenticatedUsersView() {
 		super();
+	}
+	
+	public GUIAuthenticatedUsersView(User user) {
+		super();
+		
+		
 	}
 
 	@Override
@@ -24,6 +32,7 @@ public class GUIAuthenticatedUsersView extends GUIMainWindowView {
 		// TODO Auto-generated method stub
 		super.initContentPane();
 	}
+	
 	
 	
 	
