@@ -1,4 +1,4 @@
-package com.pl.transporthub.transporthub;
+package com.pl.transporthub.transporthub.buttons;
 
 public class GUIRoundButtonFactory {
 	public static GUIRoundButton getRoundButton(String bType, String bName) {
@@ -7,6 +7,9 @@ public class GUIRoundButtonFactory {
 		else if ("Route".equalsIgnoreCase(bType)) { return new GUIRoundRouteButton(bName); }
 		else if ("Map".equalsIgnoreCase(bType)) { return new GUIRoundMapButton(bName); }
 		else if ("Login".equalsIgnoreCase(bType)) { return new GUIRoundLoginButton(bName); }
+		else if ("Logout".equalsIgnoreCase(bType)) { return new GUIRoundLoginButton(bName); }
+		
+		
 		return null;
 	}
 }

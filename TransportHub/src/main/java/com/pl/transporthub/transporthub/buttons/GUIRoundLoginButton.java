@@ -1,18 +1,18 @@
-package com.pl.transporthub.transporthub;
+package com.pl.transporthub.transporthub.buttons;
 
 import java.awt.Color;
 
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
-public class GUIRoundRouteButton extends GUIRoundButton {
+public class GUIRoundLoginButton extends GUIRoundButton {
 
-	public GUIRoundRouteButton(String bName) {
+	public GUIRoundLoginButton(String bName) {
 		setName(bName); 
-		setIcon(new ImageIcon(getClass().getResource("/images/TransportHubRouteButtonImageSmall.png")));
+		setIcon(new ImageIcon(getClass().getResource("/images/TransportHubLoginButtonImageSmall.png")));
 		setHorizontalAlignment(SwingConstants.CENTER);
 		changeLableIconOnMouseHover();
-		setText("Routes");
+		setText("Login");
 		setVerticalTextPosition(BOTTOM); setHorizontalTextPosition(CENTER);
 		setForeground(Color.WHITE);
 	}

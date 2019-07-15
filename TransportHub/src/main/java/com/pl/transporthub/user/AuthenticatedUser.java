@@ -16,6 +16,7 @@
  ******************************************************************************/
 package com.pl.transporthub.user;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import java.util.Set;
@@ -36,7 +37,7 @@ public class AuthenticatedUser extends User {
 	 * }
 	 */
 
-	public AuthenticatedUser(String un, char[] pass, Date expirationDate, boolean adminValue) {
+	public AuthenticatedUser(String un, char[] pass, LocalDate expirationDate, boolean adminValue) {
 		super(un, pass, expirationDate, adminValue);
 
 	}

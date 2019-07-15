@@ -1,6 +1,6 @@
 package com.pl.transporthub.user;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.pl.transporthub.aaa.Permissions;
@@ -19,7 +19,7 @@ public class Passenger extends AuthenticatedUser {
 	private String passportID;
 	
 	private boolean vip;
-	public Passenger(String un, char[] pass, Date expirationDate, boolean adminValue) {
+	public Passenger(String un, char[] pass, LocalDate expirationDate, boolean adminValue) {
 		super(un, pass, expirationDate, adminValue);
 		// TODO Auto-generated constructor stub
 	}

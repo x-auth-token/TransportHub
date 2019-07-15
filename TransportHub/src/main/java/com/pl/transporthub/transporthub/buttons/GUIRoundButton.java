@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
-package com.pl.transporthub.transporthub;
+package com.pl.transporthub.transporthub.buttons;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -23,6 +23,8 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+
+import com.pl.transporthub.transporthub.GUIMainWindowView;
 
 public abstract class GUIRoundButton extends JLabel {
 	
@@ -83,5 +85,18 @@ public abstract class GUIRoundButton extends JLabel {
 
 			}
 		});
+		
+		
+			
+		
+	
+	}
+	
+	public void showButton() {
+		this.setVisible(true);
+	}
+	
+	public void hideButton() {
+		this.setVisible(false);
 	}
 }

@@ -1,4 +1,4 @@
-package com.pl.transporthub.transporthub;
+package com.pl.transporthub.transporthub.buttons;
 
 import java.awt.Color;
 

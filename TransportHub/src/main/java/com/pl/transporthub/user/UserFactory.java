@@ -16,14 +16,15 @@
  ******************************************************************************/
 package com.pl.transporthub.user;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 public class UserFactory {
 	
-	public static User getUser(String uType, String uName, char[] password, Date expirationDate, boolean adminValue) {
+	public static User getUser(String uType, String uName, char[] password, LocalDate expirationDate, boolean adminValue) {
 		
 		if ("Admin".equalsIgnoreCase(uType) && adminValue == true) {
-			return new Driver(uName, password, expirationDate, adminValue);
+			return new Admin(uName, password, expirationDate, adminValue);
 		}
 		else if ("Passenger".equalsIgnoreCase(uType)) {
 			return new Passenger(uName, password, expirationDate, false);

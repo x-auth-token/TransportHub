@@ -1,10 +1,10 @@
-package com.pl.transporthub.transporthub;
+package com.pl.transporthub.transporthub.baseclasses;
 
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-class GUICustomCloseApplication extends AbstractAction {
+public class GUICustomCloseApplication extends AbstractAction {
 
 	/**
 	 * 

@@ -38,7 +38,7 @@ public class TransportHub {
 	public static void createAndShowGUI() throws Exception {
 		
 		
-		  GUIMainWindowController mainWindowController = new GUIMainWindowController();
+		  GUIMainWindowController mainWindowController = new GUIMainWindowController(null);
 		  mainWindowController.start();
 
 	}

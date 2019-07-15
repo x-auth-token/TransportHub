@@ -26,13 +26,18 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 
 import com.pl.transporthub.aaa.Roles.Role;
 import com.pl.transporthub.transporthub.GUIAuthenticatedUsersView;
 import com.pl.transporthub.transporthub.GUIMainWindowController;
+import com.pl.transporthub.transporthub.GUIMainWindowView;
 import com.pl.transporthub.user.Passenger;
 import com.pl.transporthub.user.User;
+
+import javafx.util.converter.LocalDateStringConverter;
 
 
 
@@ -43,12 +48,14 @@ public class AuthenticationController {
 	private GUISelfServiceRegisterNewPassangerView selfRegisterView;
 	
 	private GUIMainWindowController mainWindowController;
+	private Frame parentFrame;
 
 
-	public AuthenticationController(final Frame parent, boolean modal) {
-		loginView = new GUILoginView(parent, modal);
-		resetPassView = new GUIResetPasswordView(parent, modal, false);
-		selfRegisterView = new GUISelfServiceRegisterNewPassangerView(parent, modal);
+	public AuthenticationController(final Frame parentFrame, boolean modal) {
+		loginView = new GUILoginView(parentFrame, modal);
+		resetPassView = new GUIResetPasswordView(parentFrame, modal, false);
+		selfRegisterView = new GUISelfServiceRegisterNewPassangerView(parentFrame, modal);
+		this.parentFrame = parentFrame;
 		setActionListeners();
 		setFocusListeners();
 		setMouseListeners();
@@ -99,13 +106,19 @@ public class AuthenticationController {
 						loginView.getLblNoUserPassProvided().setVisible(true);
 
 				} else {
-					mainWindowController = new GUIMainWindowController();
-					Date date = new Date(2019, 12, 31);
+					
+					LocalDate date = LocalDate.of(2019, 12, 31);
+					
+					
 					final char[] pass = { 'p', 'a', 's', 's', 'w', 'o', 'r', 'd' };
 					Passenger passenger = new Passenger("user", pass, date, false);
 					passenger.setRole(Role.PASSENGER);
+					passenger.setAuthenticated(true);
 					loginView.exit();
-					mainWindowController.generateViewByRole(passenger);
+					mainWindowController = new GUIMainWindowController(passenger);
+					mainWindowController.checkUserAuthenticationStatus(passenger);
+					parentFrame.dispose();
+				
 					
 				}
 

@@ -1,6 +1,6 @@
 package com.pl.transporthub.user;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Admin extends AuthenticatedUser {
 
@@ -15,7 +15,7 @@ public class Admin extends AuthenticatedUser {
 	 * adminValue); // TODO Auto-generated constructor stub }
 	 */
 	
-	public Admin(String un, char[] pass, Date expirationDate, boolean adminValue) {
+	public Admin(String un, char[] pass, LocalDate expirationDate, boolean adminValue) {
 		super(un, pass, expirationDate, adminValue);
 		// TODO Auto-generated constructor stub
 	}

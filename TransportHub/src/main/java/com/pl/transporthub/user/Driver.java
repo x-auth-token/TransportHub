@@ -1,6 +1,6 @@
 package com.pl.transporthub.user;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.pl.transporthub.aaa.Permissions;
@@ -17,7 +17,7 @@ public class Driver extends AuthenticatedUser {
 	 */
 	private int driverID;
 	
-	public Driver(String un, char[] pass, Date expirationDate, boolean adminValue) {
+	public Driver(String un, char[] pass, LocalDate expirationDate, boolean adminValue) {
 		super(un, pass, expirationDate, adminValue);
 		// TODO Auto-generated constructor stub
 	}

@@ -16,6 +16,7 @@
  ******************************************************************************/
 package com.pl.transporthub.user;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import java.util.UUID;
@@ -34,7 +35,7 @@ public abstract class User {
 	private String username;
 	private char[] password;
 	
-	private Date expirationDate;
+	private LocalDate expirationDate;
 	private boolean enabled;
 	
 	private boolean isadmin;
@@ -44,6 +45,8 @@ public abstract class User {
 	private String mobileNumber;
 	
 	private Role role;
+	
+	private boolean authenticated;
 	
 	
 	
@@ -58,7 +61,7 @@ public abstract class User {
 	 */
 	
 	
-	public User(String un, char[] pass, Date expirationDate, boolean adminValue) {
+	public User(String un, char[] pass, LocalDate expirationDate, boolean adminValue) {
 		
 		generateUserID();
 		setUsername(un);
@@ -83,11 +86,11 @@ public abstract class User {
 		this.password = password;
 	}
 	
-	public Date getExpirationDate() {
+	public LocalDate getExpirationDate() {
 		return expirationDate;
 	}
 
-	public void setExpirationDate(Date expirationDate) {
+	public void setExpirationDate(LocalDate expirationDate) {
 		this.expirationDate = expirationDate;
 	}
 	
@@ -188,6 +191,22 @@ public abstract class User {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+
+	/**
+	 * @return the authenticated
+	 */
+	public boolean isAuthenticated() {
+		return authenticated;
+	}
+
+	/**
+	 * @param authenticated the authenticated to set
+	 */
+	public void setAuthenticated(boolean authenticated) {
+		this.authenticated = authenticated;
+	}
+	
+	
 
 	
 	
