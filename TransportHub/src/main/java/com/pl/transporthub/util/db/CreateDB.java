@@ -37,21 +37,25 @@ public class CreateDB {
 											"(5, 32.015960, 34.758646)");
 
 		try {
-			//connection.createStatement().execute("drop table person");
+			//connection.createStatement().execute("drop table users");
 
-			connection.createStatement().execute("create table person(id int, firstName varchar(20),lastName varchar(20),username varchar(20),password varchar(20),  managerFlag int, driverID int)");
+			connection.createStatement().execute("create table users(id int, firstName varchar(20),"
+					+ "lastName varchar(20),username varchar(20),password varchar(20),expirationDate varchar(20),"
+					+ "enabled BOOLEAN,  isadmin BOOLEAN,phone varchar(20),email varchar(20),driverID int)");
 
 		}
 		catch(Exception e) {
-			connection.createStatement().execute("delete from person");
-			System.out.println("table person alrady exists");
+			System.out.println(e);
+
+			connection.createStatement().execute("delete from users");
+			System.out.println("table users alrady exists");
 			}
 
-		connection.createStatement().execute("insert into person values" +
-						 					"(1, 'moshe', 'ben moshe','moshe','moshe',0,0), "+
-											"(2, 'Israel', 'Israely','Israel','Israel', 1, 0), " +
-											"(3, 'Dan', 'D','Dan','Dan', 0, 1), " +
-											"(4, 'Geri', 'G','Geri','Geri', 0, 2)");
+		connection.createStatement().execute("insert into users values" +
+						 					"(1, 'moshe', 'ben moshe','moshe','moshe','1.1.2020',TRUE,FALSE,'1111111','moshe@test.email',0), "+
+											"(2, 'Israel', 'Israely','Israel','Israel','1.1.2020',TRUE,TRUE,'1111112','israel@test.email',0), " +
+											"(3, 'Dan', 'D','Dan','Dan', '1.1.2020',FALSE,FALSE,'1111113','dan@test.email', 1), " +
+											"(4, 'Geri', 'G','Geri','Geri', '1.1.2020',FALSE,FALSE,'111114','geri@test.email', 2)");
 		try {
 			connection.createStatement().execute("create table line(id int, lineNumber int, numberOfStation int,stationsID varchar(20))");
 		}
