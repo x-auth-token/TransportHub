@@ -34,7 +34,10 @@ public class AuthenticatedUser extends User {
 	 * 
 	 * }
 	 */
-
+	public AuthenticatedUser() {
+		super();
+	}
+	
 	public AuthenticatedUser(String un, char[] pass, LocalDate expirationDate, boolean adminValue) {
 		super(un, pass, expirationDate, adminValue);
 

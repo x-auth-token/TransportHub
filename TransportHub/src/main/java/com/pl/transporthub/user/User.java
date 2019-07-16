@@ -17,7 +17,12 @@
 package com.pl.transporthub.user;
 
 import java.time.LocalDate;
-import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import com.pl.transporthub.aaa.Roles.Role;
 
@@ -26,7 +31,10 @@ import com.pl.transporthub.aaa.Roles.Role;
 
 public abstract class User {
 
-	private UUID userID;
+	
+	
+	private Integer userID;
+	private AtomicInteger uniqueID = new AtomicInteger();
 	
 
 	private String username;
@@ -57,7 +65,9 @@ public abstract class User {
 	 * generateUserID(); setUsername(un); setPassword(pass); setAdmin(adminValue); }
 	 */
 	
-	
+	public User() {
+		
+	}
 	public User(String un, char[] pass, LocalDate expirationDate, boolean adminValue) {
 		
 		generateUserID();
@@ -91,12 +101,12 @@ public abstract class User {
 		this.expirationDate = expirationDate;
 	}
 	
-	public UUID getUserID() {
+	public Integer getUserID() {
 		return userID;
 	}
 
 	public void generateUserID() {
-		this.userID = UUID.randomUUID();
+		this.userID = uniqueID.incrementAndGet();
 	}
 	
 	public boolean isEnabled() {
@@ -150,7 +160,7 @@ public abstract class User {
 	/**
 	 * @param userID the userID to set
 	 */
-	public void setUserID(UUID userID) {
+	public void setUserID(Integer userID) {
 		this.userID = userID;
 	}
 

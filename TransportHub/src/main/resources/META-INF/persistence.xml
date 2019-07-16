@@ -20,9 +20,9 @@
 	version="1.0" xmlns="http://java.sun.com/xml/ns/persistence">
 	<persistence-unit name="UsersPU" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<class>com.pl.transporthub.user</class>
+		<class>com.pl.transporthub.user.Passenger</class>
 		<properties>
-			<!-- property name="eclipselink.logging.level" value="ALL"/-->
+			<property name="eclipselink.logging.level" value="FINE"/>
 			<!-- <property name="eclipselink.logging.thread" value="false"/>
 			<property name="eclipselink.logging.session" value="false"/>
 			<property name="eclipselink.logging.timestamp" value="false"/>

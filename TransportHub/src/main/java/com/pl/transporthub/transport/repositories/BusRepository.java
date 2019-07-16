@@ -20,6 +20,13 @@ public class BusRepository implements GenericRepository<Bus>{
 	}
 
 	@Override
+	public Bus getByID(Integer b) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	@Override
 	public Bus get(Bus t) {
 		// TODO Auto-generated method stub
 		return null;
@@ -37,5 +44,11 @@ public class BusRepository implements GenericRepository<Bus>{
 		return null;
 	}
 
+	@Override
+	public Bus save(Bus t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
+	
 }

@@ -20,6 +20,14 @@ public class StationRepository implements GenericRepository<Station>{
 	}
 
 	@Override
+	public Station getByID(Integer t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+	@Override
 	public Station get(Station t) {
 		// TODO Auto-generated method stub
 		return null;
@@ -37,4 +45,11 @@ public class StationRepository implements GenericRepository<Station>{
 		return null;
 	}
 
+	@Override
+	public Station save(Station t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 }

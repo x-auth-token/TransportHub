@@ -14,6 +14,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
+
+
 package com.pl.transporthub.aaa.baseclasses;
 
 import javax.swing.ImageIcon;
@@ -22,14 +24,20 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
-//import com.sun.glass.ui.Window;
-
 import java.awt.Color;
 import java.awt.Frame;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 
+/**
+ * 
+ *  Abstract Class that defines a skeleton of 
+ *  Authentication User Interface View
+ * @author pavelm
+ * 
+ *	
+ */
 public abstract class AbstractAuthenticationView extends JDialog {
 
 	/**
@@ -45,6 +53,10 @@ public abstract class AbstractAuthenticationView extends JDialog {
 
 	/**
 	 * Create the dialog.
+	 */
+	/**
+	 * @param parent
+	 * @param modal
 	 */
 	public AbstractAuthenticationView(final Frame parent, boolean modal) {
 		
@@ -153,6 +165,9 @@ public abstract class AbstractAuthenticationView extends JDialog {
 		setVisible(true);
 	}
 	
+	/**
+	 * 
+	 */
 	public void exit() {
 		dispose();
 	}

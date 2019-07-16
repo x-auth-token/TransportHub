@@ -16,6 +16,8 @@
  ******************************************************************************/
 package com.pl.transporthub.user;
 
+import java.util.UUID;
+
 import javax.persistence.EntityManager;
 import org.eclipse.persistence.jpa.jpql.parser.TrimExpression.Specification;
 
@@ -43,16 +45,39 @@ public class UserRepository implements GenericRepository<User>{
 
 	@Override
 	public void remove(User u) {
-		// TODO Auto-generated method stub
+		if (em.contains(u)) {
+			em.remove(u);
+		} else {
+			em.merge(u);
+		}
 		
 	}
 
+	
+
+
 	@Override
-	public User get(User u) {
+	public User get(User t) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
+	public User getByID(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User save(User u) {
+		if (u.getUserID() == null) {
+			em.persist(u);
+		} else {
+			u = em.merge(u);
+		}
+		
+		return u;
+	}
 	@Override
 	public Iterable<User> getAll() {
 		

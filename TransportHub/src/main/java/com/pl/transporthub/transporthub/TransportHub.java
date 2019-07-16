@@ -20,6 +20,15 @@ package com.pl.transporthub.transporthub;
 import javax.swing.SwingUtilities;
 
 import com.pl.transporthub.transporthub.controllers.GUIMainWindowController;
+
+/**
+ * 	This is a main executable of the TransportHub project
+ * 
+ * @author Pavel Mayzenberg, Leon Peper, Oded Levin
+ * @version 1.0 
+ * 
+ * 
+ */
 public class TransportHub {
 
 	public static void main(String[] args) {

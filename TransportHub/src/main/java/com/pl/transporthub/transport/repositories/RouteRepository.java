@@ -20,6 +20,14 @@ public class RouteRepository implements GenericRepository<Route> {
 	}
 
 	@Override
+	public Route getByID(Integer t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+	@Override
 	public Route get(Route t) {
 		// TODO Auto-generated method stub
 		return null;
@@ -37,4 +45,11 @@ public class RouteRepository implements GenericRepository<Route> {
 		return null;
 	}
 
+	@Override
+	public Route save(Route t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 }

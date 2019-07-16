@@ -2,6 +2,14 @@ package com.pl.transporthub.user;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name ="users")
 public class Passenger extends AuthenticatedUser {
 
 	/*
@@ -12,13 +20,21 @@ public class Passenger extends AuthenticatedUser {
 	 * public Passenger(String un, char[] pass, boolean adminValue) { super(un,
 	 * pass, adminValue); // TODO Auto-generated constructor stub }
 	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	
 	private String passportID;
 	
 	private boolean vip;
+	
+	public Passenger() {
+		super();
+		
+	}
+	
 	public Passenger(String un, char[] pass, LocalDate expirationDate, boolean adminValue) {
 		super(un, pass, expirationDate, adminValue);
-		// TODO Auto-generated constructor stub
+		
 	}
 	/**
 	 * @return the mobileNumber
