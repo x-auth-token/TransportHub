@@ -1,4 +1,4 @@
-package com.pl.transporthub.aaa;
+package com.pl.transporthub.aaa.views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.MatteBorder;
+
+import com.pl.transporthub.aaa.baseclasses.AbstractAuthenticationView;
 
 public class GUISelfServiceRegisterNewPassangerView extends AbstractAuthenticationView {
 	

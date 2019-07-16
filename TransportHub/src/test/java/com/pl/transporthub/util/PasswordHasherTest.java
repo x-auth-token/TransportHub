@@ -27,7 +27,7 @@ import org.junit.Rule;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
 
-import com.pl.transporthub.aaa.PasswordHasher;
+import com.pl.transporthub.aaa.baseclasses.PasswordHasher;
 
 public class PasswordHasherTest {
 

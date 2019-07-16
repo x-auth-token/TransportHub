@@ -1,4 +1,4 @@
-package com.pl.transporthub.aaa;
+package com.pl.transporthub.aaa.views;
 
 import java.awt.Color;
 import java.awt.Frame;
@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import com.pl.transporthub.aaa.baseclasses.AbstractAuthenticationView;
 
 public class GUILoginView extends AbstractAuthenticationView {
 	
@@ -27,8 +29,8 @@ public class GUILoginView extends AbstractAuthenticationView {
 	
 	private JLabel lblPassword;
 	String usernameMessageTip = "Enter Username";
-	public GUILoginView(Frame parent, boolean modal) {
-		super(parent, modal);
+	public GUILoginView(Frame parentFrame, boolean modal) {
+		super(parentFrame, modal);
 		// TODO Auto-generated constructor stub
 	}
 	

@@ -18,6 +18,8 @@ package com.pl.transporthub.transporthub;
 
 //import java.awt.EventQueue;
 import javax.swing.SwingUtilities;
+
+import com.pl.transporthub.transporthub.controllers.GUIMainWindowController;
 public class TransportHub {
 
 	public static void main(String[] args) {
@@ -38,7 +40,7 @@ public class TransportHub {
 	public static void createAndShowGUI() throws Exception {
 		
 		
-		  GUIMainWindowController mainWindowController = new GUIMainWindowController(null);
+		  GUIMainWindowController mainWindowController = new GUIMainWindowController();
 		  mainWindowController.start();
 
 	}

@@ -7,6 +7,11 @@ import javax.swing.SwingConstants;
 
 public class GUIRoundStationButton extends GUIRoundButton {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6217219783236271014L;
+
 	public GUIRoundStationButton(String bName) {
 		setName(bName); 
 		setIcon(new ImageIcon(getClass().getResource("/images/TransportHubStationButtonImageSmall.png")));

@@ -1,19 +1,15 @@
-package com.pl.transporthub.transporthub;
-
-import java.awt.BorderLayout;
-
-import javax.swing.JTable;
+package com.pl.transporthub.transporthub.views;
 
 import com.pl.transporthub.transporthub.baseclasses.GUIBaseApplicationView;
 import com.pl.transporthub.transporthub.buttons.GUIRoundButton;
 import com.pl.transporthub.transporthub.buttons.GUIRoundButtonFactory;
-import com.pl.transporthub.user.User;
 
 public class GUIAuthenticatedUsersView extends GUIBaseApplicationView {
 
 	/**
 	 * 
 	 */
+	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 	private GUIRoundButton btnLogout;
 
@@ -31,6 +27,7 @@ public class GUIAuthenticatedUsersView extends GUIBaseApplicationView {
 
 	@Override
 	public void setUpMainWindowView() {
+		
 		getInnerPanel().add(btnLogout, "cell 2 0, align center");
 		super.setUpMainWindowView();
 	}

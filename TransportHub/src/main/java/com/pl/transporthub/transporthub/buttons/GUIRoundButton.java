@@ -16,18 +16,20 @@
  ******************************************************************************/
 package com.pl.transporthub.transporthub.buttons;
 
-import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-
-import com.pl.transporthub.transporthub.GUIMainWindowView;
+import com.pl.transporthub.transporthub.views.GUIMainWindowView;
 
 public abstract class GUIRoundButton extends JLabel {
 	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3981582768570030965L;
 
 	/**
 	 * @return 

@@ -1,29 +1,28 @@
-package com.pl.transporthub.transporthub;
+package com.pl.transporthub.transporthub.controllers;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.time.LocalDate;
-
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
-import com.pl.transporthub.aaa.AuthenticationController;
+import com.pl.transporthub.aaa.controllers.AuthenticationController;
 import com.pl.transporthub.transporthub.baseclasses.GUIAbstractApplicationWindowController;
 import com.pl.transporthub.transporthub.baseclasses.GUICustomCloseApplication;
+import com.pl.transporthub.transporthub.views.GUIMainWindowView;
 import com.pl.transporthub.user.User;
 
 public class GUIMainWindowController extends GUIAbstractApplicationWindowController {
 
 	private GUIMainWindowView mainWindowView;
-
+	
 	// private GUICustomCloseApplication closeApplication;
 
 	private AuthenticationController authController;
 	private GUIAuthenticatedUsersController guiAuthUsersController;
 	
 	
-	public GUIMainWindowController(User user) {
+	public GUIMainWindowController() {
 		
 		initAppView();
 		//setActionListeners();
@@ -37,18 +36,17 @@ public class GUIMainWindowController extends GUIAbstractApplicationWindowControl
 
 	}
 	
-	/*
-	 * public void closeApplication() { closeApplication = new
-	 * GUICustomCloseApplication();
-	 * 
-	 * baseWindowView.getContentPane().getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW
-	 * ).put(KeyStroke.getKeyStroke("shift ctrl pressed E"),"Exit");
-	 * baseWindowView.getContentPane().getActionMap().put("Exit", closeApplication);
-	 * 
-	 * 
-	 * 
-	 * }
-	 */
+	
+	  public void closeApplication() { 
+		  closeApplication = new
+				  GUICustomCloseApplication();
+		  ((JComponent) mainWindowView.getAppFrame().getContentPane()).getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("shift ctrl pressed E"),"Exit");
+		  ((JComponent) mainWindowView.getAppFrame().getContentPane()).getActionMap().put("Exit", closeApplication);
+	  
+	  
+	  
+	  }
+	 
 	 
 	
 	 
@@ -67,7 +65,7 @@ public class GUIMainWindowController extends GUIAbstractApplicationWindowControl
 			
 			@Override
 			public void mousePressed(MouseEvent e) {
-				authController = new AuthenticationController(mainWindowView, true);
+				authController = new AuthenticationController(mainWindowView.getAppFrame(), true);
 				authController.start();
 				
 			}
@@ -102,7 +100,7 @@ public class GUIMainWindowController extends GUIAbstractApplicationWindowControl
 	}
 
 	public void start() {
-		mainWindowView.setVisible(true);
+		mainWindowView.getAppFrame().setVisible(true);
 	}
 
 	public void checkUserAuthenticationStatus(User user) {

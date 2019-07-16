@@ -2,8 +2,6 @@
 package com.pl.transporthub.transport;
 
 import java.util.ArrayList;
-import java.util.Vector;
-
 import com.pl.transporthub.shared.classes.Coordinate;
 
 public class Station {

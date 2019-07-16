@@ -3,13 +3,8 @@ package com.pl.transporthub.transporthub.baseclasses;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.KeyStroke;
-
-import com.pl.transporthub.aaa.AuthenticationController;
-import com.pl.transporthub.transporthub.GUIMainWindowView;
-import com.pl.transporthub.user.User;
 
 public abstract class GUIAbstractApplicationWindowController {
 	protected GUIBaseApplicationView baseWindowView;
@@ -176,7 +171,7 @@ public abstract class GUIAbstractApplicationWindowController {
 
 
 	public void start() {
-		baseWindowView.showMainWindowView();
+		baseWindowView.showAppWindowView();
 	}
 
 }

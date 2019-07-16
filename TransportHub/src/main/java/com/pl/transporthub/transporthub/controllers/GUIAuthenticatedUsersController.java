@@ -1,14 +1,17 @@
-package com.pl.transporthub.transporthub;
+package com.pl.transporthub.transporthub.controllers;
 
 
 
 import com.pl.transporthub.transporthub.baseclasses.GUIAbstractApplicationWindowController;
+import com.pl.transporthub.transporthub.views.GUIAdminView;
+import com.pl.transporthub.transporthub.views.GUIAuthenticatedUsersView;
 import com.pl.transporthub.user.User;
 
 public class GUIAuthenticatedUsersController extends GUIAbstractApplicationWindowController {
 
 
 	private GUIAuthenticatedUsersView authUsersView;
+	private GUIAdminView adminView;
 	private User user;
 
 
@@ -33,7 +36,7 @@ public class GUIAuthenticatedUsersController extends GUIAbstractApplicationWindo
 		switch (user.getRole()) {
 		case PASSENGER:
 			authUsersView = new GUIAuthenticatedUsersView();
-			authUsersView.showMainWindowView();
+			authUsersView.showAppWindowView();
 		
 			
 		case DRIVER:
@@ -41,7 +44,8 @@ public class GUIAuthenticatedUsersController extends GUIAbstractApplicationWindo
 		case PTM:
 			;
 		case ADMIN:
-			;
+			adminView = new GUIAdminView();
+			adminView.showAppWindowView();
 
 		default:
 			break;

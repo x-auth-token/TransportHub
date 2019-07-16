@@ -7,7 +7,7 @@ public class GUIRoundButtonFactory {
 		else if ("Route".equalsIgnoreCase(bType)) { return new GUIRoundRouteButton(bName); }
 		else if ("Map".equalsIgnoreCase(bType)) { return new GUIRoundMapButton(bName); }
 		else if ("Login".equalsIgnoreCase(bType)) { return new GUIRoundLoginButton(bName); }
-		else if ("Logout".equalsIgnoreCase(bType)) { return new GUIRoundLoginButton(bName); }
+		else if ("Logout".equalsIgnoreCase(bType)) { return new GUIRoundLogoutButton(bName); }
 		
 		
 		return null;

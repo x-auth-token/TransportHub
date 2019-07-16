@@ -1,10 +1,6 @@
 package com.pl.transporthub.user;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
-
-import com.pl.transporthub.aaa.Permissions;
 
 public class PublicTransportManager extends AuthenticatedUser {
 

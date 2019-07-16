@@ -1,4 +1,4 @@
-package com.pl.transporthub.aaa;
+package com.pl.transporthub.aaa.views;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import com.pl.transporthub.aaa.baseclasses.AbstractAuthenticationView;
 
 public class GUIResetPasswordView extends AbstractAuthenticationView {
 

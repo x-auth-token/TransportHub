@@ -14,51 +14,23 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
-package com.pl.transporthub.transport;
+package com.pl.transporthub.aaa.controllers;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Set;
 
-public class Route extends Line {
+import com.pl.transporthub.aaa.Permissions.Permission;;
+public class AuthorizationController {
+
 	
-	private ArrayList<Line> lines;
-	private ArrayList<Station> stations;
-	private ArrayList<Bus> buses;
-	
-	public Route() {
-		generateRoute();
-	}
-	
-	private Route generateRoute() {
-		
-		Route r = new Route();
-		return r;
+	public AuthorizationController (int username) {
 		
 	}
-
-	public ArrayList<Line> getLines() {
-		return lines;
-	}
-
-	public void setLines(ArrayList<Line> lines) {
-		this.lines = lines;
-	}
-
-	public ArrayList<Station> getStations() {
-		return stations;
-	}
-
-	public void setStations(ArrayList<Station> stations) {
-		this.stations = stations;
-	}
-
-	public ArrayList<Bus> getBuses() {
-		return buses;
-	}
-
-	public void setBuses(ArrayList<Bus> buses) {
-		this.buses = buses;
-	}
 	
-	
+	@SuppressWarnings("unused")
+	private Set<Permission> getUserPermissionSet(String username) {
+		
+		return null;
+	}
+
+
 }

@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
-package com.pl.transporthub.aaa;
+package com.pl.transporthub.aaa.controllers;
 
 import java.awt.Color;
 import java.awt.Frame;
@@ -27,17 +27,13 @@ import java.awt.event.MouseListener;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
-
 import com.pl.transporthub.aaa.Roles.Role;
-import com.pl.transporthub.transporthub.GUIAuthenticatedUsersView;
-import com.pl.transporthub.transporthub.GUIMainWindowController;
-import com.pl.transporthub.transporthub.GUIMainWindowView;
+import com.pl.transporthub.aaa.baseclasses.PasswordHasher;
+import com.pl.transporthub.aaa.views.GUILoginView;
+import com.pl.transporthub.aaa.views.GUIResetPasswordView;
+import com.pl.transporthub.aaa.views.GUISelfServiceRegisterNewPassangerView;
+import com.pl.transporthub.transporthub.controllers.GUIMainWindowController;
 import com.pl.transporthub.user.Passenger;
-import com.pl.transporthub.user.User;
-
-import javafx.util.converter.LocalDateStringConverter;
 
 
 
@@ -115,7 +111,7 @@ public class AuthenticationController {
 					passenger.setRole(Role.PASSENGER);
 					passenger.setAuthenticated(true);
 					loginView.exit();
-					mainWindowController = new GUIMainWindowController(passenger);
+					mainWindowController = new GUIMainWindowController();
 					mainWindowController.checkUserAuthenticationStatus(passenger);
 					parentFrame.dispose();
 				

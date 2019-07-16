@@ -14,22 +14,46 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
-package com.pl.transporthub.aaa;
+package com.pl.transporthub.aaa.controllers;
 
-import java.util.Set;
+import jdk.internal.instrumentation.Logger;
 
-import com.pl.transporthub.aaa.Permissions.Permission;;
-public class AuthorizationController {
+public class AccountabilityController implements Logger {
 
-	
-	public AuthorizationController (int username) {
-		
-	}
-	
-	private Set<Permission> getUserPermissionSet(String username) {
-		
-		return null;
+	@Override
+	public void debug(String arg0) {
+		// TODO Auto-generated method stub
+
 	}
 
+	@Override
+	public void error(String arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void error(String arg0, Throwable arg1) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void info(String arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void trace(String arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void warn(String arg0) {
+		// TODO Auto-generated method stub
+
+	}
 
 }

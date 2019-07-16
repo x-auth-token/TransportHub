@@ -17,8 +17,6 @@
 package com.pl.transporthub.user;
 
 import javax.persistence.EntityManager;
-import javax.persistence.criteria.Expression;
-
 import org.eclipse.persistence.jpa.jpql.parser.TrimExpression.Specification;
 
 import com.pl.transporthub.shared.interfaces.GenericRepository;

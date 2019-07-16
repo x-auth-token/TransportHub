@@ -14,46 +14,46 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
-package com.pl.transporthub.aaa;
+package com.pl.transporthub.transporthub.views;
 
-import jdk.internal.instrumentation.Logger;
+import com.pl.transporthub.transporthub.baseclasses.GUIBaseApplicationView;
+import com.pl.transporthub.transporthub.buttons.GUIRoundButton;
+import com.pl.transporthub.transporthub.buttons.GUIRoundButtonFactory;
 
-public class AccountabilityController implements Logger {
+public class GUIMainWindowView extends GUIBaseApplicationView {
 
-	@Override
-	public void debug(String arg0) {
-		// TODO Auto-generated method stub
+	/**
+	 * 
+	 */
+	@SuppressWarnings("unused")
+	private static final long serialVersionUID = 1L;
+	private GUIRoundButton btnLogin;
+	/**
+	 * Create the frame.
+	 */
+	public GUIMainWindowView() {
 
+		super();
+	
 	}
 
 	@Override
-	public void error(String arg0) {
-		// TODO Auto-generated method stub
+	public void initComponents() {
+		btnLogin = GUIRoundButtonFactory.getRoundButton("Login", "LoginButton");
+		super.initComponents();
+		
+	
 
 	}
-
 	@Override
-	public void error(String arg0, Throwable arg1) {
-		// TODO Auto-generated method stub
-
+	public void setUpMainWindowView() {
+		getInnerPanel().add(btnLogin,"cell 2 0, align center");
+		
+		super.setUpMainWindowView();
 	}
-
-	@Override
-	public void info(String arg0) {
-		// TODO Auto-generated method stub
-
+	
+	public GUIRoundButton getBtnLogin() {
+		return btnLogin;
 	}
-
-	@Override
-	public void trace(String arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void warn(String arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 }
