@@ -45,19 +45,19 @@ public class GUIAbstractApplicationView {
 		}
 
 
-		public void initFrame() {
+		protected void initFrame() {
 			appFrame = new JFrame();
 			appFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 			appFrame.setBounds(100, 100, 655, 442);
 			appFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-			appFrame.setUndecorated(true);
+			appFrame.setUndecorated(false);
 		}
 
-		public void initContentPaneLayout() {
+		protected void initContentPaneLayout() {
 			brl_contentPane = new BorderLayout(0, 0);
 		}
 
-		public void initComponents() {
+		protected void initComponents() {
 			lblLogoLabel = new JLabel("");
 			lblLogoLabel.setHorizontalAlignment(SwingConstants.LEFT);
 			lblLogoLabel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
@@ -65,7 +65,7 @@ public class GUIAbstractApplicationView {
 
 		}
 
-		public void initInnerPanel() {
+		protected void initInnerPanel() {
 			innerPanel = new JPanel();
 			innerPanel.setBorder(new MatteBorder(0, 0, 0, 1, (Color) new Color(51, 102, 255)));
 			innerPanel.setBackground(new Color(0, 59, 77));
@@ -74,11 +74,11 @@ public class GUIAbstractApplicationView {
 			initComponents();
 		}
 
-		public void initScrollPane() {
+		protected void initScrollPane() {
 			
 		}
 
-		public void initContentPane() {
+		protected void initContentPane() {
 			contentPane = new JPanel();
 			contentPane.setBackground(new Color(222, 224, 224));
 			contentPane.setBorder(new LineBorder(new Color(192, 192, 192)));
@@ -90,7 +90,7 @@ public class GUIAbstractApplicationView {
 
 		}
 
-		public void setUpMainWindowView() {
+		protected void setUpMainWindowView() {
 			innerPanel.add(lblLogoLabel, "cell 0 0,alignx left,aligny center");
 
 			contentPane.add(innerPanel, BorderLayout.NORTH);
@@ -99,10 +99,7 @@ public class GUIAbstractApplicationView {
 
 		}
 
-		public void showAppWindowView() {
-			appFrame.setVisible(true);
-		}
-
+		
 		public JPanel getContentPane() {
 			return contentPane;
 		}
@@ -152,8 +149,18 @@ public class GUIAbstractApplicationView {
 		public JFrame getAppFrame() {
 			return appFrame;
 		}
-
-
+		
+		public void hideAppWindow() {
+			appFrame.setVisible(false);
+		}
+		
+		public void showAppWindow() {
+			appFrame.setVisible(true);
+		}
+		
+		public void closeAppWindow() {
+			appFrame.dispose();
+		}
 		public static long getSerialversionuid() {
 			return serialVersionUID;
 		}

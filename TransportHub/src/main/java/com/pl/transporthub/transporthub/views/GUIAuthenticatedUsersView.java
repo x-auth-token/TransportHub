@@ -1,5 +1,7 @@
 package com.pl.transporthub.transporthub.views;
 
+import javax.swing.JButton;
+
 import com.pl.transporthub.transporthub.baseclasses.GUIBaseApplicationView;
 import com.pl.transporthub.transporthub.buttons.GUIRoundButton;
 import com.pl.transporthub.transporthub.buttons.GUIRoundButtonFactory;
@@ -12,15 +14,17 @@ public class GUIAuthenticatedUsersView extends GUIBaseApplicationView {
 	@SuppressWarnings("unused")
 	private static final long serialVersionUID = 1L;
 	private GUIRoundButton btnLogout;
+	
 
 	public GUIAuthenticatedUsersView() {
 		super();
-		
+
 	}
 
 	@Override
 	public void initComponents() {
 		btnLogout = GUIRoundButtonFactory.getRoundButton("Logout", "LogoutButton");
+		//testBTN = new JButton("TEST");
 		super.initComponents();
 		
 	}
@@ -29,6 +33,9 @@ public class GUIAuthenticatedUsersView extends GUIBaseApplicationView {
 	public void setUpMainWindowView() {
 		
 		getInnerPanel().add(btnLogout, "cell 2 0, align center");
+		
+		
+		
 		super.setUpMainWindowView();
 	}
 
@@ -38,8 +45,7 @@ public class GUIAuthenticatedUsersView extends GUIBaseApplicationView {
 	public GUIRoundButton getBtnLogout() {
 		return btnLogout;
 	}
-	
-	
+
 	
 	
 	

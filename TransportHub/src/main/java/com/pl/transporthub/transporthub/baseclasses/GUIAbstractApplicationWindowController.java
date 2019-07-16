@@ -13,24 +13,26 @@ public abstract class GUIAbstractApplicationWindowController {
 
 	public GUIAbstractApplicationWindowController() {
 		baseWindowView = new GUIBaseApplicationView();
-		setActionListeners();
+		//setActionListeners();
 	}
 	
 	public void initAppView() {
 		
 	}
 	
-	public void setActionListeners() {
-		closeApplication = new GUICustomCloseApplication();
-		
-		  baseWindowView.getContentPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW
-		  ).put(KeyStroke.getKeyStroke("shift ctrl pressed E"),"Exit");
-		  baseWindowView.getContentPane().getActionMap().put("Exit", closeApplication);
+	protected void setActionListeners() {
+		/*
+		 * closeApplication = new GUICustomCloseApplication();
+		 * 
+		 * baseWindowView.getContentPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW
+		 * ).put(KeyStroke.getKeyStroke("shift ctrl pressed E"),"Exit");
+		 * baseWindowView.getContentPane().getActionMap().put("Exit", closeApplication);
+		 */
 		 
 		
 	}
 
-	public void setMouseListeners() {
+	protected void setMouseListeners() {
 
 
 		baseWindowView.getBtnBus().addMouseListener(new MouseListener() {
@@ -168,10 +170,10 @@ public abstract class GUIAbstractApplicationWindowController {
 	public GUIBaseApplicationView getBaseApplicationView() {
 		return baseWindowView;
 	}
-
+	
 
 	public void start() {
-		baseWindowView.showAppWindowView();
+		baseWindowView.showAppWindow();
 	}
 
 }

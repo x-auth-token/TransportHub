@@ -20,5 +20,6 @@ public class GUIRoundLogoutButton extends GUIRoundButton {
 		setText("Logout");
 		setVerticalTextPosition(BOTTOM); setHorizontalTextPosition(CENTER);
 		setForeground(Color.WHITE);
+		setFocusable(true);
 	}
 }

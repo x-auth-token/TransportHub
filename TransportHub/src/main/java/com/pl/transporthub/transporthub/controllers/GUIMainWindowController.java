@@ -1,5 +1,6 @@
 package com.pl.transporthub.transporthub.controllers;
 
+import java.awt.Frame;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JComponent;
@@ -40,8 +41,8 @@ public class GUIMainWindowController extends GUIAbstractApplicationWindowControl
 	  public void closeApplication() { 
 		  closeApplication = new
 				  GUICustomCloseApplication();
-		  ((JComponent) mainWindowView.getAppFrame().getContentPane()).getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("shift ctrl pressed E"),"Exit");
-		  ((JComponent) mainWindowView.getAppFrame().getContentPane()).getActionMap().put("Exit", closeApplication);
+		  mainWindowView.getContentPane().getInputMap(JPanel.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("shift ctrl pressed E"),"Exit");
+		  mainWindowView.getContentPane().getActionMap().put("Exit", closeApplication);
 	  
 	  
 	  
@@ -110,6 +111,9 @@ public class GUIMainWindowController extends GUIAbstractApplicationWindowControl
 			if (user.isAuthenticated()) {
 				guiAuthUsersController = new GUIAuthenticatedUsersController(user);
 				guiAuthUsersController.start();
+				mainWindowView.hideAppWindow();
+		
+				mainWindowView.closeAppWindow();
 		}	
 		}
 	}

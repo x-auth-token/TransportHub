@@ -41,14 +41,12 @@ public class GUIMainWindowView extends GUIBaseApplicationView {
 	public void initComponents() {
 		btnLogin = GUIRoundButtonFactory.getRoundButton("Login", "LoginButton");
 		super.initComponents();
-		
-	
+
 
 	}
 	@Override
 	public void setUpMainWindowView() {
 		getInnerPanel().add(btnLogin,"cell 2 0, align center");
-		
 		super.setUpMainWindowView();
 	}
 	

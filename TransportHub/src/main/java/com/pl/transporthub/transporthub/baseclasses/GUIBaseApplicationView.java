@@ -107,6 +107,7 @@ public class GUIBaseApplicationView extends GUIAbstractApplicationView {
 		getContentPane().add(getInnerPanel(), BorderLayout.NORTH);
 		getContentPane().add(scrollPane, BorderLayout.CENTER);
 		getAppFrame().setContentPane(getContentPane());
+	
 
 	}
 
