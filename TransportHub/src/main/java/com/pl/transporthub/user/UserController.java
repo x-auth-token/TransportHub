@@ -16,36 +16,9 @@ import sun.security.util.Password;
 
 public class UserController {
 	private UserRepository userRepository;
-	private EntityManagerFactory factory;
-	private EntityManager em;
-	private EntityTransaction transaction;
-	
 	public UserController() {
-		initEM();
-		userRepository = new UserRepository(em);
-	}
-	
-	public void initEM() {
-		factory = Persistence.createEntityManagerFactory("UsersPU");
-		em = factory.createEntityManager();
-		transaction = em.getTransaction();
-	}
-	
-	public void printResult() {
-		TypedQuery<Passenger> q = em.createQuery("select c from Passenger c", Passenger.class);
-		List<Passenger> results = q.getResultList();
-		for (Passenger thing : results) {
-		  System.out.println(thing.getUserID() + ": " + thing.getUsername());
-		}
-	}
-
-	
-
-	
-	
-	public void end() {
-		em.close();
-		factory.close();
+		
+		userRepository = new UserRepository();
 	}
 
 	
@@ -63,9 +36,7 @@ public class UserController {
 	
 	public void saveUser(User u) {
 		
-		transaction.begin();
-		userRepository.save(u);
-		transaction.commit();
+		
 		
 	}
 	
@@ -78,8 +49,7 @@ public class UserController {
 		
 		UserController controller = new UserController();
 		controller.saveUser(passenger);
-		controller.printResult();
-		controller.end();
+	
 	}
 
 }

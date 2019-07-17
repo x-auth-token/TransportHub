@@ -108,7 +108,7 @@ public class AuthenticationController {
 					
 					final char[] pass = { 'p', 'a', 's', 's', 'w', 'o', 'r', 'd' };
 					Passenger passenger = new Passenger("user", pass, date, false);
-					passenger.setRole(Role.ADMIN);
+					passenger.setRole(Role.PASSENGER);
 					passenger.setAuthenticated(true);
 					loginView.exit();
 					mainWindowController = new GUIMainWindowController();

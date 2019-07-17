@@ -8,8 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name ="users")
+
 public class Passenger extends AuthenticatedUser {
 
 	/*
@@ -20,8 +19,6 @@ public class Passenger extends AuthenticatedUser {
 	 * public Passenger(String un, char[] pass, boolean adminValue) { super(un,
 	 * pass, adminValue); // TODO Auto-generated constructor stub }
 	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	
 	private String passportID;
 	

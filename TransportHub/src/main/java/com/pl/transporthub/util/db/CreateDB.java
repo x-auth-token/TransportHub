@@ -23,7 +23,7 @@ public class CreateDB {
 											"(2,201,2,'321'), " +
 											"(3,154,3, '111')");
 		try {
-			connection.createStatement().execute("drop table busStations");
+			//connection.createStatement().execute("drop table busStations");
 
 			connection.createStatement().execute("create table busStations(id int,stationName varchar(20),stationAddress varchar(20), lat float,lon float,lines varchar(20))");
 		}
@@ -59,7 +59,7 @@ public class CreateDB {
 											"(3, 'Dan', 'D','Dan','Dan', '1.1.2020',FALSE,FALSE,'1111113','dan@test.email', 1), " +
 											"(4, 'Geri', 'G','Geri','Geri', '1.1.2020',FALSE,FALSE,'111114','geri@test.email', 2)");
 		try {
-			connection.createStatement().execute("drop table line");
+			//connection.createStatement().execute("drop table line");
 
 			connection.createStatement().execute("create table line(id int, lineNumber int, numberOfStation int,stationsIDs varchar(20),busIDs varchar(20))");
 		}

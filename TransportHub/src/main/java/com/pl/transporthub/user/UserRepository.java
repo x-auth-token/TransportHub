@@ -27,7 +27,7 @@ public class UserRepository implements GenericRepository<User>{
 	
 	private EntityManager em;
 	
-	public UserRepository(EntityManager em) {
+	public UserRepository() {
 		
 		this.em = em;
 	}
