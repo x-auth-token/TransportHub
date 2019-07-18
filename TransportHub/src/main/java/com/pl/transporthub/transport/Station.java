@@ -16,7 +16,7 @@ public class Station {
 	private int stationID;
 	private String stationAddress;
 	private Coordinate stationCoordinates;
-	private ArrayList<int []> lines;
+	private ArrayList<Line> lines;
 	
 	private sState stationState;
 	
@@ -36,7 +36,7 @@ public class Station {
 	public Station(String sName, int sNumber, String sAddr, Coordinate sCoordinates) {
 		setStationName(sName);
 		setStationAddress(sAddr);
-		setStationNumber(stationID);
+		setStationID(stationID);
 
 	}
 	public String getStationName() {
@@ -45,11 +45,11 @@ public class Station {
 	public void setStationName(String stationName) {
 		this.stationName = stationName;
 	}
-	public int getStationNumber() {
+	public int getStationID() {
 		return stationID;
 	}
-	public void setStationNumber(int stationNumber) {
-		this.stationID = stationNumber;
+	public void setStationID(int stationID) {
+		this.stationID = stationID;
 	}
 	public String getStationAddress() {
 		return stationAddress;
@@ -63,13 +63,21 @@ public class Station {
 	public void setStationCoordinates(Coordinate stationCoordinates) {
 		this.stationCoordinates = stationCoordinates;
 	}
-	public ArrayList<int []> getLines() {
+	public ArrayList<Line> getLines() {
 		return lines;
 	}
-	public void setLines(ArrayList<int []> lines) {
+	public void setLines(ArrayList<Line> lines) {
 		this.lines = lines;
 	}
 	
-	
+	public String lineIDsToSQL() {
+		String str = "";
+		for(Line line:getLines()) {
+			
+			str += line.getLineID() + ",";
+			
+		}
+		return str;	
+	}
 	
 }

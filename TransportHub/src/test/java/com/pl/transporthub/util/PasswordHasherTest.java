@@ -45,6 +45,8 @@ public class PasswordHasherTest {
 			String sp = PasswordHasher.generateHashedPassword(pass);
 			String sp2 = PasswordHasher.generateHashedPassword(pass2);
 			// Assert.assertNotEquals(sp, sp2);
+			System.out.println(sp.length());
+			System.out.println(sp2.length());
 			assertNotEquals(sp2, sp);
 
 		} catch (NoSuchAlgorithmException | InvalidKeySpecException e) {

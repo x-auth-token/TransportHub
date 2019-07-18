@@ -16,45 +16,39 @@
  ******************************************************************************/
 package com.pl.transporthub.user;
 
-import java.util.UUID;
-
 import javax.persistence.EntityManager;
 import org.eclipse.persistence.jpa.jpql.parser.TrimExpression.Specification;
 
 import com.pl.transporthub.shared.interfaces.GenericRepository;
+import com.pl.transporthub.util.db.SQLiteJDBC;
 
 public class UserRepository implements GenericRepository<User>{
 	
-	private EntityManager em;
+	private SQLiteJDBC sqliteConneciton;
+	private final String dbFolderName = "DB";
+	private final String dbName = "Users"; 
 	
 	public UserRepository() {
 		
-		this.em = em;
+		try {
+			sqliteConneciton = new SQLiteJDBC(dbFolderName, dbName);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
-	public void add(User u) {
-		
-		if (u.getUsername() == null) {
-			em.persist(u);
-		} else {
-			u = em.merge(u);
-		}
+	public void add(User t) {
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void remove(User u) {
-		if (em.contains(u)) {
-			em.remove(u);
-		} else {
-			em.merge(u);
-		}
+	public void remove(User t) {
+		// TODO Auto-generated method stub
 		
 	}
-
-	
-
 
 	@Override
 	public User get(User t) {
@@ -63,30 +57,26 @@ public class UserRepository implements GenericRepository<User>{
 	}
 
 	@Override
-	public User getByID(Integer id) {
+	public User save(User t) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public User save(User u) {
-		if (u.getUserID() == null) {
-			em.persist(u);
-		} else {
-			u = em.merge(u);
-		}
-		
-		return u;
-	}
-	@Override
 	public Iterable<User> getAll() {
-		
-		return em.createQuery("SELECT * from Users u", User.class).getResultList();
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public Iterable<User> find(Specification spec) {
-		
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User getByID(Integer id) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
