@@ -16,6 +16,9 @@
  ******************************************************************************/
 package com.pl.transporthub.user;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.persistence.EntityManager;
 import org.eclipse.persistence.jpa.jpql.parser.TrimExpression.Specification;
 
@@ -25,7 +28,7 @@ import com.pl.transporthub.util.db.SQLiteJDBC;
 public class UserRepository implements GenericRepository<User>{
 	
 	private SQLiteJDBC sqliteConneciton;
-	private final String dbFolderName = "DB";
+	private final String dbFolderName = "db";
 	private final String dbName = "Users"; 
 	
 	public UserRepository() {
@@ -52,7 +55,23 @@ public class UserRepository implements GenericRepository<User>{
 
 	@Override
 	public User get(User t) {
-		// TODO Auto-generated method stub
+		try {
+			System.out.println(t.getUsername());
+			
+			ResultSet rs = sqliteConneciton.getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + t.getUsername() + "'");
+			
+			if (rs != null ) {
+				while(rs.next())  {
+					System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+					
+					}
+					
+			}
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 

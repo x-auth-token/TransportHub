@@ -1,14 +1,25 @@
 package com.pl.transporthub.util.db;
 
+import com.pl.transporthub.user.Admin;
+import com.pl.transporthub.user.UserRepository;
+
 public class Test {
 	
 	public static void main(String[] args) {
 		
-		String fName = "Test_DB_Folder";
-		String dbName = "Test_DB.sqlite";
+		String fName = "db";
+		String dbName = "Users";
+		
+		UserRepository rp = new UserRepository();
+		Admin adm = new Admin();
+		
 		
 		DatabaseController dbc = new DatabaseController(fName, dbName);
 		dbc.start();
+		
+		adm.setUsername("qwe");
+		rp.get(adm);
+		
 	
 	}
 }

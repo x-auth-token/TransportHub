@@ -40,7 +40,7 @@ public abstract class DataBase {
 	protected static void initialize(String driverName, String url) throws Exception {
 		setDriverName(driverName);
 		setUrl(url);
-		//createStatement();
+		createStatement();
 		connect();
 	}
 
@@ -71,6 +71,36 @@ public abstract class DataBase {
 
 	public Statement getStatement() {
 		return statement;
+	}
+	
+	
+	
+	/**
+	 * @return the timeout
+	 */
+	public static int getTimeout() {
+		return timeout;
+	}
+
+	/**
+	 * @param timeout the timeout to set
+	 */
+	public static void setTimeout(int timeout) {
+		DataBase.timeout = timeout;
+	}
+
+	/**
+	 * @param connection the connection to set
+	 */
+	public static void setConnection(Connection connection) {
+		DataBase.connection = connection;
+	}
+
+	/**
+	 * @param statement the statement to set
+	 */
+	public static void setStatement(Statement statement) {
+		DataBase.statement = statement;
 	}
 
 	private static void createStatement() throws Exception {

@@ -12,6 +12,7 @@ import com.pl.transporthub.transporthub.baseclasses.GUIAbstractApplicationWindow
 import com.pl.transporthub.transporthub.baseclasses.GUICustomCloseApplication;
 import com.pl.transporthub.transporthub.views.GUIMainWindowView;
 import com.pl.transporthub.user.User;
+import com.pl.transporthub.user.UserRepository;
 
 public class GUIMainWindowController extends GUIAbstractApplicationWindowController {
 
@@ -21,6 +22,8 @@ public class GUIMainWindowController extends GUIAbstractApplicationWindowControl
 
 	private AuthenticationController authController;
 	private GUIAuthenticatedUsersController guiAuthUsersController;
+
+	private UserRepository ur;
 	
 	
 	public GUIMainWindowController() {
@@ -102,6 +105,13 @@ public class GUIMainWindowController extends GUIAbstractApplicationWindowControl
 
 	public void start() {
 		mainWindowView.getAppFrame().setVisible(true);
+	}
+	
+	public void authenticate(User u) {
+		ur = new UserRepository();
+		
+		if (u.getUsername().equals(ur.get(u)));
+		
 	}
 
 	public void checkUserAuthenticationStatus(User user) {

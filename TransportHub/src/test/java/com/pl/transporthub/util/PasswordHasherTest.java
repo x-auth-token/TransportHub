@@ -32,7 +32,7 @@ import com.pl.transporthub.aaa.baseclasses.PasswordHasher;
 public class PasswordHasherTest {
 
 	public static final char[] pass = { 'p', 'a', 's', 's', 'w', 'o', 'r', 'd' };
-	public static final char[] pass2 = { 'p', 'a', 's', 's', 'w', 'o', 'r', 'd', '2' };;
+	public static final char[] pass2 = { 'a', 'd', 'm', 'i', 'n' };
 	public static final char[] pass3 = { 'p', 'a', 's', 's', 'w', 'o', 'r', 'd', '3' };
 
 	@Rule
@@ -45,8 +45,7 @@ public class PasswordHasherTest {
 			String sp = PasswordHasher.generateHashedPassword(pass);
 			String sp2 = PasswordHasher.generateHashedPassword(pass2);
 			// Assert.assertNotEquals(sp, sp2);
-			System.out.println(sp.length());
-			System.out.println(sp2.length());
+			System.out.println(sp2.toString());
 			assertNotEquals(sp2, sp);
 
 		} catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
@@ -59,7 +58,7 @@ public class PasswordHasherTest {
 
 		try {
 			final String saltedPass = PasswordHasher.generateHashedPassword(pass);
-			System.out.println(saltedPass);
+			//System.out.println(saltedPass);
 			assertTrue(PasswordHasher.validateHashedPassword(pass, saltedPass));
 		} catch (DecoderException | InvalidKeySpecException | NoSuchAlgorithmException e) {
 			e.printStackTrace();

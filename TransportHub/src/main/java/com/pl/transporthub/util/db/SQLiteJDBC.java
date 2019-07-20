@@ -28,7 +28,7 @@ public class SQLiteJDBC extends DataBase {
 	private static String url = "";
 	private static File folder;
 	
-	private static final String scriptFile = "qsrc/main/resources/sql/first_run_db.sql";
+	private static final String scriptFile = "src/main/resources/sql/first_run_db.sql";
 
 	public SQLiteJDBC() {
 
@@ -96,7 +96,8 @@ public class SQLiteJDBC extends DataBase {
                 System.out.println(sb.toString());
             }
 	}
-
+	
+	
 	
 	 
 

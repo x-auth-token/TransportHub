@@ -77,19 +77,19 @@ public abstract class User {
 		setAdmin(adminValue);
 	}
 
-	protected String getUsername() {
+	public String getUsername() {
 		return username;
 	}
 
-	protected void setUsername(String username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
 
-	protected char[] getPassword() {
+	public char[] getPassword() {
 		return password;
 	}
 
-	protected void setPassword(char[] password) {
+	public void setPassword(char[] password) {
 		this.password = password;
 	}
 	
