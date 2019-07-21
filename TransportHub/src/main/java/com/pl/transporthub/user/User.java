@@ -68,6 +68,16 @@ public abstract class User {
 	public User() {
 		
 	}
+	
+	public User(String un, String pass) {
+		
+		generateUserID();
+		setUsername(un);
+		setPassword(pass);
+		setExpirationDate(null);
+		
+	}
+	
 	public User(String un, String pass, LocalDate expirationDate, boolean adminValue) {
 		
 		generateUserID();

@@ -25,6 +25,7 @@ public class GUILoginView extends AbstractAuthenticationView {
 	private JButton btnSignUp;
 	private JButton btnSignIn;
 	private JLabel lblNoUserPassProvided;
+	private JLabel lblWrongUserPass;
 	private JLabel lblUsername;
 	
 	private JLabel lblPassword;
@@ -53,6 +54,12 @@ public class GUILoginView extends AbstractAuthenticationView {
 		lblNoUserPassProvided.setForeground(new Color(204, 0, 51));
 		lblNoUserPassProvided.setBounds(372, 176, 347, 16);
 		lblNoUserPassProvided.setVisible(false);
+		
+		lblWrongUserPass = new JLabel("Wrong username or password! Try again!");
+		lblWrongUserPass.setHorizontalAlignment(SwingConstants.CENTER);
+		lblWrongUserPass.setForeground(new Color(204, 0, 51));
+		lblWrongUserPass.setBounds(372, 176, 347, 16);
+		lblWrongUserPass.setVisible(false);
 		
 		lblUsername = new JLabel("Username");
 		lblUsername.setBounds(374, 48, 359, 26);
@@ -93,6 +100,7 @@ public class GUILoginView extends AbstractAuthenticationView {
 		super.setUpAuthenticationView();
 		getContentPanel().add(logoBackgroundPanel);
 		getContentPanel().add(lblNoUserPassProvided);
+		getContentPanel().add(lblWrongUserPass);
 		getContentPanel().add(lblUsername);
 		getContentPanel().add(lblPassword);
 		getContentPanel().add(txtPasswordField);
@@ -180,6 +188,18 @@ public class GUILoginView extends AbstractAuthenticationView {
 
 	public void setUsernameMessageTip(String usernameMessageTip) {
 		this.usernameMessageTip = usernameMessageTip;
+	}
+
+	public JLabel getLblWrongUserPass() {
+		return lblWrongUserPass;
+	}
+
+	public void setLblWrongUserPass(JLabel lblWrongUserPass) {
+		this.lblWrongUserPass = lblWrongUserPass;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 	

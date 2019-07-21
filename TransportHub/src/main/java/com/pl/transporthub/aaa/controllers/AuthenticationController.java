@@ -27,6 +27,11 @@ import java.awt.event.MouseListener;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.time.LocalDate;
+
+import javax.naming.AuthenticationException;
+
+import org.apache.commons.codec.DecoderException;
+
 import com.pl.transporthub.aaa.Roles.Role;
 import com.pl.transporthub.aaa.baseclasses.PasswordHasher;
 import com.pl.transporthub.aaa.views.GUILoginView;
@@ -90,39 +95,39 @@ public class AuthenticationController {
 			public void actionPerformed(ActionEvent e) {
 
 				String username = loginView.getTxtUsername().getText();
-				String hashedPassword = "";
+			
+				User ur;
 
-				if (loginView.getTxtPasswordField().getPassword().length != 0) {
-					try {
-						hashedPassword = PasswordHasher.generateHashedPassword(loginView.getTxtPasswordField().getPassword());
-					} catch (NoSuchAlgorithmException | InvalidKeySpecException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				}
+				 
 
-				if (username.isEmpty() || hashedPassword.isEmpty() || username.equals(loginView.getUsernameMessageTip())) {
+				if (username.isEmpty() || loginView.getTxtPasswordField().getPassword().length == 0 || username.equals(loginView.getUsernameMessageTip())) {
 
-					if (!loginView.getLblNoUserPassProvided().isVisible())
-						loginView.getLblNoUserPassProvided().setVisible(true);
-
+					
+					  if (!loginView.getLblNoUserPassProvided().isVisible()) {
+						  loginView.getLblNoUserPassProvided().setVisible(true);
+					  } else {
+						  loginView.getLblNoUserPassProvided().setVisible(false);
+					  }
+					 
+					
 				} else {
 					
-					//Syste
-					
-					LocalDate date = LocalDate.of(2019, 12, 31);
-					
-					
-					final char[] pass = { 'p', 'a', 's', 's', 'w', 'o', 'r', 'd' };
-					//Passenger passenger = new Passenger("user", pass, date, false);
-					passenger.setRole(Role.PASSENGER);
-					passenger.setAuthenticated(true);
-					loginView.exit();
-					mainWindowController = new GUIMainWindowController();
-					mainWindowController.checkUserAuthenticationStatus(passenger);
-					//parentFrame.setVisible(false);
-					//parentFrame.dispose();
-				
+					if ((ur = authenticateUser(username, loginView.getTxtPasswordField().getPassword())) == null) {
+						if (!loginView.getLblWrongUserPass().isVisible()) {
+							loginView.getLblWrongUserPass().setVisible(true);
+						} else {
+							loginView.getLblWrongUserPass().setVisible(true);
+						}
+					} else {
+						loginView.exit();
+						mainWindowController = new GUIMainWindowController();
+						mainWindowController.checkUserAuthenticationStatus(ur);
+						parentFrame.setVisible(false);
+						parentFrame.dispose();
+						
+					}
+
+					 				
 					
 				}
 
@@ -188,12 +193,19 @@ public class AuthenticationController {
 					loginView.getTxtUsername().setForeground(Color.LIGHT_GRAY);
 					loginView.setFirstRun(false);
 					loginView.getTxtUsername().transferFocus();
+					
 
 				} else {
 					if (loginView.getTxtUsername().getText().equals(loginView.getUsernameMessageTip())) {
 						loginView.getTxtUsername().setText("");
 						loginView.getTxtUsername().setForeground(Color.BLACK);
 						loginView.getTxtUsername().revalidate();
+						
+						if (loginView.getLblWrongUserPass().isVisible()) {
+							loginView.getLblWrongUserPass().setVisible(false);
+						} else if (loginView.getLblNoUserPassProvided().isVisible()) {
+							loginView.getLblNoUserPassProvided().setVisible(false);
+						}
 					}
 				}
 
@@ -287,13 +299,30 @@ public class AuthenticationController {
 		return null;
 	}
 
-	public void authenticateUser(String username, String hashedPassword ) {
+	public User authenticateUser(String username, char []password ) {
+		
 		if (ur.getUserByName(username) != null) {
 			UserFactory uf = new UserFactory();
-			uf.getUser(ur.getUserRole(username), username, ur.getUserPassword(username), null );
-		} else {
-			//return null;
+			User user = UserFactory.getUser(ur.getUserRole(username), username, ur.getUserPassword(username));
+			
+			try {
+				if (PasswordHasher.validateHashedPassword(password, user.getPassword())) {
+					user.setAuthenticated(true);
+					return user;
+				}
+			} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvalidKeySpecException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (DecoderException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+			
+			return null;
 	}
 	
 	

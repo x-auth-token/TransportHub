@@ -18,10 +18,13 @@ package com.pl.transporthub.user;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 import javax.persistence.EntityManager;
 import org.eclipse.persistence.jpa.jpql.parser.TrimExpression.Specification;
 
+import com.pl.transporthub.aaa.Roles.Role;
 import com.pl.transporthub.shared.interfaces.GenericRepository;
 import com.pl.transporthub.util.db.SQLiteJDBC;
 
@@ -102,10 +105,18 @@ public class UserRepository implements GenericRepository<User>{
 		ResultSet rs = sqliteConneciton.getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + username + "'");
 		
 		if (rs != null ) {
+			
+		User ur = UserFactory.getUser(getUserRole(username), username, getUserPassword(username));
 			while(rs.next())  {
-				System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+				//System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+				ur.setUserID(rs.getInt("userID"));
+				ur.setExpirationDate(rs.getTime("expirationDate").toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+				ur.setRole(Role.toRole(rs.getString("role")));
+				ur.setEmail(rs.getString("email"));
+				ur.setMobileNumber(rs.getString("mobileNumber"));
 				
 				}
+			return ur;
 				
 		}
 			
@@ -123,7 +134,7 @@ public class UserRepository implements GenericRepository<User>{
 			
 			if (rs != null ) {
 				while (rs.next()) {
-					System.out.println(rs.getString("role"));
+					return rs.getString("role");
 				}
 			}
 				
@@ -141,7 +152,7 @@ public class UserRepository implements GenericRepository<User>{
 			
 			if (rs != null ) {
 				while (rs.next()) {
-					System.out.println(rs.getString("password"));
+					return rs.getString("password");
 				}
 			}
 				

@@ -24,6 +24,11 @@ import com.pl.transporthub.aaa.Permissions.Permission;
 
 public class AuthenticatedUser extends User {
 	
+	public AuthenticatedUser(String un, String pass) {
+		super(un, pass);
+		// TODO Auto-generated constructor stub
+	}
+
 	private Set<Permission> permissions;
 
 	/*

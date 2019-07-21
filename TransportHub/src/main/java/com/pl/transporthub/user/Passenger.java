@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.pl.transporthub.aaa.Roles.Role;
+
 
 public class Passenger extends AuthenticatedUser {
 
@@ -29,8 +31,18 @@ public class Passenger extends AuthenticatedUser {
 		
 	}
 	
+	
+	
+	public Passenger(String un, String pass) {
+		super(un, pass);
+		setRole(Role.PASSENGER);
+	}
+
+
+
 	public Passenger(String un, String pass, LocalDate expirationDate, boolean adminValue) {
 		super(un, pass, expirationDate, adminValue);
+		setRole(Role.PASSENGER);
 		
 	}
 	/**

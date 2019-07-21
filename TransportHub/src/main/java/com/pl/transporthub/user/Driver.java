@@ -2,6 +2,8 @@ package com.pl.transporthub.user;
 
 import java.time.LocalDate;
 
+import com.pl.transporthub.aaa.Roles.Role;
+
 public class Driver extends AuthenticatedUser {
 
 	/*
@@ -14,9 +16,21 @@ public class Driver extends AuthenticatedUser {
 	 */
 	private int driverID;
 	
+	
+	
+	public Driver() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Driver(String un, String pass) {
+		super(un, pass);
+		setRole(Role.DRIVER);
+	}
+
 	public Driver(String un, String pass, LocalDate expirationDate, boolean adminValue) {
 		super(un, pass, expirationDate, adminValue);
-		// TODO Auto-generated constructor stub
+		setRole(Role.DRIVER);
 	}
 
 	public int getDriverID() {
