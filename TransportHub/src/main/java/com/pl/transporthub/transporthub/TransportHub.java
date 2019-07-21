@@ -16,10 +16,13 @@
  ******************************************************************************/
 package com.pl.transporthub.transporthub;
 
+import java.sql.SQLException;
+
 //import java.awt.EventQueue;
 import javax.swing.SwingUtilities;
 
 import com.pl.transporthub.transporthub.controllers.GUIMainWindowController;
+import com.pl.transporthub.util.db.DatabaseController;
 
 /**
  * 	This is a main executable of the TransportHub project
@@ -36,6 +39,7 @@ public class TransportHub {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					startDB();
 					createAndShowGUI();
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,5 +57,11 @@ public class TransportHub {
 		  mainWindowController.start();
 
 	}
+	
+	public static void startDB() throws SQLException {
+		DatabaseController dbController = new DatabaseController();
+		dbController.start();
+	}
+	
 
 }

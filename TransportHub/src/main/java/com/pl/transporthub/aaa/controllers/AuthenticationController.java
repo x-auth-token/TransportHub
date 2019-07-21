@@ -40,6 +40,7 @@ import com.pl.transporthub.aaa.views.GUISelfServiceRegisterNewPassangerView;
 import com.pl.transporthub.transporthub.controllers.GUIMainWindowController;
 import com.pl.transporthub.user.Passenger;
 import com.pl.transporthub.user.User;
+import com.pl.transporthub.user.UserController;
 import com.pl.transporthub.user.UserFactory;
 import com.pl.transporthub.user.UserRepository;
 
@@ -53,7 +54,8 @@ public class AuthenticationController {
 	
 	private GUIMainWindowController mainWindowController;
 	private Frame parentFrame;
-	private UserRepository ur;
+	//private UserRepository ur = new UserRepository();
+	private UserController uc = new UserController();
 
 
 	public AuthenticationController(final Frame parentFrame, boolean modal) {
@@ -61,7 +63,7 @@ public class AuthenticationController {
 		resetPassView = new GUIResetPasswordView(parentFrame, modal, false);
 		selfRegisterView = new GUISelfServiceRegisterNewPassangerView(parentFrame, modal);
 		this.parentFrame = parentFrame;
-		ur = new UserRepository();
+		uc.start();
 		setActionListeners();
 		setFocusListeners();
 		setMouseListeners();
@@ -96,7 +98,7 @@ public class AuthenticationController {
 
 				String username = loginView.getTxtUsername().getText();
 			
-				User ur;
+				User user;
 
 				 
 
@@ -112,7 +114,7 @@ public class AuthenticationController {
 					
 				} else {
 					
-					if ((ur = authenticateUser(username, loginView.getTxtPasswordField().getPassword())) == null) {
+					if ((user = authenticateUser(username, loginView.getTxtPasswordField().getPassword())) == null) {
 						if (!loginView.getLblWrongUserPass().isVisible()) {
 							loginView.getLblWrongUserPass().setVisible(true);
 						} else {
@@ -121,7 +123,7 @@ public class AuthenticationController {
 					} else {
 						loginView.exit();
 						mainWindowController = new GUIMainWindowController();
-						mainWindowController.checkUserAuthenticationStatus(ur);
+						mainWindowController.checkUserAuthenticationStatus(user);
 						parentFrame.setVisible(false);
 						parentFrame.dispose();
 						
@@ -301,9 +303,9 @@ public class AuthenticationController {
 
 	public User authenticateUser(String username, char []password ) {
 		
-		if (ur.getUserByName(username) != null) {
+		if (uc.getUserRepository().getUserByName(username) != null) {
 			UserFactory uf = new UserFactory();
-			User user = UserFactory.getUser(ur.getUserRole(username), username, ur.getUserPassword(username));
+			User user = UserFactory.getUser(uc.getUserRepository().getUserRole(username), username, uc.getUserRepository().getUserPassword(username));
 			
 			try {
 				if (PasswordHasher.validateHashedPassword(password, user.getPassword())) {

@@ -41,9 +41,11 @@ public abstract class User {
 	private String password;
 	
 	private LocalDate expirationDate;
-	private boolean enabled;
+	private int enabled;
 	
-	private boolean isadmin;
+	private String address;
+	
+	private String passportID;
 	
 	private String email;
 	
@@ -52,6 +54,8 @@ public abstract class User {
 	private Role role;
 	
 	private boolean authenticated;
+	
+	
 	
 	
 	
@@ -84,7 +88,7 @@ public abstract class User {
 		setUsername(un);
 		setPassword(pass);
 		setExpirationDate(expirationDate);
-		setAdmin(adminValue);
+		//setAdmin(adminValue);
 	}
 
 	public String getUsername() {
@@ -119,39 +123,38 @@ public abstract class User {
 		this.userID = uniqueID.incrementAndGet();
 	}
 	
-	public boolean isEnabled() {
+	public int isEnabled() {
 		return this.enabled;
 	}
 	
-	public void setEnabled() {
-		this.enabled = true;
-	}
+	/*
+	 * public void setEnabled(boolean enabled) { this.enabled = enabled; }
+	 */
+	/*
+	 * public void setDisabled() { this.enabled = false; }
+	 */
 	
-	public void setDisabled() {
-		this.enabled = false;
-	}
+	/*
+	 * public boolean isAdmin() { return this.isadmin; }
+	 */
 	
-	public boolean isAdmin() {
-		return this.isadmin;
-	}
-	
-	public void setAdmin(boolean adminValue) {
-		this.isadmin = adminValue;
-	}
+	/*
+	 * public void setAdmin(boolean adminValue) { this.isadmin = adminValue; }
+	 */
 
 	/**
 	 * @return the isadmin
 	 */
-	public boolean isIsadmin() {
-		return isadmin;
-	}
+	/*
+	 * public boolean isIsadmin() { return isadmin; }
+	 */
 
 	/**
 	 * @param isadmin the isadmin to set
 	 */
-	public void setIsadmin(boolean isadmin) {
-		this.isadmin = isadmin;
-	}
+	/*
+	 * public void setIsadmin(boolean isadmin) { this.isadmin = isadmin; }
+	 */
 
 	/**
 	 * @return the email
@@ -175,10 +178,10 @@ public abstract class User {
 	}
 
 	/**
-	 * @param enabled the enabled to set
+	 * @param i the enabled to set
 	 */
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
+	public void setEnabled(int i) {
+		this.enabled = i;
 	}
 
 	/**
@@ -222,6 +225,23 @@ public abstract class User {
 	public void setAuthenticated(boolean authenticated) {
 		this.authenticated = authenticated;
 	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPassportID() {
+		return passportID;
+	}
+
+	public void setPassportID(String passportID) {
+		this.passportID = passportID;
+	}
+	
 	
 	
 

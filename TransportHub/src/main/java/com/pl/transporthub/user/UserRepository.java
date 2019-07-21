@@ -26,22 +26,40 @@ import org.eclipse.persistence.jpa.jpql.parser.TrimExpression.Specification;
 
 import com.pl.transporthub.aaa.Roles.Role;
 import com.pl.transporthub.shared.interfaces.GenericRepository;
+import com.pl.transporthub.util.db.DatabaseController;
 import com.pl.transporthub.util.db.SQLiteJDBC;
 
 public class UserRepository implements GenericRepository<User>{
 	
-	private SQLiteJDBC sqliteConneciton;
-	private final String dbFolderName = "db";
-	private final String dbName = "Users"; 
+	/*
+	 * private SQLiteJDBC sqliteConneciton; private String dbFolderName; private
+	 * String dbName;
+	 */
+	private DatabaseController dbController;
 	
-	public UserRepository() {
+	/*public UserRepository(String dbFolderName, String dbName) {
 		
+		this.setDbFolderName(dbFolderName);
+		
+		this.setDbName(dbName);
 		try {
 			sqliteConneciton = new SQLiteJDBC(dbFolderName, dbName);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}*/
+	
+public UserRepository() {
+		
+		dbController = new DatabaseController();
+		dbController.start();
+		
+		/*
+		 * this.setDbName(dbName); try { sqliteConneciton = new SQLiteJDBC(dbFolderName,
+		 * dbName); } catch (Exception e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); }
+		 */
 	}
 
 	@Override
@@ -59,7 +77,7 @@ public class UserRepository implements GenericRepository<User>{
 	@Override
 	public User get(User t) {
 		try {
-			ResultSet rs = sqliteConneciton.getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + t.getUsername() + "'");
+			ResultSet rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + t.getUsername() + "'");
 			
 			if (rs != null ) {
 				while(rs.next())  {
@@ -102,7 +120,7 @@ public class UserRepository implements GenericRepository<User>{
 	
 	public User getUserByName(String username) {
 		try {
-		ResultSet rs = sqliteConneciton.getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + username + "'");
+		ResultSet rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + username + "'");
 		
 		if (rs != null ) {
 			
@@ -114,6 +132,10 @@ public class UserRepository implements GenericRepository<User>{
 				ur.setRole(Role.toRole(rs.getString("role")));
 				ur.setEmail(rs.getString("email"));
 				ur.setMobileNumber(rs.getString("mobileNumber"));
+				ur.setEnabled(rs.getInt("enabled"));
+				ur.setAuthenticated(false);
+				ur.setAddress(rs.getString("address"));
+				
 				
 				}
 			return ur;
@@ -129,7 +151,7 @@ public class UserRepository implements GenericRepository<User>{
 
 	public String getUserRole(String username) {
 		try {
-			ResultSet rs = sqliteConneciton.getStatement().executeQuery("SELECT role FROM Users WHERE username = '" + username + "'");
+			ResultSet rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT role FROM Users WHERE username = '" + username + "'");
 		
 			
 			if (rs != null ) {
@@ -147,7 +169,7 @@ public class UserRepository implements GenericRepository<User>{
 	
 	public String getUserPassword(String username) {
 		try {
-			ResultSet rs = sqliteConneciton.getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + username + "'");
+			ResultSet rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + username + "'");
 		
 			
 			if (rs != null ) {
@@ -163,4 +185,15 @@ public class UserRepository implements GenericRepository<User>{
 		return null;
 	
 	}
+
+	/*
+	 * public String getDbFolderName() { return dbFolderName; }
+	 * 
+	 * public void setDbFolderName(String dbFolderName) { this.dbFolderName =
+	 * dbFolderName; }
+	 * 
+	 * public String getDbName() { return dbName; }
+	 * 
+	 * public void setDbName(String dbName) { this.dbName = dbName; }
+	 */
 }

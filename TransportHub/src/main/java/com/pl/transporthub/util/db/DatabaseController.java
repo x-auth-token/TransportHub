@@ -1,18 +1,19 @@
 package com.pl.transporthub.util.db;
 
 public class DatabaseController {
-	private String dbFolderName;
-	private String dbName;
+	private final String dbFolderName = "DB";
+	private final String dbName = "TransportHub";
 	
 	private SQLiteJDBC sqliteConnection;
 	
 	public DatabaseController() {}
 	
-	public DatabaseController(String dbFolderName, String dbName) {
-		this.dbFolderName = dbFolderName;
-		this.dbName = dbName;
-
-	}
+	/*
+	 * public DatabaseController(String dbFolderName, String dbName) {
+	 * this.dbFolderName = dbFolderName; this.dbName = dbName;
+	 * 
+	 * }
+	 */
 
 	public void start() {
 		try {
@@ -35,9 +36,10 @@ public class DatabaseController {
 	/**
 	 * @param dbFolderName the dbFolderName to set
 	 */
-	public void setDbFolderName(String dbFolderName) {
-		this.dbFolderName = dbFolderName;
-	}
+	/*
+	 * public void setDbFolderName(String dbFolderName) { this.dbFolderName =
+	 * dbFolderName; }
+	 */
 
 	/**
 	 * @return the dbName
@@ -49,9 +51,9 @@ public class DatabaseController {
 	/**
 	 * @param dbName the dbName to set
 	 */
-	public void setDbName(String dbName) {
-		this.dbName = dbName;
-	}
+	/*
+	 * public void setDbName(String dbName) { this.dbName = dbName; }
+	 */
 
 	/**
 	 * @return the sqliteConnection

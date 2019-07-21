@@ -18,7 +18,7 @@ public class UserController {
 	private UserRepository userRepository;
 	public UserController() {
 		
-		userRepository = new UserRepository();
+		
 	}
 
 	
@@ -40,6 +40,15 @@ public class UserController {
 		
 	}
 	
+	public void start() {
+		userRepository = new UserRepository();
+	}
 
+
+	public UserRepository getUserRepository() {
+		return userRepository;
+	}
+	
+	
 
 }
