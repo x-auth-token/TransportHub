@@ -1,5 +1,7 @@
 package com.pl.transporthub.util.db;
 
+import java.sql.SQLException;
+
 public class DatabaseController {
 	private final String dbFolderName = "DB";
 	private final String dbName = "TransportHub";
@@ -18,7 +20,7 @@ public class DatabaseController {
 	public void start() {
 		try {
 			sqliteConnection = new SQLiteJDBC(dbFolderName, dbName);
-			SQLiteJDBC.parseSqlFromScript();
+			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
@@ -69,6 +71,13 @@ public class DatabaseController {
 		this.sqliteConnection = sqliteConnection;
 	}
 	
-	
+	public void first_run() {
+		try {
+			SQLiteJDBC.parseSqlFromScript();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 }

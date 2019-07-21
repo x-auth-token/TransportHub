@@ -29,31 +29,30 @@ import com.pl.transporthub.aaa.Roles.Role;
 
 
 
-public abstract class User {
+public interface User {
 
 	
 	
-	private Integer userID;
-	private AtomicInteger uniqueID = new AtomicInteger();
-	
-
-	private String username;
-	private String password;
-	
-	private LocalDate expirationDate;
-	private int enabled;
-	
-	private String address;
-	
-	private String passportID;
-	
-	private String email;
-	
-	private String mobileNumber;
-	
-	private Role role;
-	
-	private boolean authenticated;
+	/*
+	 * private Integer userID; private AtomicInteger uniqueID = new AtomicInteger();
+	 * 
+	 * 
+	 * private String username; private String password;
+	 * 
+	 * private LocalDate expirationDate; private int enabled;
+	 * 
+	 * private String address;
+	 * 
+	 * private String passportID;
+	 * 
+	 * private String email;
+	 * 
+	 * private String mobileNumber;
+	 * 
+	 * private Role role;
+	 * 
+	 * private boolean authenticated;
+	 */
 	
 	
 	
@@ -69,63 +68,62 @@ public abstract class User {
 	 * generateUserID(); setUsername(un); setPassword(pass); setAdmin(adminValue); }
 	 */
 	
-	public User() {
-		
-	}
+	/*
+	 * public User() {
+	 * 
+	 * }
+	 * 
+	 * public User(String un, String pass) {
+	 * 
+	 * generateUserID(); setUsername(un); setPassword(pass);
+	 * setExpirationDate(null);
+	 * 
+	 * }
+	 */
 	
-	public User(String un, String pass) {
-		
-		generateUserID();
-		setUsername(un);
-		setPassword(pass);
-		setExpirationDate(null);
-		
-	}
+	/*
+	 * public User(String un, String pass, LocalDate expirationDate, boolean
+	 * adminValue) {
+	 * 
+	 * generateUserID(); setUsername(un); setPassword(pass);
+	 * setExpirationDate(expirationDate); //setAdmin(adminValue); }
+	 */
+
+	public String getUsername(); //{
+		//return username;
+	//}
+
+	public void setUsername(String username); //{
+		//this.username = username;
+	//}
+
+	public String getPassword(); //{
+		//return password;
+	//}
+
+	public void setPassword(String password);// {
+		//this.password = password;
+	//}
 	
-	public User(String un, String pass, LocalDate expirationDate, boolean adminValue) {
-		
-		generateUserID();
-		setUsername(un);
-		setPassword(pass);
-		setExpirationDate(expirationDate);
-		//setAdmin(adminValue);
-	}
+	public LocalDate getExpirationDate() ;//{
+		//return expirationDate;
+	//}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
+	public void setExpirationDate(LocalDate expirationDate) ;//{
+		//this.expirationDate = expirationDate;
+	//}
 	
-	public LocalDate getExpirationDate() {
-		return expirationDate;
-	}
+	public Integer getUserID();// {
+		//return userID;
+	//}
 
-	public void setExpirationDate(LocalDate expirationDate) {
-		this.expirationDate = expirationDate;
-	}
+	public void generateUserID(); //{
+		//this.userID = uniqueID.incrementAndGet();
+	//}
 	
-	public Integer getUserID() {
-		return userID;
-	}
-
-	public void generateUserID() {
-		this.userID = uniqueID.incrementAndGet();
-	}
-	
-	public int isEnabled() {
-		return this.enabled;
-	}
+	public int isEnabled(); //{
+		//return this.enabled;
+	//}
 	
 	/*
 	 * public void setEnabled(boolean enabled) { this.enabled = enabled; }
@@ -159,88 +157,88 @@ public abstract class User {
 	/**
 	 * @return the email
 	 */
-	public String getEmail() {
-		return email;
-	}
+	public String getEmail();// {
+		//return email;
+	//}
 
 	/**
 	 * @param email the email to set
 	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	public void setEmail(String email);// {
+		//this.email = email;
+	//}
 
 	/**
 	 * @param userID the userID to set
 	 */
-	public void setUserID(Integer userID) {
-		this.userID = userID;
-	}
+	public void setUserID(Integer userID);// {
+		//this.userID = userID;
+	//}
 
 	/**
 	 * @param i the enabled to set
 	 */
-	public void setEnabled(int i) {
-		this.enabled = i;
-	}
+	public void setEnabled(int i);// {
+		//this.enabled = i;
+	//}
 
 	/**
 	 * @return the mobileNumber
 	 */
-	public String getMobileNumber() {
-		return mobileNumber;
-	}
+	public String getMobileNumber();// {
+		//return mobileNumber;
+	//}
 
 	/**
 	 * @param mobileNumber the mobileNumber to set
 	 */
-	public void setMobileNumber(String mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
+	public void setMobileNumber(String mobileNumber) ;//{
+		//this.mobileNumber = mobileNumber;
+	//}
 
 	/**
 	 * @return the role
 	 */
-	public Role getRole() {
-		return role;
-	}
+	public Role getRole();// {
+		//return role;
+	//}
 
 	/**
 	 * @param role the role to set
 	 */
-	public void setRole(Role role) {
-		this.role = role;
-	}
+	public void setRole(Role role) ;//{
+		//this.role = role;
+	//}
 
 	/**
 	 * @return the authenticated
 	 */
-	public boolean isAuthenticated() {
-		return authenticated;
-	}
+	public boolean isAuthenticated();// {
+		//return authenticated;
+	//}
 
 	/**
 	 * @param authenticated the authenticated to set
 	 */
-	public void setAuthenticated(boolean authenticated) {
-		this.authenticated = authenticated;
-	}
+	public void setAuthenticated(boolean authenticated) ;//{
+		//this.authenticated = authenticated;
+	//}
 
-	public String getAddress() {
-		return address;
-	}
+	public String getAddress();// {
+		//return address;
+	//}
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+	public void setAddress(String address);// {
+		//this.address = address;
+	//}
 
-	public String getPassportID() {
-		return passportID;
-	}
+	public String getPassportID() ;//{
+		//return passportID;
+	//}
 
-	public void setPassportID(String passportID) {
-		this.passportID = passportID;
-	}
+	public void setPassportID(String passportID) ;//{
+		//this.passportID = passportID;
+	//}
 	
 	
 	

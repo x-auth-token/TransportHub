@@ -35,11 +35,12 @@ import com.pl.transporthub.util.db.DatabaseController;
 public class TransportHub {
 
 	public static void main(String[] args) {
+		boolean firstRun = true;
 		//EventQueue.invokeLater(new Runnable() {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					startDB();
+					startDB(firstRun);
 					createAndShowGUI();
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -58,9 +59,14 @@ public class TransportHub {
 
 	}
 	
-	public static void startDB() throws SQLException {
+	public static void startDB(boolean isFirstrun) throws SQLException {
 		DatabaseController dbController = new DatabaseController();
 		dbController.start();
+		
+		if (isFirstrun) {
+			dbController.first_run();
+			isFirstrun = false;
+		}
 	}
 	
 

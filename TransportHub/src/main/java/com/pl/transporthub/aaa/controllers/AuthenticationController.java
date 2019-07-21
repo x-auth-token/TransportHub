@@ -22,6 +22,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.security.NoSuchAlgorithmException;
@@ -43,6 +45,7 @@ import com.pl.transporthub.user.User;
 import com.pl.transporthub.user.UserController;
 import com.pl.transporthub.user.UserFactory;
 import com.pl.transporthub.user.UserRepository;
+import com.sun.corba.se.impl.oa.poa.ActiveObjectMap.Key;
 
 
 
@@ -64,11 +67,132 @@ public class AuthenticationController {
 		selfRegisterView = new GUISelfServiceRegisterNewPassangerView(parentFrame, modal);
 		this.parentFrame = parentFrame;
 		uc.start();
+		setKeyListeners();
 		setActionListeners();
 		setFocusListeners();
 		setMouseListeners();
 	}
+	
+	private void setKeyListeners() {
+		loginView.getTxtPasswordField().addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					
+					login();	
+					/*
+					 * String username = loginView.getTxtUsername().getText();
+					 * 
+					 * User user;
+					 * 
+					 * 
+					 * 
+					 * if (username.isEmpty() ||
+					 * loginView.getTxtPasswordField().getPassword().length == 0 ||
+					 * username.equals(loginView.getUsernameMessageTip())) {
+					 * 
+					 * 
+					 * if (!loginView.getLblNoUserPassProvided().isVisible()) {
+					 * loginView.getLblNoUserPassProvided().setVisible(true); } else {
+					 * loginView.getLblNoUserPassProvided().setVisible(false); }
+					 * 
+					 * 
+					 * } else {
+					 * 
+					 * if ((user = authenticateUser(username,
+					 * loginView.getTxtPasswordField().getPassword())) == null) { if
+					 * (!loginView.getLblWrongUserPass().isVisible()) {
+					 * loginView.getLblWrongUserPass().setVisible(true); } else {
+					 * loginView.getLblWrongUserPass().setVisible(true); } } else {
+					 * loginView.exit(); mainWindowController = new GUIMainWindowController();
+					 * mainWindowController.checkUserAuthenticationStatus(user);
+					 * parentFrame.setVisible(false); parentFrame.dispose();
+					 * 
+					 * }
+					 * 
+					 * 
+					 * 
+					 * }
+					 */
 
+					}
+				}
+				
+			
+		});
+		
+		loginView.getTxtUsername().addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					login();
+					/*
+					 * String username = loginView.getTxtUsername().getText();
+					 * 
+					 * User user;
+					 * 
+					 * 
+					 * 
+					 * if (username.isEmpty() ||
+					 * loginView.getTxtPasswordField().getPassword().length == 0 ||
+					 * username.equals(loginView.getUsernameMessageTip())) {
+					 * 
+					 * 
+					 * if (!loginView.getLblNoUserPassProvided().isVisible()) {
+					 * loginView.getLblNoUserPassProvided().setVisible(true); } else {
+					 * loginView.getLblNoUserPassProvided().setVisible(false); }
+					 * 
+					 * 
+					 * } else {
+					 * 
+					 * if ((user = authenticateUser(username,
+					 * loginView.getTxtPasswordField().getPassword())) == null) { if
+					 * (!loginView.getLblWrongUserPass().isVisible()) {
+					 * loginView.getLblWrongUserPass().setVisible(true); } else {
+					 * loginView.getLblWrongUserPass().setVisible(true); } } else {
+					 * loginView.exit(); mainWindowController = new GUIMainWindowController();
+					 * mainWindowController.checkUserAuthenticationStatus(user);
+					 * parentFrame.setVisible(false); parentFrame.dispose();
+					 * 
+					 * }
+					 * 
+					 * 
+					 * 
+					 * }
+					 */
+
+					}
+				}
+				
+			
+		});
+	}
 
 	private void setActionListeners() {
 		loginView.getBtnSignUp().addActionListener(new ActionListener() {
@@ -90,48 +214,47 @@ public class AuthenticationController {
 				
 			}
 		});
-
+		
+		
 		loginView.getBtnSignIn().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				String username = loginView.getTxtUsername().getText();
-			
-				User user;
-
-				 
-
-				if (username.isEmpty() || loginView.getTxtPasswordField().getPassword().length == 0 || username.equals(loginView.getUsernameMessageTip())) {
-
-					
-					  if (!loginView.getLblNoUserPassProvided().isVisible()) {
-						  loginView.getLblNoUserPassProvided().setVisible(true);
-					  } else {
-						  loginView.getLblNoUserPassProvided().setVisible(false);
-					  }
-					 
-					
-				} else {
-					
-					if ((user = authenticateUser(username, loginView.getTxtPasswordField().getPassword())) == null) {
-						if (!loginView.getLblWrongUserPass().isVisible()) {
-							loginView.getLblWrongUserPass().setVisible(true);
-						} else {
-							loginView.getLblWrongUserPass().setVisible(true);
-						}
-					} else {
-						loginView.exit();
-						mainWindowController = new GUIMainWindowController();
-						mainWindowController.checkUserAuthenticationStatus(user);
-						parentFrame.setVisible(false);
-						parentFrame.dispose();
-						
-					}
-
-					 				
-					
-				}
+				login();
+				/*
+				 * String username = loginView.getTxtUsername().getText();
+				 * 
+				 * User user;
+				 * 
+				 * 
+				 * 
+				 * if (username.isEmpty() ||
+				 * loginView.getTxtPasswordField().getPassword().length == 0 ||
+				 * username.equals(loginView.getUsernameMessageTip())) {
+				 * 
+				 * 
+				 * if (!loginView.getLblNoUserPassProvided().isVisible()) {
+				 * loginView.getLblNoUserPassProvided().setVisible(true); } else {
+				 * loginView.getLblNoUserPassProvided().setVisible(false); }
+				 * 
+				 * 
+				 * } else {
+				 * 
+				 * if ((user = authenticateUser(username,
+				 * loginView.getTxtPasswordField().getPassword())) == null) { if
+				 * (!loginView.getLblWrongUserPass().isVisible()) {
+				 * loginView.getLblWrongUserPass().setVisible(true); } else {
+				 * loginView.getLblWrongUserPass().setVisible(true); } } else {
+				 * loginView.exit(); mainWindowController = new GUIMainWindowController();
+				 * mainWindowController.checkUserAuthenticationStatus(user);
+				 * parentFrame.setVisible(false); parentFrame.dispose();
+				 * 
+				 * }
+				 * 
+				 * 
+				 * 
+				 * }
+				 */
 
 			}
 		});
@@ -285,7 +408,7 @@ public class AuthenticationController {
 		
 	}
 
-
+	
 
 	private boolean validateUsername(String username) {
 		//if (username.equalsIgnoreCase(ur.get(username)))
@@ -301,7 +424,7 @@ public class AuthenticationController {
 		return null;
 	}
 
-	public User authenticateUser(String username, char []password ) {
+	private User authenticateUser(String username, char []password ) {
 		
 		if (uc.getUserRepository().getUserByName(username) != null) {
 			UserFactory uf = new UserFactory();
@@ -327,6 +450,46 @@ public class AuthenticationController {
 			return null;
 	}
 	
+	private void login() {
+		String username = loginView.getTxtUsername().getText();
+		
+		User user;
+
+		 
+
+		if (username.isEmpty() || loginView.getTxtPasswordField().getPassword().length == 0 || username.equals(loginView.getUsernameMessageTip())) {
+
+			
+			  if (!loginView.getLblNoUserPassProvided().isVisible()) {
+				  loginView.getLblNoUserPassProvided().setVisible(true);
+			  } else {
+				  loginView.getLblNoUserPassProvided().setVisible(false);
+			  }
+			 
+			
+		} else {
+			
+			if ((user = authenticateUser(username, loginView.getTxtPasswordField().getPassword())) == null) {
+				if (!loginView.getLblWrongUserPass().isVisible()) {
+					loginView.getLblWrongUserPass().setVisible(true);
+				} else {
+					loginView.getLblWrongUserPass().setVisible(true);
+				}
+			} else {
+				loginView.exit();
+				mainWindowController = new GUIMainWindowController();
+				mainWindowController.checkUserAuthenticationStatus(user);
+				parentFrame.setVisible(false);
+				parentFrame.dispose();
+				
+			}
+
+			 				
+			
+		}
+
+	
+	}
 	
 	public void start() {
 		loginView.showAuthView();
