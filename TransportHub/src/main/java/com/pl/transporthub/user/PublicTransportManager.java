@@ -14,7 +14,7 @@ public class PublicTransportManager extends AuthenticatedUser {
 	 * super(un, pass, adminValue); // TODO Auto-generated constructor stub }
 	 */
 	
-	public PublicTransportManager(String un, char[] pass, LocalDate expirationDate, boolean adminValue) {
+	public PublicTransportManager(String un, String pass, LocalDate expirationDate, boolean adminValue) {
 		super(un, pass, expirationDate, adminValue);
 		// TODO Auto-generated constructor stub
 	}

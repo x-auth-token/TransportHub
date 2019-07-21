@@ -15,7 +15,7 @@ public class Admin extends AuthenticatedUser {
 	 * adminValue); // TODO Auto-generated constructor stub }
 	 */
 	public Admin() {}
-	public Admin(String un, char[] pass, LocalDate expirationDate, boolean adminValue) {
+	public Admin(String un, String pass, LocalDate expirationDate, boolean adminValue) {
 		super(un, pass, expirationDate, adminValue);
 		// TODO Auto-generated constructor stub
 	}

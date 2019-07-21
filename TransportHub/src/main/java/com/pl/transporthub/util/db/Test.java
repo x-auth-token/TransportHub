@@ -17,9 +17,10 @@ public class Test {
 		DatabaseController dbc = new DatabaseController(fName, dbName);
 		dbc.start();
 		
-		adm.setUsername("qwe");
-		rp.get(adm);
-		
+		adm.setUsername("admin");
+		rp.getUserRole("admin");
+		rp.getUserPassword("admin");
+	
 	
 	}
 }

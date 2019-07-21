@@ -20,22 +20,20 @@ import java.time.LocalDate;
 
 
 public class UserFactory {
-	
-	public static User getUser(String uType, String uName, char[] password, LocalDate expirationDate, boolean adminValue) {
-		
-		if ("Admin".equalsIgnoreCase(uType) && adminValue == true) {
-			return new Admin(uName, password, expirationDate, adminValue);
-		}
-		else if ("Passenger".equalsIgnoreCase(uType)) {
-			return new Passenger(uName, password, expirationDate, false);
-		} 
-		else if ("Driver".equalsIgnoreCase(uType) ) {
-			return new Driver(uName, password, expirationDate, false);
-		}
-		else if ("PTM".equalsIgnoreCase(uType)) {
-			return new PublicTransportManager(uName, password, expirationDate, false);
-		}
-		
-		return null;
-	}
+
+
+	public static User getUser(String uType, String uName, String password,
+			LocalDate expirationDate) {
+
+		if ("Admin".equalsIgnoreCase(uType)) { return new
+				Admin(uName, password, expirationDate, true); } else if
+		("Passenger".equalsIgnoreCase(uType)) { return new Passenger(uName, password,
+				expirationDate, false); } else if ("Driver".equalsIgnoreCase(uType) ) {
+					return new Driver(uName, password, expirationDate, false); } else if
+		("PTM".equalsIgnoreCase(uType)) { return new PublicTransportManager(uName,
+				password, expirationDate, false); }
+
+		return null; }
+
+
 }

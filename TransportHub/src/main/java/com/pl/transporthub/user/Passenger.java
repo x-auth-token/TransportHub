@@ -16,7 +16,7 @@ public class Passenger extends AuthenticatedUser {
 	 * 
 	 * 
 	 * 
-	 * public Passenger(String un, char[] pass, boolean adminValue) { super(un,
+	 * public Passenger(String un, String pass, boolean adminValue) { super(un,
 	 * pass, adminValue); // TODO Auto-generated constructor stub }
 	 */
 	
@@ -29,7 +29,7 @@ public class Passenger extends AuthenticatedUser {
 		
 	}
 	
-	public Passenger(String un, char[] pass, LocalDate expirationDate, boolean adminValue) {
+	public Passenger(String un, String pass, LocalDate expirationDate, boolean adminValue) {
 		super(un, pass, expirationDate, adminValue);
 		
 	}

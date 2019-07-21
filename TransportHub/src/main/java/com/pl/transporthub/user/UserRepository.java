@@ -56,8 +56,6 @@ public class UserRepository implements GenericRepository<User>{
 	@Override
 	public User get(User t) {
 		try {
-			System.out.println(t.getUsername());
-			
 			ResultSet rs = sqliteConneciton.getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + t.getUsername() + "'");
 			
 			if (rs != null ) {
@@ -98,6 +96,60 @@ public class UserRepository implements GenericRepository<User>{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public User getUserByName(String username) {
+		try {
+		ResultSet rs = sqliteConneciton.getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + username + "'");
+		
+		if (rs != null ) {
+			while(rs.next())  {
+				System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+				
+				}
+				
+		}
+			
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return null;
+	}
 
-
+	public String getUserRole(String username) {
+		try {
+			ResultSet rs = sqliteConneciton.getStatement().executeQuery("SELECT role FROM Users WHERE username = '" + username + "'");
+		
+			
+			if (rs != null ) {
+				while (rs.next()) {
+					System.out.println(rs.getString("role"));
+				}
+			}
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public String getUserPassword(String username) {
+		try {
+			ResultSet rs = sqliteConneciton.getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + username + "'");
+		
+			
+			if (rs != null ) {
+				while (rs.next()) {
+					System.out.println(rs.getString("password"));
+				}
+			}
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	
+	}
 }

@@ -38,7 +38,7 @@ public class AuthenticatedUser extends User {
 		super();
 	}
 	
-	public AuthenticatedUser(String un, char[] pass, LocalDate expirationDate, boolean adminValue) {
+	public AuthenticatedUser(String un, String pass, LocalDate expirationDate, boolean adminValue) {
 		super(un, pass, expirationDate, adminValue);
 
 	}

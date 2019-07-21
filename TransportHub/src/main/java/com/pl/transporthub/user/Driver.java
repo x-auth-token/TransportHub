@@ -14,7 +14,7 @@ public class Driver extends AuthenticatedUser {
 	 */
 	private int driverID;
 	
-	public Driver(String un, char[] pass, LocalDate expirationDate, boolean adminValue) {
+	public Driver(String un, String pass, LocalDate expirationDate, boolean adminValue) {
 		super(un, pass, expirationDate, adminValue);
 		// TODO Auto-generated constructor stub
 	}

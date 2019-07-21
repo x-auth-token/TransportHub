@@ -38,7 +38,7 @@ public abstract class User {
 	
 
 	private String username;
-	private char[] password;
+	private String password;
 	
 	private LocalDate expirationDate;
 	private boolean enabled;
@@ -68,7 +68,7 @@ public abstract class User {
 	public User() {
 		
 	}
-	public User(String un, char[] pass, LocalDate expirationDate, boolean adminValue) {
+	public User(String un, String pass, LocalDate expirationDate, boolean adminValue) {
 		
 		generateUserID();
 		setUsername(un);
@@ -85,11 +85,11 @@ public abstract class User {
 		this.username = username;
 	}
 
-	public char[] getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(char[] password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 	

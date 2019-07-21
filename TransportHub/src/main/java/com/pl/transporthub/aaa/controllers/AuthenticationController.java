@@ -34,6 +34,9 @@ import com.pl.transporthub.aaa.views.GUIResetPasswordView;
 import com.pl.transporthub.aaa.views.GUISelfServiceRegisterNewPassangerView;
 import com.pl.transporthub.transporthub.controllers.GUIMainWindowController;
 import com.pl.transporthub.user.Passenger;
+import com.pl.transporthub.user.User;
+import com.pl.transporthub.user.UserFactory;
+import com.pl.transporthub.user.UserRepository;
 
 
 
@@ -45,6 +48,7 @@ public class AuthenticationController {
 	
 	private GUIMainWindowController mainWindowController;
 	private Frame parentFrame;
+	private UserRepository ur;
 
 
 	public AuthenticationController(final Frame parentFrame, boolean modal) {
@@ -52,6 +56,7 @@ public class AuthenticationController {
 		resetPassView = new GUIResetPasswordView(parentFrame, modal, false);
 		selfRegisterView = new GUISelfServiceRegisterNewPassangerView(parentFrame, modal);
 		this.parentFrame = parentFrame;
+		ur = new UserRepository();
 		setActionListeners();
 		setFocusListeners();
 		setMouseListeners();
@@ -103,11 +108,13 @@ public class AuthenticationController {
 
 				} else {
 					
+					//Syste
+					
 					LocalDate date = LocalDate.of(2019, 12, 31);
 					
 					
 					final char[] pass = { 'p', 'a', 's', 's', 'w', 'o', 'r', 'd' };
-					Passenger passenger = new Passenger("user", pass, date, false);
+					//Passenger passenger = new Passenger("user", pass, date, false);
 					passenger.setRole(Role.PASSENGER);
 					passenger.setAuthenticated(true);
 					loginView.exit();
@@ -266,11 +273,12 @@ public class AuthenticationController {
 
 
 
-	public boolean validateUsername(String username) {
+	private boolean validateUsername(String username) {
+		//if (username.equalsIgnoreCase(ur.get(username)))
 		return false;
 	}
 
-	public boolean validatePassword(String password) {
+	private boolean validatePassword(String password) {
 		return false;
 	}
 
@@ -279,6 +287,16 @@ public class AuthenticationController {
 		return null;
 	}
 
+	public void authenticateUser(String username, String hashedPassword ) {
+		if (ur.getUserByName(username) != null) {
+			UserFactory uf = new UserFactory();
+			uf.getUser(ur.getUserRole(username), username, ur.getUserPassword(username), null );
+		} else {
+			//return null;
+		}
+	}
+	
+	
 	public void start() {
 		loginView.showAuthView();
 	}

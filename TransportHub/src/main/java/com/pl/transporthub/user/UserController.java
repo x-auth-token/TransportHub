@@ -40,16 +40,6 @@ public class UserController {
 		
 	}
 	
-	public static void main(String args[]) {
-		LocalDate date = LocalDate.of(2019, 12, 31);
-		final char[] pass = { 'p', 'a', 's', 's', 'w', 'o', 'r', 'd' };
-		Passenger passenger = new Passenger("user", pass, date, false);
-		passenger.setRole(Role.ADMIN);
-		passenger.setAuthenticated(true);
-		
-		UserController controller = new UserController();
-		controller.saveUser(passenger);
-	
-	}
+
 
 }
