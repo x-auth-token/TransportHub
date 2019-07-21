@@ -46,6 +46,10 @@ public class AuthenticatedUser implements User {
 	private Role role;
 	
 	private boolean authenticated;
+	
+	private String firstName;
+	private String lastName;
+	
 	public AuthenticatedUser(String un, String pass) {
 		//super(un, pass);
 		generateUserID();
@@ -203,6 +207,30 @@ public class AuthenticatedUser implements User {
 	public int isEnabled() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+		
+	}
+
+	@Override
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+		
+	}
+
+	@Override
+	public String getFirstName() {
+		
+		return firstName;
+	}
+
+	@Override
+	public String getLastName() {
+		
+		return lastName;
 	}
 	
 	

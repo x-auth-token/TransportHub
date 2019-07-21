@@ -240,7 +240,12 @@ public interface User {
 		//this.passportID = passportID;
 	//}
 	
+	public void setFirstName(String firstName);
 	
+	public String getFirstName();
+	public String getLastName();
+	
+	public void setLastName(String lastName);
 	
 
 	
