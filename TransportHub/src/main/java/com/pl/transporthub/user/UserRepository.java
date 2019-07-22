@@ -1,25 +1,35 @@
 /*******************************************************************************
  * Copyright (C) 2019 Pavel Mayzenberg, Leon Peper, Oded Levin
  * 
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
  * 
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
  ******************************************************************************/
 package com.pl.transporthub.user;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import org.eclipse.persistence.jpa.jpql.parser.TrimExpression.Specification;
@@ -28,6 +38,7 @@ import com.pl.transporthub.aaa.Roles.Role;
 import com.pl.transporthub.shared.interfaces.GenericRepository;
 import com.pl.transporthub.util.db.DatabaseController;
 import com.pl.transporthub.util.db.SQLiteJDBC;
+import com.sun.xml.internal.ws.Closeable;
 
 public class UserRepository implements GenericRepository<User>{
 	
@@ -36,6 +47,7 @@ public class UserRepository implements GenericRepository<User>{
 	 * String dbName;
 	 */
 	private DatabaseController dbController;
+	private PreparedStatement ps;
 	
 	/*public UserRepository(String dbFolderName, String dbName) {
 		
@@ -54,17 +66,52 @@ public UserRepository() {
 		
 		dbController = new DatabaseController();
 		dbController.start();
-		
-		/*
-		 * this.setDbName(dbName); try { sqliteConneciton = new SQLiteJDBC(dbFolderName,
-		 * dbName); } catch (Exception e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
+
 	}
 
 	@Override
-	public void add(User t) {
-		// TODO Auto-generated method stub
+	public void add(User user) {
+		
+
+		
+		if (getUserByName(user.getUsername()) == null ) {
+			final String sql = "INSERT INTO users(userID, username, password, expirationDate, enabled, firstName, lastName, passportID, address, email, mobileNumber, role)"
+						+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)" ;
+			//Instant instant = user.getExpirationDate().atStartOfDay(ZoneId.systemDefault()).toInstant();
+			//Time time = (Time) Time.from(instant);
+			try {
+				
+				
+				ps = dbController.preparedStatement(sql);
+				ps.setInt(1, user.getUserID());
+				ps.setString(2, user.getUsername());
+				ps.setString(3, user.getPassword());
+				ps.setTime(4, null);
+				ps.setInt(5, user.isEnabled());
+				ps.setString(6, user.getFirstName());
+				ps.setString(7, user.getLastName());
+				ps.setString(8, user.getPassportID());
+				ps.setString(9, user.getAddress());
+				ps.setString(10, user.getEmail());
+				ps.setString(11, user.getMobileNumber());
+				ps.setString(12, user.getRole().toString());
+				ps.executeUpdate();
+				
+		
+				
+				
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} finally {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
 		
 	}
 
@@ -102,7 +149,36 @@ public UserRepository() {
 
 	@Override
 	public Iterable<User> getAll() {
-		// TODO Auto-generated method stub
+		ArrayList<User> users = new ArrayList<User>();
+		
+		try {
+			ResultSet rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT * FROM users");
+			
+			if (rs != null ) {
+				
+				
+					while(rs.next())  {
+						User ur = UserFactory.getUser(getUserRole(rs.getString("role")), rs.getString("username"), rs.getString("password"));
+						//System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+						ur.setUserID(rs.getInt("userID"));
+						ur.setExpirationDate(rs.getTime("expirationDate").toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+						ur.setRole(Role.toRole(rs.getString("role")));
+						ur.setEmail(rs.getString("email"));
+						ur.setMobileNumber(rs.getString("mobileNumber"));
+						ur.setEnabled(rs.getInt("enabled"));
+						ur.setAuthenticated(false);
+						ur.setAddress(rs.getString("address"));
+						
+						users.add(ur);
+						
+						}
+					return users;
+						
+				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
@@ -161,7 +237,7 @@ public UserRepository() {
 			}
 				
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return null;
@@ -185,15 +261,6 @@ public UserRepository() {
 		return null;
 	
 	}
-
-	/*
-	 * public String getDbFolderName() { return dbFolderName; }
-	 * 
-	 * public void setDbFolderName(String dbFolderName) { this.dbFolderName =
-	 * dbFolderName; }
-	 * 
-	 * public String getDbName() { return dbName; }
-	 * 
-	 * public void setDbName(String dbName) { this.dbName = dbName; }
-	 */
+	
+	
 }

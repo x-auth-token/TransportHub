@@ -1,3 +1,24 @@
+/*******************************************************************************
+ * Copyright (C) 2019 Pavel Mayzenberg, Leon Peper, Oded Levin
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ ******************************************************************************/
 package com.pl.transporthub.aaa.views;
 
 import java.awt.BorderLayout;
@@ -10,6 +31,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 
 import com.pl.transporthub.aaa.baseclasses.AbstractAuthenticationView;
@@ -39,9 +61,12 @@ public class GUISelfServiceRegisterNewPassangerView extends AbstractAuthenticati
 	private JLabel lblMobileNumber;
 	private JLabel lblPassword;
 	private JLabel lblPasswordMatch;
+	private JLabel lblErrorNotification;
+	private JLabel lblRegistrationSuccess;
 	
 	private JButton btnRegister;
 	private JButton btnCancel;
+	private JButton btnOK;
 	
 	public GUISelfServiceRegisterNewPassangerView(Frame parent, boolean modal) {
 		super(parent, modal);
@@ -88,7 +113,7 @@ public class GUISelfServiceRegisterNewPassangerView extends AbstractAuthenticati
 		lblUsername.setForeground(Color.BLACK);
 		
 		txtUsername = new JTextField();
-		txtUsername.setForeground(Color.LIGHT_GRAY);
+		txtUsername.setForeground(Color.BLACK);
 		txtUsername.setBounds(374, 45, 345, 26);
 		txtUsername.setColumns(10);
 		txtUsername.setBackground(Color.WHITE);
@@ -99,7 +124,7 @@ public class GUISelfServiceRegisterNewPassangerView extends AbstractAuthenticati
 		lblFirstName.setForeground(Color.BLACK);
 		
 		txtFirstName = new JTextField();
-		txtFirstName.setForeground(Color.LIGHT_GRAY);
+		txtFirstName.setForeground(Color.BLACK);
 		txtFirstName.setBounds(374, 99, 345, 26);
 		txtFirstName.setColumns(10);
 		txtFirstName.setBackground(Color.WHITE);
@@ -110,7 +135,7 @@ public class GUISelfServiceRegisterNewPassangerView extends AbstractAuthenticati
 		lblLastName.setForeground(Color.BLACK);
 		
 		txtLastName = new JTextField();
-		txtLastName.setForeground(Color.LIGHT_GRAY);
+		txtLastName.setForeground(Color.BLACK);
 		txtLastName.setBounds(374, 153, 345, 26);
 		txtLastName.setColumns(10);
 		txtLastName.setBackground(Color.WHITE);
@@ -120,7 +145,7 @@ public class GUISelfServiceRegisterNewPassangerView extends AbstractAuthenticati
 		lblPassportID.setForeground(Color.BLACK);
 	
 		txtPassportID = new JTextField();
-		txtPassportID.setForeground(Color.LIGHT_GRAY);
+		txtPassportID.setForeground(Color.BLACK);
 		txtPassportID.setBounds(374, 207, 345, 26);
 		txtPassportID.setColumns(10);
 		txtPassportID.setBackground(Color.WHITE);
@@ -130,7 +155,7 @@ public class GUISelfServiceRegisterNewPassangerView extends AbstractAuthenticati
 		lblEmailAddress.setForeground(Color.BLACK);
 	
 		txtEmailAddress = new JTextField();
-		txtEmailAddress.setForeground(Color.LIGHT_GRAY);
+		txtEmailAddress.setForeground(Color.BLACK);
 		txtEmailAddress.setBounds(374, 261, 345, 26);
 		txtEmailAddress.setColumns(10);
 		txtEmailAddress.setBackground(Color.WHITE);
@@ -140,7 +165,7 @@ public class GUISelfServiceRegisterNewPassangerView extends AbstractAuthenticati
 		lblAddress.setForeground(Color.BLACK);
 	
 		txtAddress = new JTextField();
-		txtAddress.setForeground(Color.LIGHT_GRAY);
+		txtAddress.setForeground(Color.BLACK);
 		txtAddress.setBounds(374, 315, 345, 26);
 		txtAddress.setColumns(10);
 		txtAddress.setBackground(Color.WHITE);
@@ -150,7 +175,7 @@ public class GUISelfServiceRegisterNewPassangerView extends AbstractAuthenticati
 		lblMobileNumber.setForeground(Color.BLACK);
 	
 		txtMobileNumber = new JTextField();
-		txtMobileNumber.setForeground(Color.LIGHT_GRAY);
+		txtMobileNumber.setForeground(Color.BLACK);
 		txtMobileNumber.setBounds(374, 369, 345, 26);
 		txtMobileNumber.setColumns(10);
 		txtMobileNumber.setBackground(Color.WHITE);
@@ -169,6 +194,15 @@ public class GUISelfServiceRegisterNewPassangerView extends AbstractAuthenticati
 
 		txtPasswordMatchField = new JPasswordField();
 		txtPasswordMatchField.setBounds(374, 477, 345, 26);
+		
+		lblErrorNotification = new JLabel();
+		lblErrorNotification.setForeground(Color.RED);
+		lblErrorNotification.setVisible(false);
+		
+		lblRegistrationSuccess = new JLabel("Registration Successfull! Please Login!");
+		lblRegistrationSuccess.setBounds(420, 207, 345, 26);
+		lblRegistrationSuccess.setForeground(new Color(0, 100, 0));
+		lblRegistrationSuccess.setVisible(false);
 
 		btnRegister = new JButton("Register");
 		btnRegister.setBounds(472, 570, 153, 29);
@@ -176,6 +210,7 @@ public class GUISelfServiceRegisterNewPassangerView extends AbstractAuthenticati
 		btnRegister.setContentAreaFilled(false);
 		btnRegister.setBorderPainted(false);
 		btnRegister.setOpaque(false);
+		btnRegister.setAlignmentX(CENTER_ALIGNMENT);
 		
 		btnCancel = new JButton("Cancel");
 		btnCancel.setBounds(472, 597, 153, 29);
@@ -183,8 +218,16 @@ public class GUISelfServiceRegisterNewPassangerView extends AbstractAuthenticati
 		btnCancel.setContentAreaFilled(false);
 		btnCancel.setBorderPainted(false);
 		btnCancel.setOpaque(false);
+		btnCancel.setAlignmentX(CENTER_ALIGNMENT);
 		
-		
+		btnOK = new JButton("OK");
+		btnOK.setBounds(472, 597, 153, 29);
+		btnOK.setForeground(Color.BLACK);
+		btnOK.setContentAreaFilled(false);
+		btnOK.setBorderPainted(false);
+		btnOK.setOpaque(false);
+		btnOK.setAlignmentX(CENTER_ALIGNMENT);
+		btnOK.setVisible(false);
 		
 	}
 	
@@ -212,8 +255,11 @@ public class GUISelfServiceRegisterNewPassangerView extends AbstractAuthenticati
 		getContentPanel().add(txtPasswordField);
 		getContentPanel().add(lblPasswordMatch);
 		getContentPanel().add(txtPasswordMatchField);
+		getContentPanel().add(lblErrorNotification);
+		getContentPanel().add(lblRegistrationSuccess);
 		getContentPanel().add(btnRegister);
 		getContentPanel().add(btnCancel);
+		getContentPanel().add(btnOK);
 		
 	}
 
@@ -295,6 +341,18 @@ public class GUISelfServiceRegisterNewPassangerView extends AbstractAuthenticati
 
 	public JButton getBtnCancel() {
 		return btnCancel;
+	}
+
+	public JLabel getLblErrorNotification() {
+		return lblErrorNotification;
+	}
+
+	public JLabel getLblRegistrationSuccess() {
+		return lblRegistrationSuccess;
+	}
+
+	public JButton getBtnOK() {
+		return btnOK;
 	}
 	
 	
