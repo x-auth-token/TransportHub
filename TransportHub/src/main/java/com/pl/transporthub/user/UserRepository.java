@@ -71,34 +71,44 @@ public UserRepository() {
 
 	}
 
+	@SuppressWarnings("static-access")
 	@Override
 	public void add(User user) {
 		
 
 		
 		if (getUserByName(user.getUsername()) == null ) {
-			final String sql = "INSERT INTO users(userID, username, password, expirationDate, enabled, firstName, lastName, passportID, address, email, mobileNumber, role)"
-						+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)" ;
+			final String sql = "INSERT INTO users (userID, username, password, expirationDate, enabled, firstName, lastName, passportID, address, email, mobileNumber, role) "
+						+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+			
 			//Instant instant = user.getExpirationDate().atStartOfDay(ZoneId.systemDefault()).toInstant();
 			//Time time = (Time) Time.from(instant);
 			try {
 				
-				
+				dbController.getSqliteConnection().getConnection().setAutoCommit(false);
 				ps = dbController.preparedStatement(sql);
-				ps.setInt(1, user.getUserID());
-				ps.setString(2, user.getUsername());
-				ps.setString(3, user.getPassword());
-				ps.setTime(4, null);
-				ps.setInt(5, user.isEnabled());
-				ps.setString(6, user.getFirstName());
-				ps.setString(7, user.getLastName());
-				ps.setString(8, user.getPassportID());
-				ps.setString(9, user.getAddress());
-				ps.setString(10, user.getEmail());
-				ps.setString(11, user.getMobileNumber());
-				ps.setString(12, user.getRole().toString());
-				ps.executeUpdate();
+			
 				
+				  ps.setInt(1, user.getUserID()); 
+				  ps.setString(2, user.getUsername());
+				  ps.setString(3, user.getPassword()); 
+				  ps.setTime(4, null); 
+				  ps.setInt(5, user.isEnabled()); 
+				  ps.setString(6, user.getFirstName()); 
+				  ps.setString(7, user.getLastName());
+				  ps.setString(8, user.getPassportID()); 
+				  ps.setString(9, user.getAddress()); 
+				  ps.setString(10, user.getEmail()); 
+				  ps.setString(11, user.getMobileNumber()); 
+				  ps.setString(12, user.getRole().toString());
+				 
+				 
+				
+				  ps.executeUpdate();
+				  
+				  dbController.getConnection().commit();
+				  
+				System.out.println(ps.getUpdateCount());
 		
 				
 				
@@ -304,5 +314,28 @@ public UserRepository() {
 	
 	}
 	
+	public int getMaxUserID() {
+		
+		String sql = "SELECT MAX(userID) as maxid FROM users";
+		
+		int id = 0;
+		try {
+			
+			rs = dbController.getSqliteConnection().executeQuery(sql);
+			if (rs.next()) 
+				id = rs.getInt("maxid");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return id;
+	}
 	
 }

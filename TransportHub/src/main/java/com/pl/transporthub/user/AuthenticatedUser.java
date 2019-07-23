@@ -103,7 +103,7 @@ public class AuthenticatedUser implements User {
 		this.permissions.remove(permission);
 	}
 
-	public Integer getUserID() {
+	public int getUserID() {
 		return userID;
 	}
 
@@ -205,8 +205,9 @@ public class AuthenticatedUser implements User {
 
 	@Override
 	public void generateUserID() {
-		this.userID = uniqueID.incrementAndGet();
-		
+		//this.userID = uniqueID.incrementAndGet();
+		UserRepository ur = new UserRepository();
+		this.userID = ur.getMaxUserID() + 1;
 	}
 
 	@Override

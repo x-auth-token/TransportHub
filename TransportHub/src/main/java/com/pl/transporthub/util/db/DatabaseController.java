@@ -21,8 +21,11 @@
  ******************************************************************************/
 package com.pl.transporthub.util.db;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+
 
 public class DatabaseController {
 	private final String dbFolderName = "DB";
@@ -95,15 +98,16 @@ public class DatabaseController {
 	
 	public void first_run() {
 		try {
-			SQLiteJDBC.parseSqlFromScript();
+			sqliteConnection.parseSqlFromScript();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	public void getConnection() {
-		SQLiteJDBC.getConnection();
+	public Connection  getConnection() {
+		
+		return sqliteConnection.getConnection();
 	}
 	
 	@SuppressWarnings("static-access")

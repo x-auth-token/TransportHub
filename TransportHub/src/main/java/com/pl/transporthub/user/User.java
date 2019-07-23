@@ -118,7 +118,7 @@ public interface User {
 		//this.expirationDate = expirationDate;
 	//}
 	
-	public Integer getUserID();// {
+	public int getUserID();// {
 		//return userID;
 	//}
 

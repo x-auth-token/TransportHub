@@ -60,7 +60,7 @@ public class SQLiteJDBC extends DataBase {
 	
 	
 	
-	public static void parseSqlFromScript() throws SQLException {
+	public void parseSqlFromScript() throws SQLException {
 		String s            = new String();
         StringBuffer sb = new StringBuffer();
  

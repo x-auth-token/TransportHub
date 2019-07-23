@@ -65,7 +65,7 @@ public abstract class DataBase {
 		driverName = dName;
 	}
 
-	public static Connection getConnection() {
+	public Connection getConnection() {
 		return connection;
 	}
 
