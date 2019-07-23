@@ -317,7 +317,7 @@ public class AuthenticationController {
 	private User authenticateUser(String username, char []password ) {
 		
 		if (uc.getUserRepository().getUserByName(username) != null) {
-			UserFactory uf = new UserFactory();
+			//UserFactory uf = new UserFactory();
 			User user = UserFactory.getUser(uc.getUserRepository().getUserRole(username), username, uc.getUserRepository().getUserPassword(username));
 			
 			try {

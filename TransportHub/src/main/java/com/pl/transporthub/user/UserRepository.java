@@ -48,6 +48,8 @@ public class UserRepository implements GenericRepository<User>{
 	 */
 	private DatabaseController dbController;
 	private PreparedStatement ps;
+	private ResultSet rs;
+	private User user;
 	
 	/*public UserRepository(String dbFolderName, String dbName) {
 		
@@ -124,7 +126,7 @@ public UserRepository() {
 	@Override
 	public User get(User t) {
 		try {
-			ResultSet rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + t.getUsername() + "'");
+			rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + t.getUsername() + "'");
 			
 			if (rs != null ) {
 				while(rs.next())  {
@@ -133,10 +135,17 @@ public UserRepository() {
 					}
 					
 			}
-				
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
 		}
 		return null;
 	}
@@ -152,32 +161,41 @@ public UserRepository() {
 		ArrayList<User> users = new ArrayList<User>();
 		
 		try {
-			ResultSet rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT * FROM users");
+			rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT * FROM users");
 			
 			if (rs != null ) {
 				
 				
 					while(rs.next())  {
-						User ur = UserFactory.getUser(getUserRole(rs.getString("role")), rs.getString("username"), rs.getString("password"));
+						user = UserFactory.getUser(getUserRole(rs.getString("role")), rs.getString("username"), rs.getString("password"));
 						//System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
-						ur.setUserID(rs.getInt("userID"));
-						ur.setExpirationDate(rs.getTime("expirationDate").toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-						ur.setRole(Role.toRole(rs.getString("role")));
-						ur.setEmail(rs.getString("email"));
-						ur.setMobileNumber(rs.getString("mobileNumber"));
-						ur.setEnabled(rs.getInt("enabled"));
-						ur.setAuthenticated(false);
-						ur.setAddress(rs.getString("address"));
+						user.setUserID(rs.getInt("userID"));
+						user.setExpirationDate(rs.getTime("expirationDate").toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+						user.setRole(Role.toRole(rs.getString("role")));
+						user.setEmail(rs.getString("email"));
+						user.setMobileNumber(rs.getString("mobileNumber"));
+						user.setEnabled(rs.getInt("enabled"));
+						user.setAuthenticated(false);
+						user.setAddress(rs.getString("address"));
 						
-						users.add(ur);
+						users.add(user);
 						
 						}
-					return users;
+					
 						
 				}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				return users;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		return null;
 	}
@@ -195,39 +213,49 @@ public UserRepository() {
 	}
 	
 	public User getUserByName(String username) {
+		
+		
 		try {
-		ResultSet rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + username + "'");
+			rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + username + "'");
 		
 		if (rs != null ) {
 			
-		User ur = UserFactory.getUser(getUserRole(username), username, getUserPassword(username));
+		user = UserFactory.getUser(getUserRole(username), username, getUserPassword(username));
 			while(rs.next())  {
 				//System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
-				ur.setUserID(rs.getInt("userID"));
-				ur.setExpirationDate(rs.getTime("expirationDate").toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-				ur.setRole(Role.toRole(rs.getString("role")));
-				ur.setEmail(rs.getString("email"));
-				ur.setMobileNumber(rs.getString("mobileNumber"));
-				ur.setEnabled(rs.getInt("enabled"));
-				ur.setAuthenticated(false);
-				ur.setAddress(rs.getString("address"));
+				user.setUserID(rs.getInt("userID"));
+				user.setExpirationDate(rs.getTime("expirationDate").toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+				user.setRole(Role.toRole(rs.getString("role")));
+				user.setEmail(rs.getString("email"));
+				user.setMobileNumber(rs.getString("mobileNumber"));
+				user.setEnabled(rs.getInt("enabled"));
+				user.setAuthenticated(false);
+				user.setAddress(rs.getString("address"));
 				
 				
 				}
-			return ur;
 				
 		}
 			
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
+	} finally {
+		try {
+			rs.close();
+			return user;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	return null;
 	}
 
 	public String getUserRole(String username) {
 		try {
-			ResultSet rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT role FROM Users WHERE username = '" + username + "'");
+			rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT role FROM Users WHERE username = '" + username + "'");
 		
 			
 			if (rs != null ) {
@@ -235,17 +263,24 @@ public UserRepository() {
 					return rs.getString("role");
 				}
 			}
-				
+			
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
 		}
 		return null;
 	}
 	
 	public String getUserPassword(String username) {
 		try {
-			ResultSet rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + username + "'");
+			rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT * FROM Users WHERE username = '" + username + "'");
 		
 			
 			if (rs != null ) {
@@ -253,10 +288,17 @@ public UserRepository() {
 					return rs.getString("password");
 				}
 			}
-				
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
 		}
 		return null;
 	
