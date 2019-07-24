@@ -220,7 +220,7 @@ public class GUIMainWindowController extends GUIAbstractApplicationWindowControl
 			DefaultTableModel tblModel = transportController.generateBusTableModel();
 			
 			mainWindowView.getTblTransportTable().setModel(tblModel);
-			mainWindowView.getTblTransportTable().revalidate();
+			
 			mainWindowView.getTblTransportTable().setVisible(true);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -236,7 +236,7 @@ public class GUIMainWindowController extends GUIAbstractApplicationWindowControl
 			mainWindowView.getTblTransportTable().setModel(tblModel);
 			mainWindowView.getTblTransportTable().setVisible(true);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}

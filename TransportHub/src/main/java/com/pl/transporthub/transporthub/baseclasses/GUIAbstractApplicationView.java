@@ -71,7 +71,7 @@ public class GUIAbstractApplicationView {
 			appFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 			appFrame.setBounds(100, 100, 655, 442);
 			appFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-			appFrame.setUndecorated(false);
+			appFrame.setUndecorated(true);
 		}
 
 		protected void initContentPaneLayout() {

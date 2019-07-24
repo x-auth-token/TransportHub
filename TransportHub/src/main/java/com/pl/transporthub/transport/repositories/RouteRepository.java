@@ -23,11 +23,25 @@ package com.pl.transporthub.transport.repositories;
 
 
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.pl.transporthub.shared.classes.Coordinate;
 import com.pl.transporthub.shared.interfaces.GenericRepository;
 import com.pl.transporthub.transport.Route;
+import com.pl.transporthub.transport.Station;
+import com.pl.transporthub.util.db.DatabaseController;
 
 public class RouteRepository implements GenericRepository<Route> {
+	
+	private DatabaseController dbController;
 
+
+	public RouteRepository() {
+		dbController = new DatabaseController();
+		dbController.start();
+	}
 	@Override
 	public void add(Route t) {
 		// TODO Auto-generated method stub
@@ -56,7 +70,38 @@ public class RouteRepository implements GenericRepository<Route> {
 
 	@Override
 	public Iterable<Route> getAll() {
-		// TODO Auto-generated method stub
+		ArrayList<Route> routes = new ArrayList<Route>();
+
+		try {
+			ResultSet rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT * FROM buses");
+
+			if (rs != null) {
+
+				while (rs.next()) {
+					Route route = new Route();
+
+					/*
+					 * route.set(rs.getInt("lineID")); route.setStationCoordinates( new
+					 * Coordinate(rs.getFloat("stationCoordinateX"),
+					 * rs.getFloat("stationCoordinateY")));
+					 * route.setStationAddress(rs.getString("stationAddress"));
+					 * route.setLines(rs.getString("lineIDs"));
+					 * route.setStationName(rs.getString("stationName"));
+					 * route.setStationState(route.stringToStationState(rs.getString("StationState")
+					 * ));
+					 */
+
+					routes.add(route);
+				}
+				return routes;
+
+			}
+			return routes;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		return null;
 	}
 

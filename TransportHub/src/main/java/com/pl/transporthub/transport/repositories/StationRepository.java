@@ -21,8 +21,6 @@
  ******************************************************************************/
 package com.pl.transporthub.transport.repositories;
 
-
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -34,24 +32,25 @@ import com.pl.transporthub.transport.Line;
 import com.pl.transporthub.transport.Station;
 import com.pl.transporthub.util.db.DatabaseController;
 
-public class StationRepository implements GenericRepository<Station>{
+public class StationRepository implements GenericRepository<Station> {
 
 	private DatabaseController dbController;
 	private ResultSet rs;
-
-
-
-	@Override
-	public void add(Station t) {
+	
+	public StationRepository() {
 		dbController = new DatabaseController();
 		dbController.start();
+	}
+	@Override
+	public void add(Station t) {
 		
+
 	}
 
 	@Override
 	public void remove(Station t) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -59,9 +58,7 @@ public class StationRepository implements GenericRepository<Station>{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
-	
+
 	@Override
 	public Station get(Station t) {
 		// TODO Auto-generated method stub
@@ -71,51 +68,49 @@ public class StationRepository implements GenericRepository<Station>{
 	@Override
 	public Iterable<Station> getAll() {
 		ArrayList<Station> stations = new ArrayList<Station>();
-		
+
 		try {
 			ResultSet rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT * FROM buses");
-			
-			if (rs != null ) {
-				
-				
-				while(rs.next())  {
+
+			if (rs != null) {
+
+				while (rs.next()) {
 					Station station = new Station();
-					
+
 					station.setStationID(rs.getInt("stationID"));
-					station.setStationCoordinates(new Coordinate(rs.getFloat("stationCoordinateX"), rs.getFloat("stationCoordinateY")));
+					station.setStationCoordinates(
+							new Coordinate(rs.getFloat("stationCoordinateX"), rs.getFloat("stationCoordinateY")));
 					station.setStationAddress(rs.getString("stationAddress"));
 					station.setLines(rs.getString("lineIDs"));
 					station.setStationName(rs.getString("stationName"));
 					station.setStationState(station.stringToStationState(rs.getString("StationState")));
-					
+
 					stations.add(station);
-					}
+				}
 				return stations;
-					
+
 			}
 			return stations;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
 
 	public ResultSet getStationsResultSet() throws SQLException {
-		
-		
-		rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT stationName as 'Station Name', stationAddress as 'Station Address', lineIDs as 'Lines', stationState as 'Station Status' FROM stations");
 
-	
-	return rs;
-}
+		rs = dbController.getSqliteConnection().getStatement().executeQuery(
+				"SELECT stationName as 'Station Name', stationAddress as 'Station Address', lineIDs as 'Lines', stationState as 'Station Status' FROM stations");
+
+		return rs;
+	}
 
 	@Override
 	public Station save(Station t) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
+
 }

@@ -46,6 +46,7 @@ public class TransportController {
 	
 	public void start() {
 		br = new BusRepository();
+		sr = new StationRepository();
 		line = new Line();
 		st = new Station();
 		route = new Route();

@@ -68,8 +68,9 @@ public class GUIBaseApplicationView extends GUIAbstractApplicationView {
 		
 		//tblBusesModel = new DefaultTableModel(10, 10);
 
-		tblTransportTable = new JTable(tblBusesModel);
+		tblTransportTable = new JTable();
 		tblTransportTable.setEnabled(false);
+		//tblTransportTable.setShowGrid(false);
 		tblTransportTable.getTableHeader().setReorderingAllowed(false);
 		tblCellRenderer = (DefaultTableCellRenderer) tblTransportTable.getDefaultRenderer(Object.class);
 		tblCellRenderer.setHorizontalAlignment(SwingConstants.CENTER);
