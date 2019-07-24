@@ -26,7 +26,7 @@ import java.sql.SQLException;
 import java.time.ZoneId;
 import java.util.ArrayList;
 
-import org.eclipse.persistence.jpa.jpql.parser.TrimExpression.Specification;
+
 
 import com.pl.transporthub.aaa.Roles.Role;
 import com.pl.transporthub.shared.interfaces.GenericRepository;
@@ -103,11 +103,6 @@ public class BusRepository implements GenericRepository<Bus>{
 		return null;
 	}
 
-	@Override
-	public Iterable<Bus> find(Specification spec) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public Bus save(Bus t) {

@@ -24,14 +24,9 @@ package com.pl.transporthub.user;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
 
 import com.pl.transporthub.aaa.Roles.Role;
-import com.pl.transporthub.util.db.EclipseLinkTestClass;
+
 
 import sun.security.util.Password;
 

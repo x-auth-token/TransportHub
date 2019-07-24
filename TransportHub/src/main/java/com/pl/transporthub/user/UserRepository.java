@@ -31,8 +31,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import org.eclipse.persistence.jpa.jpql.parser.TrimExpression.Specification;
+
 
 import com.pl.transporthub.aaa.Roles.Role;
 import com.pl.transporthub.shared.interfaces.GenericRepository;
@@ -210,11 +209,7 @@ public UserRepository() {
 		return null;
 	}
 
-	@Override
-	public Iterable<User> find(Specification spec) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	@Override
 	public User getByID(Integer id) {
