@@ -24,9 +24,12 @@ package com.pl.transporthub.transporthub.controllers;
 import java.awt.Frame;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
+
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
+import javax.swing.table.DefaultTableModel;
 
 import com.pl.transporthub.aaa.controllers.AuthenticationController;
 import com.pl.transporthub.transport.TransportController;
@@ -53,7 +56,9 @@ public class GUIMainWindowController extends GUIAbstractApplicationWindowControl
 		initAppView();
 		// setActionListeners();
 		setMouseListeners();
+		transportController.start();
 		populateBusTable();
+		
 
 	}
 
@@ -146,6 +151,15 @@ public class GUIMainWindowController extends GUIAbstractApplicationWindowControl
 	}
 	
 	public void populateBusTable() {
-		transportController.start();
+		try {
+			DefaultTableModel tblModel = transportController.generateBusTableModel();
+			
+			mainWindowView.getTblBuses().setModel(tblModel);
+			mainWindowView.getTblBuses().setVisible(true);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }

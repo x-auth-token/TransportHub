@@ -38,6 +38,7 @@ import com.pl.transporthub.util.db.DatabaseController;
 
 public class BusRepository implements GenericRepository<Bus>{
 	private DatabaseController dbController;
+	private ResultSet rs;
 	
 	public BusRepository() {
 		dbController = new DatabaseController();
@@ -114,5 +115,13 @@ public class BusRepository implements GenericRepository<Bus>{
 		return null;
 	}
 
+	public ResultSet getBusesResultSet() throws SQLException {
+	
+	
+			rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT busRegPlate as 'Bus Plate Number',assignedLine as 'Line Number',busCondition as 'Bus Condition' FROM buses");
+
+		
+		return rs;
+	}
 	
 }

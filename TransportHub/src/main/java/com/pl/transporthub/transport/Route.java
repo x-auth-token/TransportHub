@@ -31,7 +31,7 @@ public class Route extends Line {
 	
 	public Route() {
 		
-		generateRoute();
+		//generateRoute();
 	}
 	
 	private Route generateRoute() {

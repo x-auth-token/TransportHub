@@ -102,5 +102,20 @@ public class Bus {
 				return null;
 		}
 	}
-
+	
+	public String toString(bCondition condition) {
+		switch(condition) {
+		case FUNCTIONAL:
+			return "FUNCTIONAL";
+			
+		case DAMAGED:
+			return "DAMAGED";
+			
+		case AT_DEPOT:
+			return "AT DEPOT";
+			
+		default:
+			return null;
+	}
+	}
 }

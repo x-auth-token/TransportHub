@@ -21,21 +21,44 @@
  ******************************************************************************/
 package com.pl.transporthub.transport;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.table.DefaultTableModel;
+
 import com.pl.transporthub.transport.repositories.BusRepository;
+import com.pl.transporthub.util.db.DatabaseController;
 
 public class TransportController {
 	
-	BusRepository br;
+	private static BusRepository br;
+	private static Line line;
+	private static Station st;
+	private static Route route;
+	private static DatabaseController dbController = new DatabaseController();
+	private static ResultSet rs;
 	
 	public TransportController() {
-		
+		start();
 	}
 	
 	public void start() {
 		br = new BusRepository();
+		line = new Line();
+		st = new Station();
+		route = new Route();
+		dbController.start();
 	}
 	
 	public BusRepository getBusRepository() {
 		return this.br;
+	}
+	
+	public static DefaultTableModel generateBusTableModel() throws SQLException {
+	
+			rs = br.getBusesResultSet();
+	
+
+		return DatabaseController.buildTableModel(rs);
 	}
 }

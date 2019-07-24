@@ -23,6 +23,8 @@ package com.pl.transporthub.transporthub.baseclasses;
 import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import com.pl.transporthub.transporthub.buttons.GUIRoundButton;
@@ -36,6 +38,7 @@ public class GUIBaseApplicationView extends GUIAbstractApplicationView {
 	private DefaultTableModel tblBusesModel;
 	private JTable tblBuses;
 	private JScrollPane scrollPane;
+	private DefaultTableCellRenderer tblCellRenderer;
 
 
 
@@ -63,11 +66,13 @@ public class GUIBaseApplicationView extends GUIAbstractApplicationView {
 		btnRoute = GUIRoundButtonFactory.getRoundButton("Route", "RouteButton");
 		btnMap = GUIRoundButtonFactory.getRoundButton("Map", "MapButton");
 		
-		tblBusesModel = new DefaultTableModel(10, 10);
+		//tblBusesModel = new DefaultTableModel(10, 10);
 
 		tblBuses = new JTable(tblBusesModel);
 		tblBuses.setEnabled(false);
 		tblBuses.getTableHeader().setReorderingAllowed(false);
+		tblCellRenderer = (DefaultTableCellRenderer) tblBuses.getDefaultRenderer(Object.class);
+		tblCellRenderer.setHorizontalAlignment(SwingConstants.CENTER);
 	}
 
 	
