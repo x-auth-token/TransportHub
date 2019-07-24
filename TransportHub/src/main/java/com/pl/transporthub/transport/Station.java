@@ -24,6 +24,7 @@ package com.pl.transporthub.transport;
 import java.util.ArrayList;
 import com.pl.transporthub.shared.classes.Coordinate;
 
+
 public class Station {
 
 	private enum  sState{
@@ -90,6 +91,14 @@ public class Station {
 		this.lines = lines;
 	}
 	
+	public void setLines(String lines) {
+		String[] temp = lines.split(",");
+		
+		for (String line:temp) {
+			this.lines.add(new Line(Integer.valueOf(line)));
+		}
+	}
+	
 	public String lineIDsToSQL() {
 		String str = "";
 		for(Line line:getLines()) {
@@ -100,4 +109,35 @@ public class Station {
 		return str;	
 	}
 	
+	public sState stringToStationState(String state) {
+		switch(state) {
+			case "OPEN":
+				return sState.OPEN;
+				
+			case "TEMPORARELY CLOSEDD":
+				return sState.TEMPORARELY_CLOSED;
+				
+			case "PERMANENTLY CLOSED":
+				return sState.PERMANENTLY_CLOSED;
+				
+			default:
+				return null;
+		}
+	}
+	
+	public String stationStateToString(sState state) {
+		switch(state) {
+		case OPEN:
+			return "OPEN";
+			
+		case TEMPORARELY_CLOSED:
+			return "TEMPORARELY CLOSEDD";
+			
+		case PERMANENTLY_CLOSED:
+			return "PERMANENTLY CLOSED";
+			
+		default:
+			return null;
+	}
+	}
 }

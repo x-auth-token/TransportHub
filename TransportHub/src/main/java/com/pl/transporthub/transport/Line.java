@@ -23,6 +23,8 @@ package com.pl.transporthub.transport;
 
 import java.util.ArrayList;
 
+
+
 public class Line {
 	
 	private enum lStatus{
@@ -99,7 +101,21 @@ public class Line {
 		return str;	
 	}
 	
-	
+	public String statusToString(lStatus status) {
+		switch(status) {
+		case OPEN:
+			return "OPEN";
+			
+		case TEMPORARELY_CLOSED:
+			return "TEMPORARELY CLOSED";
+			
+		case PERMANENTLY_CLOSED:
+			return "PERMANENTLY CLOSED";
+			
+		default:
+			return null;
+	}
+	}
 	
 	
 }

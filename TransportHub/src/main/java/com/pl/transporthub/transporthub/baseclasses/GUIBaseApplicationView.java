@@ -36,7 +36,7 @@ public class GUIBaseApplicationView extends GUIAbstractApplicationView {
 	private GUIRoundButton btnBus, btnStation, btnRoute,  btnMap;
 	
 	private DefaultTableModel tblBusesModel;
-	private JTable tblBuses;
+	private JTable tblTransportTable;
 	private JScrollPane scrollPane;
 	private DefaultTableCellRenderer tblCellRenderer;
 
@@ -68,10 +68,10 @@ public class GUIBaseApplicationView extends GUIAbstractApplicationView {
 		
 		//tblBusesModel = new DefaultTableModel(10, 10);
 
-		tblBuses = new JTable(tblBusesModel);
-		tblBuses.setEnabled(false);
-		tblBuses.getTableHeader().setReorderingAllowed(false);
-		tblCellRenderer = (DefaultTableCellRenderer) tblBuses.getDefaultRenderer(Object.class);
+		tblTransportTable = new JTable(tblBusesModel);
+		tblTransportTable.setEnabled(false);
+		tblTransportTable.getTableHeader().setReorderingAllowed(false);
+		tblCellRenderer = (DefaultTableCellRenderer) tblTransportTable.getDefaultRenderer(Object.class);
 		tblCellRenderer.setHorizontalAlignment(SwingConstants.CENTER);
 	}
 
@@ -79,7 +79,7 @@ public class GUIBaseApplicationView extends GUIAbstractApplicationView {
 	
 	@Override
 	public void initScrollPane() {
-		scrollPane = new JScrollPane(tblBuses);
+		scrollPane = new JScrollPane(tblTransportTable);
 	}
 	
 	
@@ -132,8 +132,8 @@ public class GUIBaseApplicationView extends GUIAbstractApplicationView {
 	/**
 	 * @return the tblBuses
 	 */
-	public JTable getTblBuses() {
-		return tblBuses;
+	public JTable getTblTransportTable() {
+		return tblTransportTable;
 	}
 
 

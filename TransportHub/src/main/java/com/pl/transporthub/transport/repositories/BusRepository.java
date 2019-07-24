@@ -85,7 +85,7 @@ public class BusRepository implements GenericRepository<Bus>{
 					
 					bus.setAssignedDriverID(rs.getInt("assignedDriverID"));
 					bus.setAssignedLine(new Line(rs.getInt("assignedLine")));
-					bus.setBusCondition(bus.intToEnum(rs.getInt("busCondition")));
+					bus.setBusCondition(bus.stringToEnum(rs.getString("busCondition")));
 					bus.setBusID(rs.getInt("busID"));
 					bus.setBusRegPlate(rs.getString("busRegPlate"));
 					

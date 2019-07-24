@@ -87,15 +87,15 @@ public class Bus {
 		this.assignedDriverID = assignedDriverID;
 	}
 
-	public bCondition intToEnum(int condition) {
+	public bCondition stringToEnum(String condition) {
 		switch(condition) {
-			case 0:
+			case "FUNCTIONAL":
 				return bCondition.FUNCTIONAL;
 				
-			case 1:
+			case "DAMAGED":
 				return bCondition.DAMAGED;
 				
-			case 2:
+			case "AT DEPOT":
 				return bCondition.AT_DEPOT;
 				
 			default:
@@ -103,7 +103,7 @@ public class Bus {
 		}
 	}
 	
-	public String toString(bCondition condition) {
+	public String conditionToString(bCondition condition) {
 		switch(condition) {
 		case FUNCTIONAL:
 			return "FUNCTIONAL";

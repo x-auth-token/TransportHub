@@ -23,14 +23,28 @@ package com.pl.transporthub.transport.repositories;
 
 
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.pl.transporthub.shared.classes.Coordinate;
 import com.pl.transporthub.shared.interfaces.GenericRepository;
+import com.pl.transporthub.transport.Bus;
+import com.pl.transporthub.transport.Line;
 import com.pl.transporthub.transport.Station;
+import com.pl.transporthub.util.db.DatabaseController;
 
 public class StationRepository implements GenericRepository<Station>{
 
+	private DatabaseController dbController;
+	private ResultSet rs;
+
+
+
 	@Override
 	public void add(Station t) {
-		// TODO Auto-generated method stub
+		dbController = new DatabaseController();
+		dbController.start();
 		
 	}
 
@@ -56,11 +70,46 @@ public class StationRepository implements GenericRepository<Station>{
 
 	@Override
 	public Iterable<Station> getAll() {
-		// TODO Auto-generated method stub
+		ArrayList<Station> stations = new ArrayList<Station>();
+		
+		try {
+			ResultSet rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT * FROM buses");
+			
+			if (rs != null ) {
+				
+				
+				while(rs.next())  {
+					Station station = new Station();
+					
+					station.setStationID(rs.getInt("stationID"));
+					station.setStationCoordinates(new Coordinate(rs.getFloat("stationCoordinateX"), rs.getFloat("stationCoordinateY")));
+					station.setStationAddress(rs.getString("stationAddress"));
+					station.setLines(rs.getString("lineIDs"));
+					station.setStationName(rs.getString("stationName"));
+					station.setStationState(station.stringToStationState(rs.getString("StationState")));
+					
+					stations.add(station);
+					}
+				return stations;
+					
+			}
+			return stations;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 
+	public ResultSet getStationsResultSet() throws SQLException {
+		
+		
+		rs = dbController.getSqliteConnection().getStatement().executeQuery("SELECT stationName as 'Station Name', stationAddress as 'Station Address', lineIDs as 'Lines', stationState as 'Station Status' FROM stations");
 
+	
+	return rs;
+}
 
 	@Override
 	public Station save(Station t) {

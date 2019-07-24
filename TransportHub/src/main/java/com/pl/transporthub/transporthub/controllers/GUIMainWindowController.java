@@ -114,7 +114,72 @@ public class GUIMainWindowController extends GUIAbstractApplicationWindowControl
 
 			}
 		});
-
+		
+		mainWindowView.getBtnBus().addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				populateBusTable();
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		mainWindowView.getBtnStation().addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				populateStationTable();
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 
 	/**
@@ -154,12 +219,26 @@ public class GUIMainWindowController extends GUIAbstractApplicationWindowControl
 		try {
 			DefaultTableModel tblModel = transportController.generateBusTableModel();
 			
-			mainWindowView.getTblBuses().setModel(tblModel);
-			mainWindowView.getTblBuses().setVisible(true);
+			mainWindowView.getTblTransportTable().setModel(tblModel);
+			mainWindowView.getTblTransportTable().revalidate();
+			mainWindowView.getTblTransportTable().setVisible(true);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
+	
+	public void populateStationTable() {
+		try {
+			DefaultTableModel tblModel = transportController.generateStationTableModel();
+			
+			mainWindowView.getTblTransportTable().setModel(tblModel);
+			mainWindowView.getTblTransportTable().setVisible(true);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }

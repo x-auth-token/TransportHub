@@ -27,6 +27,7 @@ import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
 import com.pl.transporthub.transport.repositories.BusRepository;
+import com.pl.transporthub.transport.repositories.StationRepository;
 import com.pl.transporthub.util.db.DatabaseController;
 
 public class TransportController {
@@ -37,6 +38,7 @@ public class TransportController {
 	private static Route route;
 	private static DatabaseController dbController = new DatabaseController();
 	private static ResultSet rs;
+	private static StationRepository sr;
 	
 	public TransportController() {
 		start();
@@ -50,8 +52,12 @@ public class TransportController {
 		dbController.start();
 	}
 	
-	public BusRepository getBusRepository() {
-		return this.br;
+	public static BusRepository getBusRepository() {
+		return br;
+	}
+	
+	public static StationRepository getStationRepository() {
+		return sr;
 	}
 	
 	public static DefaultTableModel generateBusTableModel() throws SQLException {
@@ -61,4 +67,12 @@ public class TransportController {
 
 		return DatabaseController.buildTableModel(rs);
 	}
+	
+	public static DefaultTableModel generateStationTableModel() throws SQLException {
+		
+		rs = sr.getStationsResultSet();
+
+
+	return DatabaseController.buildTableModel(rs);
+}
 }
